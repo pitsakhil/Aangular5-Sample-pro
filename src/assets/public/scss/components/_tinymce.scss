@@ -1,0 +1,13 @@
+@import './assets/public/scss/variables';
+.mce-menu{
+    z-index: 99999 !important;
+}
+.mce-primary{
+    background-color: $dark-blue !important;
+}
+.tiny-edit-content{
+    display: table;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 20px 14px;
+}

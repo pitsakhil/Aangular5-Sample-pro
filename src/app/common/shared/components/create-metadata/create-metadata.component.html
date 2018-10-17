@@ -1,0 +1,176 @@
+<div class="boxpanel boxpanel__boxshadow boxpanel__h100 tab-content">
+    <div class="boxpanel__header">
+        <div class="box-tools nav nav-tabs">
+            <ul class="toolbars toolbars__black pull-right">
+                <li class="rightbar-toggle-btn">
+                    <a>
+                        <app-navbar-toggle [gridType]="'rightbar'"></app-navbar-toggle>
+                    </a>
+                </li>
+                <li class="rightbar-overlay-btn">
+                    <a>
+                        <app-navbar-toggle [gridType]="'rightbaroverlay'"></app-navbar-toggle>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="boxpanel__body no-padding box-height-lg">
+        <form class="form-modern" [formGroup]="metadataForm">
+            <div class="boxpanel tab-pane active" id="metadata" role="tabpanel">
+                <div class="boxpanel__header">
+                    <h4 class="semibold metadata-heading title">{{ 'metadata.metadata' |
+                        translate }} </h4>
+                </div>
+                <div class="content metadata-content boxpanel__body text-capitalize metadata-form-wrap">
+
+                    <!-- FORM GROUP GOES HERE -->
+                    <div class="formwrap  scayla-select-width">
+                        <div class="formgroup metadata-form">
+                            <div class="formgroup__label formgroup__label__40">
+                                <a title="{{ 'metadata.project' | translate }}">{{ 'metadata.project' | translate }}</a>
+                            </div>
+                            <div class="formgroup__inputfield formgroup__inputfield_width">
+                                <scayla-select #project [data]="metadataVariables?.projectData" (onSelect)="selected($event,'project')" (onDeSelect)="selected($event,'project')"
+                                    formControlName="project" [settings]="projectCloneSettings">
+                                </scayla-select>
+                            </div>
+                        </div>
+
+                        <div class="formgroup" [class.disabled]="true">
+                            <div class="formgroup__label formgroup__label__40">
+                                <a title="{{ 'metadata.status' | translate }}">{{ 'metadata.status' | translate }}</a>
+                            </div>
+                            <div class="formgroup__inputfield formgroup__inputfield_width">
+                                <!-- <ng-select #status (selected)="selected($event,'status')" formControlName="status" [allowClear]="false" [items]="metadataVariables?.statusData"></ng-select> -->
+                                <scayla-select #status [data]="metadataVariables?.statusData" (onSelect)="selected($event,'status')"
+                                    formControlName="status" [settings]="dropdownSettings">
+                                </scayla-select>
+                            </div>
+                        </div>
+
+                        <div class="formgroup">
+                            <div class="formgroup__label formgroup__label__40">
+                                <a title="{{ 'metadata.priority' | translate }}">{{ 'metadata.priority' | translate }}</a>
+                            </div>
+                            <div class="formgroup__inputfield formgroup__inputfield_width">
+                                <!-- <ng-select #priority (selected)="selected($event,'priority')" formControlName="priority" [allowClear]="false" [items]="metadataVariables?.priorityData"></ng-select> -->
+                                <scayla-select #priority [data]="metadataVariables?.priorityData" (onSelect)="selected($event,'priority')"
+                                    formControlName="priority" [settings]="dropdownSettings">
+                                </scayla-select>
+                            </div>
+                        </div>
+
+                        <div class="formgroup">
+                            <div class="formgroup__label formgroup__label__40">
+                                <a title="{{ 'metadata.created' | translate }}">{{ 'metadata.created' | translate }}</a>
+                            </div>
+                            <div class="formgroup__inputfield formgroup__inputfield_width">
+                                <label class="form-control form-default metadata-content" [title]="metadataVariables?.created$">{{metadataVariables?.created$}}</label>
+                            </div>
+                        </div>
+
+                        <div class="formgroup">
+                            <div class="formgroup__label formgroup__label__40">
+                                <a class="metadata-content" title="{{ 'metadata.edited' | translate }}">{{ 'metadata.edited' | translate }}</a>
+                            </div>
+                            <div class="formgroup__inputfield formgroup__inputfield_width">
+                                <label class="form-control form-default" [title]="metadataVariables?.edited$">{{metadataVariables?.edited$}}</label>
+                            </div>
+                        </div>
+
+                        <div class="formgroup">
+                            <div class="formgroup__label formgroup__label__40">
+                                <a title="{{ 'metadata.document_number' | translate }}">{{ 'metadata.document_number' |
+                                    translate }}
+                                </a>
+                            </div>
+                            <div class="formgroup__inputfield formgroup__inputfield_width">
+                                <label class="form-control form-default" [title]="metadataVariables?.documentNumber">{{metadataVariables?.documentNumber}}</label>
+                            </div>
+                        </div>
+
+                        <div class="formgroup" [class.disabled]="moduleId == 1 || moduleId == 5">
+                            <div class="formgroup__label formgroup__label__40">
+                                <a title="{{ 'metadata.folder' | translate }}">{{ 'metadata.folder' |
+                                    translate }}
+                                </a>
+                            </div>
+                            <div class="formgroup__inputfield formgroup__inputfield_width">
+                                <!-- <ng-select #delegate (selected)="selected($event,'folder')" formControlName="delegate" [allowClear]="false" [items]="metadataVariables?.delegateData"></ng-select> -->
+                                <scayla-select #delegate [data]="metadataVariables?.delegateData" (onSelect)="selected($event,'folder')"
+                                    formControlName="delegate" [settings]="dropdownSettings">
+                                </scayla-select>
+                            </div>
+                        </div>
+
+
+                        <div class="formgroup" [class.disabled]="moduleId == 1 || moduleId == 5">
+                            <div class="formgroup__label formgroup__label__40">
+                                <a title="{{ 'metadata.document_permission' | translate }}">{{
+                                    'metadata.document_permission' | translate }}
+                                </a>
+                            </div>
+                            <div class="formgroup__inputfield formgroup__inputfield_width">
+                                <!-- <ng-select #permission (selected)="selected($event,'sf_permission')" formControlName="permission" [allowClear]="false" [items]="metadataVariables?.permissionData"></ng-select> -->
+                                <scayla-select #permission [data]="metadataVariables?.permissionData" (onSelect)="selected($event,'sf_permission')"
+                                    formControlName="permission" [settings]="dropdownSettings">
+                                </scayla-select>
+                            </div>
+                        </div>
+
+                        <div class="formgroup" [class.disabled]="moduleId == 1">
+                            <div class="formgroup__label formgroup__label__40">
+                                <a class="metadata-content" title="{{ 'metadata.responsible' | translate }}">{{ 'metadata.responsible' |
+                                    translate }}
+                                </a>
+                            </div>
+                            <div class="formgroup__inputfield formgroup__inputfield_width">
+                                <!-- <ng-select #responsible (selected)="selected($event,'responsible')" formControlName="responsible" [items]="metadataVariables?.responsibleData"></ng-select> -->
+                                <scayla-select #responsible id="responsible" [data]="metadataVariables?.responsibleData"
+                                    (onSelect)="selected($event,'responsible')" formControlName="responsible"
+                                    [settings]="dropdownSettings" id="make_private2">
+                                </scayla-select>
+                            </div>
+                        </div>
+
+                        <div class="formgroup" [class.disabled]="true">
+                            <div class="formgroup__label formgroup__label__40">
+                                <label title="{{ 'metadata.deadline' | translate }}">{{ 'metadata.deadline' | translate
+                                    }}</label>
+                            </div>
+                            <div class="formgroup__inputfield formgroup__inputfield_width">
+                                <div class="dp-flex dp-flex-center">
+                                    <div class="datepicker__block date-picker-custom">
+                                        <my-date-picker class="datepicker-me datepicker-input datepicker-modify"
+                                            [options]="myOptions" formControlName="deadline_date"></my-date-picker>
+                                    </div>
+                                    <input class="timepick" id="appt-time" type="time" name="appt-time" value="timeInput">
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formgroup">
+                            <div class="formgroup__label formgroup__label__40">
+                                <label title="{{ 'metadata.text' | translate }}">{{ 'metadata.text' | translate }}</label>
+                            </div>
+                            <div class="formgroup__textarea nomargin">
+                                <div>
+                                    <label class="form-control form-default form-default-textarea" name="notes" id="notes">{{metadataVariables?.notes}}</label>
+                                </div>
+                                <div class="form-notes">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<app-popup-modal data-backdrop="static" data-keyboard="false" [title]="confMessage$" buttonName="resetpassword.Ok"
+    (confirm)="handleConfirm($event)" class="modal fade" id="make_private" role="dialog"></app-popup-modal>
+<a id="test" data-toggle="modal" data-target="#make_private" hidden></a>

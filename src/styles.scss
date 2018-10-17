@@ -1,0 +1,41 @@
+@import './assets/public/scss/toggleswitch';
+@import '~dhtmlx-scheduler/codebase/dhtmlxscheduler.css';
+@import './assets/public/scss/me_new';
+@import './assets/public/scss/variables';
+@import './assets/public/scss/mixins';
+@import './assets/public/scss/base/typography';
+@import './assets/public/scss/utils/helpers';
+
+@import './assets/public/scss/layout/grid';
+@import './assets/public/scss/layout/header';
+@import './assets/public/scss/layout/subheader';
+@import './assets/public/scss/layout/responsive';
+
+@import './assets/public/scss/components/logo';
+@import './assets/public/scss/components/icon';
+@import './assets/public/scss/components/navigation';
+@import './assets/public/scss/components/ag-grid';
+@import './assets/public/scss/components/boxpanel';
+@import './assets/public/scss/components/toolbars';
+@import './assets/public/scss/components/userprofiledropdown';
+@import './assets/public/scss/components/modal';
+@import './assets/public/scss/components/card';
+@import './assets/public/scss/components/forms';
+@import './assets/public/scss/components/moduleengine';
+@import './assets/public/scss/components/fileupload';
+@import './assets/public/scss/components/fileicons';
+@import './assets/public/scss/components/dropdown';
+@import './assets/public/scss/components/infobox';
+@import './assets/public/scss/pages/projects';
+@import './assets/public/scss/components/metadata';
+@import './assets/public/scss/components/quicknote';
+@import './assets/public/scss/base/core';
+
+
+.project-list-cursor .ag-layout-normal .ag-row{
+    cursor: pointer!important;
+}
+.ag-row
+{
+    cursor: pointer;
+}

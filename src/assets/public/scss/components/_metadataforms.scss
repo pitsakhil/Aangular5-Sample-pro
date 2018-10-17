@@ -1,0 +1,46 @@
+.metadata-content{
+    .formwrap{
+        padding:0;
+    }
+    .formgroup__label{
+        width:40%;
+    }
+
+    .formgroup__input{
+        width:60%;
+        input[type="text"],
+        input[type="password"] {
+            border:none !important;
+        }
+    }
+
+    .c-btn {
+        border:none !important;
+    }
+
+    .btnpicker.btnpickerenabled{
+        display: none;
+    }
+    .mydp .selector {
+        top: 5px;
+        left: -99px !important;
+    }
+
+    .mydp{
+        border:none;
+        width:100% !important;
+        .selection{
+            width:100%;
+            margin: 0;
+        }
+    }
+    .datepicker-me{
+        width:100%;
+        border:none;
+    }
+
+    .datepicker__block{
+        width:68px;
+        display: block;
+    }
+}

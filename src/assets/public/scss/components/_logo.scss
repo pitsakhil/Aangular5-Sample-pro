@@ -1,0 +1,8 @@
+@import '../utils/classvariables';
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.#{$logo}{
+    width: 125px;
+    margin-right: 0;
+}

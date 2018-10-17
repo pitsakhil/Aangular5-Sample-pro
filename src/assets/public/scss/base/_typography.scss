@@ -1,0 +1,195 @@
+@import '../utils/mixins';
+@import '../utils/extend';
+
+.h1,
+.h1-dark-grey,
+.h2,
+.h2-dark-grey,
+.h3,
+.h3-dark-grey,
+.h4,
+.h4-dark-grey,
+.h5,
+.h5-dark-grey,
+.h6,
+.h6-dark-grey,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "TeXGyreHeros-Regular";
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    color: inherit
+}
+
+
+.h1,
+.h1-dark-grey,
+h1 {
+    font-size: 32px !important
+}
+
+.h2,
+.h2-dark-grey,
+h2 {
+    font-size: 24px !important
+}
+
+.h3,
+.h3-dark-grey,
+h3 {
+    font-size: 18px !important
+}
+
+.h4,
+.h4-dark-grey,
+h4 {
+    font-size: 13px !important
+}
+
+.h5,
+.h5-dark-grey,
+h5 {
+    font-size: 10px !important
+}
+
+.h6,
+.h6-dark-grey,
+h6 {
+    font-size: 8.5px !important
+}
+
+.h4,
+.h4-dark-grey,
+.h5,
+.h5-dark-grey,
+.h6,
+.h6-dark-grey,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.h1-dark-grey,
+.h2-dark-grey,
+.h4-dark-grey,
+.h5-dark-grey,
+.h6-dark-grey,
+.text-dark-grey {
+    color: #999
+}
+
+.text-light-grey,
+h3 {
+    color: #333
+}
+
+.text-grey {
+    color: #999999;
+}
+
+.semibold {
+    font-weight: 600
+}
+
+.bold {
+    font-weight: 700
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-trim-md {
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    a,
+    span,
+    label {
+        max-width: 150px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+.text-trim-sm {
+    max-width: 96px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    a,
+    span,
+    label {
+        max-width: 96px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+.text-block {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.metadata-heading {
+    display: inline-block;
+    @include text-ellipsis(134px);
+}
+
+.text-filed {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+    margin-left: 40px;
+    margin-bottom: 16px;
+}
+
+.text-bold {
+    font-weight: bold;
+
+    a,
+    label,
+    span {
+        font-weight: bold;
+        color: #333;
+    }
+}
+.modal-ss {
+    .title-trim {
+        a{
+
+            @include truncate(70px);
+        }
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .mobile-text-trim {
+        @include truncate(140px);
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .modal-expanded {
+        .mobile-text-trim {
+            @include truncate(70px);
+        }
+    }
+
+    .modal-ss {
+        .mobile-text-trim {
+            @include truncate(70px);
+        }
+    }
+}

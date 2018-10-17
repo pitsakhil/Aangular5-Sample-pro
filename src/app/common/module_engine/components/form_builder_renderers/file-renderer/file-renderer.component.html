@@ -1,0 +1,5 @@
+<div class="media-left" [formGroup]="group">
+  <a class="show-account" href="javascript:void(0)" [attr.disabled]="true">
+      <img class="media-object img-circle img-user" src="./assets/public/images/user-img.png" [formControlName]="config.field_name" ngDefaultControl [attr.data-test-id]="getCurrentModule()+'-file-'+ copy.field_name + '-'+ formindex">
+  </a>
+</div>

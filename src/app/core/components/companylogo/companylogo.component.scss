@@ -1,0 +1,18 @@
+.account-logo.no-company-logo {
+    border: 1px solid #cacaca;
+    width: auto;
+    border-radius: 4px;
+    text-align: center;
+    height: 31px;
+    padding: 0 15px;
+    max-width:190px;
+    margin-left:5px;
+    a {
+        font-size: 13px;
+        color: #999;
+        cursor: default;
+        vertical-align: middle;
+        display: inline-block;
+        margin-top: 5px;
+    }
+}

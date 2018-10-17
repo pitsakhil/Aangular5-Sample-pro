@@ -1,0 +1,33 @@
+@import './assets/public/scss/variables';
+.btn{
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    background: $white;
+    &:active{
+        @extend %boxshadow;
+    }
+    @include modifier('active') {
+        font-weight: bold;
+    }
+
+    @include element('fixedwidth') {
+        width: 100px;
+    }
+
+    @include element('black') {
+        background: $black;
+        color: $white;
+        &:hover{
+            background: $black;
+            color: $white;  
+        }
+    }
+}
+
+.btn-hidden{
+    height: 1px;
+    width:1px;
+    opacity: 0;
+    visibility: hidden;
+}

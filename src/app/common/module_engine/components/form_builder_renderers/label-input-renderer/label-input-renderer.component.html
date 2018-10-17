@@ -1,0 +1,5 @@
+<div class="dynamic-field form-input" [formGroup]="group" *ngIf="copy">
+   
+    <input type="text" [value]="copy.field_value" maxlength="200" [attr.disabled]="copy.field_disabled?'disabled':null" [formControlName]="copy.field_name"
+        [placeholder]="copy.field_name==='subject'?'':copy.field_placeholder"  [attr.data-test-id]="getCurrentModule()+'-txt-'+ copy.field_name + '-'+ formindex">
+</div>

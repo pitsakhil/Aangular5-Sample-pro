@@ -1,0 +1,5 @@
+@font-face {
+    font-family: m-icon;
+    src: url(../fonts/m-icon.eot);
+    src: url(../fonts/m-icon.eot?#iefix) format("eot"), url(../fonts/m-icon.woff2) format("woff2"), url(../fonts/m-icon.woff) format("woff"), url(../fonts/m-icon.ttf) format("truetype")
+}

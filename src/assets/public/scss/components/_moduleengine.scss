@@ -1,0 +1,500 @@
+
+/* MODULE ENGINE */
+
+.cluster-group label,
+.date-field label,
+.dynamic-field.form-input label {
+    color: #999;
+    text-align: right;
+    word-break: break-word;
+    font-weight: 400;
+    font-size: 13px;
+    margin-right: 20px;
+    width: 114px;
+    display: block;
+    float: left;
+    margin-left: 54px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: -1px;
+}
+
+.cluster-fields-group,
+.dynamic-field.form-input input,
+.ng-select,
+ng-select, .datepicker-me{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #cacaca;
+    padding-left: 0;
+    line-height: 12px;
+    padding: 0;
+    margin-top: -.5px;
+    font-size: 13px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: 149px;
+    display: block;
+    float: left;
+    color: #333;
+}
+
+.cluster-fields-group{
+    position: relative;
+}
+
+
+.flag-options{
+    position: absolute;
+    top: -4px;
+    left: 336px;
+}
+
+.dynamic-field{
+    float: left;
+    height: 25px;
+    clear: both;
+    .ui-select-match .btn{
+        text-align: left !important;
+        border: 0;
+        height: 15px;
+        padding: 0;
+    }
+}
+
+.ui-select-choices-row.active>a {
+    background-color: #004e70 !important;
+}
+
+.ui-select-choices-row>a.dropdown-item {
+    white-space: inherit !important;
+}
+
+
+/* DATEPICKER */
+
+.dynamic-field.date-field .mydp {
+    border-radius: 0;
+    border: none;
+}
+.dynamic-field.date-field .mydp .selectiongroup {
+    display: block;
+    margin-top: -7px;
+    background: transparent;
+    position: absolute;
+    right: 0;
+}
+
+.mydp {
+    border: 0px;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    display: inline-block !important;
+    width: 149px !important;
+    height: 15px !important;
+    .selectiongroup {
+        position: relative;
+        border: none;
+        width: 100%;
+        height: 15px;
+    }
+    .selection {
+        height: 15px !important;
+        border-radius: 0px;
+    }
+    .btnpicker {
+        height: 15px;
+        width: 18px;
+        margin-top: 0px;
+        position: absolute;
+        right: 0;
+        top: -1px;
+    }
+    .btnpickerenabled:hover {
+        background: #fff;
+    }
+    .icon-mydpcalendar {
+        font-size: 13px;
+        float: right;
+    }
+    .selbtngroup {
+        height: 15px !important;
+    }
+}
+
+.date-field {
+    label {
+        @extend %form-label;
+    }
+}
+
+.dynamic-form{
+    .field-block{
+        width: 450px;
+        float: left;
+    }
+    .zipcode-select{
+        height: 22px;
+        //padding: 6px 0;
+        .ng-select{
+            line-height: 18px;
+        }
+        .ng-placeholder{
+            color: #cacaca;
+        }
+    }
+}
+
+.dynamic-field{
+    .ng-value {
+        font-weight: bold;
+        background-color: transparent;
+        border-radius: 4px;
+        color: #999;
+        padding: 0;
+        font-size: 13px;
+        font-weight: normal;
+        position: relative;
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-bottom: 2px;
+    }
+
+    .ng-select-dropdown-outer {
+        box-sizing: border-box;
+        position: absolute;
+        background: #fff;
+        width: 100%;
+        z-index: 999;
+        border: 1px solid #cacaca;
+        border-radius: 4px;
+        z-index: 3;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mydp .selection {
+        width: 75%;
+        outline: none;
+        background-color: transparent;
+        display: table-cell;
+        position: absolute;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-left: 6px;
+        border: none;
+        color: #333;
+        font-size: 13px !important;
+        padding-left: 0;
+        z-index: 99;
+    }
+    .mydp .selbtngroup {
+        float: right;
+    }
+
+    .mydp{
+        .btnpicker{
+            background: transparent;
+        }
+    }
+}
+
+.btn-clone{
+    position: absolute;
+    top: -7px;
+}
+
+.block-width--fixed{
+    float: left;
+    width: 934px;
+}
+
+.ui-select-choices-row.active > a {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: #004e70;
+}
+
+.cluster-group {
+    label {
+        color: #999999;
+        text-align: right;
+        word-break: break-word;
+        font-weight: normal;
+        font-size: 13px;
+        margin-right: 20px;
+        width: 114px;
+        display: block;
+        float: left;
+        margin-left: 54px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: -1px;
+    }
+}
+
+.cluster-fields-group {
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #CACACA;
+        padding-left: 0px;
+        line-height: 12px;
+        padding: 0;
+        margin-top: -0.5px;
+        font-size: 13px;
+        box-shadow: none;
+        width: 149px;
+        display: block;
+        float:left;
+        color:#333;
+
+
+    height: 20px;
+    .dynamic-field.form-input {
+        width: 40px;
+        .ui-select-toggle>.caret {
+            right: 0px;
+        }
+        ng-select {
+            width: 100%;
+            border: none;
+        }
+        input {
+            width: 109px;
+            border: none;
+            padding-left: 5px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        span.ui-select-match-text {
+            width: 40px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 2px;
+        }
+    }
+    img.img-form-loader{
+        margin-top: -5px;
+    }
+
+    .ui-select-placeholder{
+        width:100%;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.cluster-fields-group .dynamic-field.form-input {
+    width: 40px;
+}
+
+.cluster-fields-group .dynamic-field.form-input span.ui-select-match-text {
+    width: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 2px;
+    display: table-cell;
+    max-width: 40px;
+}
+
+.cluster-fields-group .dynamic-field.form-input ng-select {
+    width: 100%;
+    border: none;
+}
+
+// .cluster-fields-group .dynamic-field.form-input input {
+//     width: 109px;
+//     border: none;
+//     padding-left: 5px;
+// }
+
+.cluster-fields-group .dynamic-field.form-input .ui-select-toggle>.caret {
+    right: 0;
+}
+
+/* ng-select*/
+
+ng-select {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #CACACA;
+    padding-left: 0px;
+    line-height: 12px;
+    padding: 0;
+    margin-top: -0.5px;
+    font-size: 13px;
+    box-shadow: none;
+    width: 149px;
+    display: block;
+    float:left;
+    color:#333;
+
+    .ui-select-match>.btn {
+        border: none !important;
+    }
+}
+
+.ng-select {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #CACACA;
+    padding-left: 0px;
+    line-height: 12px;
+    padding: 0;
+    margin-top: -0.5px;
+    font-size: 13px;
+    box-shadow: none;
+    width: 149px;
+    display: block;
+    float:left;
+    color:#333;
+}
+
+.ng-option {
+    font-size: 13px;
+}
+
+.ng-placeholder {
+    color: #cacaca;
+    font-size: 13px;
+    font-weight: normal
+}
+
+
+
+
+.flag-options {
+    .material-icons {
+        font-size: 23px;
+    }
+}
+
+app-hidden {
+    .dynamic-field.form-input {
+        height: 0 !important;
+        width: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden;
+    }
+}
+
+
+.form-inline-block{
+    .dynamic-field.form-input{
+        label{
+            display: none;
+        }
+    } 
+}
+
+.disabled{
+    .cluster-fields-group,
+    .dynamic-field.form-input input,
+    .ng-select,
+    ng-select, .datepicker-me{
+        border: 0;
+        border-radius: 0;
+        border-bottom: 0;
+        border:none;
+    }
+    .profile-edit{
+        display: none;
+    }
+    .profile-view{
+        display:block;
+    }
+}
+
+.profile-view{
+    display:none;
+}
+
+
+
+/* --------------- */
+
+.image-md{
+    width:64px;
+}
+
+
+.profile-view{
+    display:none;
+}
+.disabled{
+    .profile-edit{
+        display:none;
+    }
+
+    .profile-view{
+        display:block;
+    }
+}
+
+.text-title{
+    .dynamic-field.form-input input{
+        width: 100%;
+        height: 22px;
+        font-weight: bold;
+        color: #333;
+        font-size: 18px !important;
+        margin-bottom: 2px;
+        margin-top: 3px;
+    }
+}
+
+input.form-control.ui-select-search{
+    height: 14px;
+    border-bottom: 0;
+    width:100% !important;
+}
+
+.dynamic-field.date-field {
+    margin-top: 1px;
+    float: left;
+    margin-bottom: 6px;
+    .mydp .selectiongroup {
+        display: inline-block;
+        margin-top: -7px;
+    }
+    .mydp .selbtngroup {
+        float: right;
+    }
+    .mydp {
+        border-radius: 0px;
+    }
+}
+
+.show-mandatory-fields{
+    .dynamic-form .field-block{
+        display: none;
+    }
+}
+
+
+.modal-form-modulengine{
+    .show-mandatory-fields{
+        .col-me-12{
+            width:100%;
+        }
+    }
+}
+
+.mail-field-block{
+    overflow: hidden;
+    margin: 0 0 10px;
+}
+
+.flag-bl{
+    span.relative{
+        display: inline-block;
+    }
+}

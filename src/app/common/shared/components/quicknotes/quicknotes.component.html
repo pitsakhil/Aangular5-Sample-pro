@@ -1,0 +1,111 @@
+<div class="box-panel quicknotes-wrapper">
+  <div class="box-panel-header boxpanel__border-top nopadding title" id="metadata" role="tabpanel">
+
+    <ul class="toolbars toolbars__black" [class.noclicks]="collpaseHide">
+      <li>
+        <h4 class="semibold metadata-heading title">{{'quicknote.title' | translate}} </h4>
+      </li>
+      <li>
+        <span class="icon" [class.in-active]="!privateIcon" (click)="toggleIcon('private')" href="javascript:void(0)">
+          <i class="material-icons icon-30">person</i>
+        </span>
+        <span class="icon-text">({{privateCount}})</span>
+      </li>
+      <li>
+        <span class="icon" [class.in-active]="!publicIcon" (click)="toggleIcon('public')" href="javascript:void(0)">
+          <i class="material-icons icon-30">group</i>
+        </span>
+        <span class="icon-text">({{publicCount}})</span>
+      </li>
+    </ul>
+    <ul class="toolbars toolbars_black">
+      <li>
+        <a href="javascript:void(0)" (click)="collpase($event)">
+          <i class="material-icons icon-30 accordian-arrow-width">{{accordinArrow$}}</i>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+  <div class="box-panel-body" [class.aggrid-hidden]="collpaseHide">
+    <div class="box-panel-body-header">
+      <div class="box-tools">
+        <ul class="toolbars toolbars__Black">
+          <li>
+            <a *ngIf="addIconEnable" href="javascript:void(0)" data-toggle="dropdown" title="{{'tooltip.add' | translate}}">
+              <i class="material-icons icon-30">add</i>
+            </a>
+            <a *ngIf="!addIconEnable" (click)="checkChanges(saveButton);" href="javascript:void(0)" title="{{'tooltip.close' | translate}}">
+              <i class="material-icons icon-30">close</i>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li [class.disabled]="!addPermission">
+                <a (click)="createQuickNote(1)" href="javascript:void(0)">{{'quicknote.add_public_note' | translate}}</a>
+              </li>
+              <li [class.disabled]="!readPermission">
+                <a (click)="createQuickNote(2)" href="javascript:void(0)">{{'quicknote.add_private_note' | translate}}</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a *ngIf="!cellEditEnabled" (click)="enableCellEditing()" href="javascript:void(0)" title="{{'tooltip.edit' | translate}}"
+              [class.disabled]="!editIconEnable">
+              <i class="material-icons icon-30">edit</i>
+            </a>
+            <a *ngIf="cellEditEnabled" (click)="saveQuickNote()" href="javascript:void(0)" title="{{'tooltip.save' | translate}}"
+              [class.disabled]="!saveQuickNoteEnable">
+              <i class="material-icons icon-30">save</i>
+            </a>
+          </li>
+          <li>
+            <a title="{{'tooltip.delete' | translate}}" data-toggle="modal" data-target="#quickNote_delete"
+              [class.disabled]="!deleteIconEnable">
+              <i class="material-icons icon-30">delete</i>
+            </a>
+          </li>
+          <li>
+            <button type="button" #saveButton data-toggle="modal" data-target="#quickNote_save" style="visibility:hidden">save</button>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="quicknotes-collapse content" [class.aggrid-hidden]="collpaseHide">
+    <div class="content metadata-content quicknote-contents" id="quicknote-body">
+      <textarea id="tinyMCENote" [class.display-none]="!addNote"></textarea>
+      <div *ngIf="!!noteList && noteList.length>0; else noRowsOverlay">
+        <div class="quicknote-row-wrap" id=container-row-{{i}} *ngFor="let row of noteList; let i = index">
+          <div class="quicknote-date-wrap" id=inner-row-{{i}} (click)="setTinymceRow(i, row)" (dblclick)="toggleView(i,row);"
+            (tap)="onTap($event)">
+            <span *ngIf="!!row.modified.on; else createdOnly;" class="text-ellips quicknote-date-content" title="ed {{row.modified.on | dateFormat}} {{shortNameRefList[row.created.by]}} / cr {{row.created.on|
+              dateFormat}} {{shortNameRefList[row.created.by]}}">
+              ed {{row.modified.on | dateFormat}} {{shortNameRefList[row.created.by]}} / cr {{row.created.on|
+              dateFormat}} {{shortNameRefList[row.created.by]}}</span>
+            <ng-template #createdOnly>
+              <span *ngIf="!!row.created.on" style="position:absolute" title="cr {{row.created.on| dateFormat}} {{shortNameRefList[row.created.by]}}">
+                cr {{row.created.on| dateFormat}} {{shortNameRefList[row.created.by]}}</span>
+            </ng-template>
+            <span *ngIf="row.type_id === 1"><i class="material-icons icon-black display-block grid-usr-icon-align pull-right"
+                style="cursor:default;">group</i></span>
+            <span *ngIf="row.type_id === 2"><i class="material-icons icon-black display-block grid-usr-icon-align pull-right"
+                style="cursor:default;">person</i></span>
+          </div>
+          <div class="quicknote-row" id=row-{{i}} (click)="setTinymceRow(i,row)" (dblclick)="toggleView(i,row);" (tap)="onTap($event)"
+            [innerHTML]=row.description|safeHtml>
+          </div>
+        </div>
+      </div>
+      <ng-template #noRowsOverlay>
+        <div class="quicknotes-no-notes" [class.display-none]="addNote">{{'No Quick Notes' | translate}}</div>
+      </ng-template>
+      <!-- <ag-grid-angular #quicknoteBody id="quickNotetList" class="aggrid-customlist aggrid__noheader" [gridOptions]="quickNoteGridOptions"
+        [toolPanelSuppressSideButtons]="true"></ag-grid-angular> -->
+    </div>
+  </div>
+
+  <app-popup-modal [title]="deleteTitle$" buttonName="resetpassword.Ok" (confirm)="deleteQuickNote($event)" class="modal"
+    id="quickNote_delete" role="dialog"></app-popup-modal>
+  <app-popup-modal [title]="saveTitle$" buttonName="resetpassword.Ok" (confirm)="confirmSave($event);" class="modal" id="quickNote_save"
+    role="dialog"></app-popup-modal>

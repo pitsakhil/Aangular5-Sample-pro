@@ -1,0 +1,2 @@
+<span *ngIf="params.displayName!=='attachment_icon';else icon" title="{{'aggrid.'+params.displayName | translate}}">{{'aggrid.'+params.displayName | translate}}</span>
+<ng-template #icon ><i class="material-icons">attach_file</i></ng-template>

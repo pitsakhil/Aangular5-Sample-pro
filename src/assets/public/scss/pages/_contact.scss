@@ -1,0 +1,73 @@
+@import './assets/public/scss/mixins';
+.contact-section{
+    margin-bottom: 0 !important;
+}
+.contactform-fullwidth{
+    .content-box{
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+    .col-me-12 {
+        width: calc(70% + 38px);
+    }
+    .card__thumbnail--field {
+        width: calc(24% + 12px);
+    }
+    .dynamic-field{
+        &.date-field {
+            .mydp {
+                .selectiongroup{
+                    margin-top: 0;
+                }
+            }
+        }
+        .ui-select-match{
+            .ui-select-match-text{
+                @include truncate(130px);
+                display: inline-block;
+                &.pull-left{
+                    float: none !important;
+                }
+            }
+            .btn{
+                height: 16px !important;
+                line-height: 16px;
+            }
+        }
+    }
+    .mydp {
+        .selectorarrow{
+            right: 0;
+            margin-top: 18px;
+        }
+    }
+    .ui-select-choices{
+        top: 15px;
+    }
+}
+.ng-select {
+    .ng-value-label{
+        color: $black;
+    }
+}
+
+.contentbox-padding{
+    padding-left:20px;
+}
+
+.cluster-fields-group {
+    .dynamic-field{
+        &.form-input {
+            input{
+                bottom: 0;
+                top: 5px !important;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1409px) {
+    .column-large--15 {
+        width: 100%;
+    }
+}
+

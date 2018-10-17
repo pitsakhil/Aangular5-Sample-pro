@@ -1,0 +1,126 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+@import '../utils/extend';
+.fileupload, .clipboard{
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    height: 100%;
+    z-index: 99999;
+    width: 300px;
+    @include element('header') {
+        margin: 0 0 2px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        overflow: hidden;
+    }
+    @include element('progress') {
+        margin: 0;
+        list-style-type: none;
+        padding: 15px;
+        position: relative;
+        li {
+            font-size: $font-size-h4;
+            color: $dark-blue;
+            &.upload-details {
+                padding: 3px 0 0 35px;
+            }
+        }
+    }
+    .progress-bar{
+        height: 2px !important;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: $dark-blue;
+    }
+    @include element('bg') {
+        background: $light-blue;
+    }
+}
+
+.fileupload__body {
+    height: calc(100vh - 165px);
+    position: relative;
+    @include element('header') {
+        height: 100%;
+        overflow-y: auto;
+        background: $light-blue;
+        -webkit-overflow-scrolling: touch !important;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        li {
+            padding: 10px 15px;
+            font-size: $font-size-h4;
+            color: $black;
+            overflow: hidden;
+            display: table;
+            width: 100%;
+        }
+    }
+    .material-icons {
+        font-size: $primary-font-heading + 4;
+    }
+}
+
+.fileoption {
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle;
+    @include element('progess'){
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        overflow: hidden;
+        text-align: right;
+        float: right;
+        li {
+            padding: 0;
+            padding-left: 10px;
+            display: table-cell;
+            width: inherit;
+            vertical-align: middle;
+            &:first-child{
+                margin: 0;
+            }
+        }
+        .material-icons {
+            font-size: 22px;
+            &.cancel-icon {
+                color: $icon-blue;
+            }
+            &.success-icon {
+                color: $green;
+            }
+        }
+    }
+}
+
+.filename-block {
+    @include text-ellipsis(130px);
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle;
+    img{
+        width: 22px;
+        height: 22px;
+    }
+}
+.clipboard{
+    @include element('progress') {
+        li{
+            color: $dark-yellow;
+        }
+    }
+    @include element('bg') {
+        background: $light-yellow;
+    }
+}
+.icon-dark-yellow{
+    color: $dark-yellow !important;
+}

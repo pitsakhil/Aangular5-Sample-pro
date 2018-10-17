@@ -1,0 +1,4 @@
+<div [class.hide-date-field]="!copy['field_validation']['field_required']" [formGroup]="group " novalidate class="dynamic-field date-field">
+    <label [title]=" copy.field_title">{{ copy.field_title }}</label>
+    <my-date-picker class="datepicker-me " [options]="myOptions " [formControlName]="copy.field_name " [attr.data-test-id]="getCurrentModule()+'-date-'+ copy.field_name + '-'+ formindex"></my-date-picker>
+</div>

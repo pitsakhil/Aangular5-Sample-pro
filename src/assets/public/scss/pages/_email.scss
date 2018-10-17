@@ -1,0 +1,114 @@
+@import './assets/public/scss/variables';
+@import './assets/public/scss/mixins';
+.compose-mail-content{
+    .mce-container{
+        font-family: "TeXGyreHeros-Regular" !important;
+    }
+    .dynamic-field{
+        height: auto;
+        .ng-value {
+            font-weight: bold;
+            background-color: #e5edf0;
+            border-radius: 4px;
+            color: #333;
+            padding: 2px 7px;
+            font-size: 13px;
+            position: relative;
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-bottom: 2px;
+            margin-right: 5px;
+        }
+        &.form-input {
+            input{
+                font-size: $primary-font;
+            }
+        }
+    }
+    .email-content{
+        word-wrap: break-word;
+    }
+    .mail-field-block{
+        margin: 10px 0 0;
+        padding-bottom: 19px;
+        border-bottom: 2px solid $bg-grey;
+    }
+    // .mail-list-block{
+    //     li{
+    //         width: 40px !important;
+    //         &.field-value{
+    //             width: 75% !important;
+    //         }
+    //         a{
+    //             &.arrow-direction{
+    //                 .material-icons{
+    //                     float: left;
+    //                 }
+    //                 span{
+    //                     position: absolute;
+    //                     right: 0;
+    //                     top:-2px;
+    //                     width: 25px;
+    //                     word-break: break-word;
+    //                     white-space: nowrap;
+    //                     overflow: hidden;
+    //                     text-overflow: ellipsis;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    .mail-cc-expand-wrap{
+        .mail-list-block{
+            .pull-right{
+                float: none !important;
+            }
+        }
+    }
+    .mce-subject{
+        margin: 10px 0 30px;
+    }
+}
+span{
+    &.badge{
+        font-size: $primary-font;
+    }
+}
+.edit-mail-wrap{
+    .edit-mail-content{
+        display: table;
+        width: 100%;
+        margin: 10px 0 0;
+        .mce-i-help, .mce-flow-layout-item.mce-last{
+            display: none;
+        }
+        span{
+            &.field_span{
+                display: inline-block;
+                max-width: calc(100% - 30px);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
+#beforeafterTable{
+    p{
+        word-break: break-all;
+    }
+}
+.detailmail-content{
+    padding-top: 19px;
+    height: calc(100vh - 272px);
+    overflow: auto;
+}
+
+@media screen and (max-width: 1409px) {
+    #email{
+        .column-large--15{
+            width:100%;
+        }
+    }
+
+}

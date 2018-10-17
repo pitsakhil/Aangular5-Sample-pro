@@ -1,0 +1,47 @@
+
+
+#quickNotetList{
+    height: 100% !important;
+}
+
+textarea{
+    display: none !important;
+}
+
+.no-row{
+    display: none !important;
+}
+
+.selectedParentRow{
+    background: #004e70 !important;
+    color: #fff !important;
+}
+
+.quicknote-row-wrap{
+    min-height:72px;
+    border-bottom:1px solid #f1f1f1;
+    z-index:99999 !important;
+}
+
+.quicknote-row{
+    height: 100% !important;
+    min-height: 40px;
+    padding:0 7px;
+    font-size:13px;
+}
+
+.quicknotes-no-notes{
+    padding-top: 30px;
+    text-align:center;
+}
+
+.quicknote-date-wrap{
+    padding:7px 7px 0 7px;
+    min-height:34px;
+    font-size:10px;
+}
+
+.quicknote-date-content{
+    width:85% !important;
+    position:absolute;
+}

@@ -1,0 +1,121 @@
+@import '../utils/mixins';
+@import '../utils/extend';
+.subheader {
+    width: 100%;
+    height: 60px;
+    display: block;
+    float: left;
+    padding: 14px 0px;
+}
+
+.subheader-btn-group::-webkit-scrollbar {
+    width: 4px;
+    visibility: hidden;
+}
+
+.subheader-btn-group::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+}
+
+.subheader-btn-group::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    visibility: hidden;
+}
+
+.companylogo {
+    width: 178px;
+}
+
+.subheader-btn-group {
+    display: inline-block; //margin-left: -6px;
+}
+
+.filter-search,
+.filterlist {
+    @include listmodel(0, (0 0 0 10px));
+    float: left;
+    li {
+        float: left;
+        margin-right: 15px;
+    }
+    .btn-search {
+        @include btn-default(14em, 29px);
+        @include border-radius(8px);
+        font-size: $primary-font;
+        text-align: left;
+    }
+}
+
+.spinner-loader {
+    width: 40px;
+    height: 29px;
+    margin: 0;
+    .img-loader {
+        width: 40px;
+        margin-top: -5px;
+    }
+}
+
+.filterlist {
+    @include element('shadow') {
+        .btn {
+            @extend %boxshadow;
+            &.active,
+            &:active {
+                @extend %boxshadow;
+                font-weight: 700;
+            }
+        }
+    }
+    padding: 0;
+    li {
+        margin: 0 10px;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    .btn {
+        @include btn-default(auto, 29px);
+        @include border-radius(8px);
+        @include text-ellipsis(188px);
+        font-size: $primary-font;
+        background: $white;
+        margin: 0;
+    }
+}
+
+.filter-search {
+    @include element('shadow') {
+        .btn-search {
+            @extend %boxshadow;
+        }
+    }
+    li {
+        margin: 0;
+        &:last-child {
+            margin: 0;
+        }
+    }
+    .btn-search {
+        margin: 0;
+    }
+}
+
+.logo-wrap {
+    width: 245px;
+    display: inline-block;
+}
+
+@media screen and (max-width: 1023px) {
+    .subheader {
+        height: 78px;
+    }
+}
+
+#documents{
+    .account-logo.no-company-logo{
+        padding-top: 4px;
+    }
+}

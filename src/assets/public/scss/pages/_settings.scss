@@ -1,0 +1,188 @@
+@import './assets/public/scss/variables';
+@import './assets/public/scss/mixins';
+
+.ag-group-value .btn-options {
+    right: 5px;
+}
+
+.aggrid-treeview {
+    .ag-header-cell {
+        padding-left: 20px;
+    }
+
+    .checkbox-icons {
+        .material-icons {
+            margin-left: 10px;
+        }
+    }
+
+    .ag-row-selected {
+        .material-icons {
+            color: $white !important;
+        }
+    }
+}
+
+.category-settings-form {
+    .form-input-text {
+        line-height: inherit !important;
+    }
+
+    span {
+        &.settings-text {
+            @include truncate(90%);
+        }
+    }
+}
+
+// .aggrid-customlist{
+//     .ag-header-cell, .ag-cell{
+//         width: auto !important;
+//     }
+// }
+
+#settings {
+    .modal-default {
+        .btnpicker.btnpickerenabled {
+            top: 0;
+        }
+
+        .form-input-field {
+            margin-top: -5px;
+        }
+
+        .form-dropdown-menu {
+            max-width: 100%;
+            top: 18px;
+        }
+    }
+
+    .aggrid-customlist {
+        .ag-row-group-contracted .ag-cell {
+            color: $black;
+        }
+    }
+
+    .category-list-grid {
+        .ag-body-container {
+            width: 100% !important;
+        }
+    }
+
+    .truncate-text {
+        .selected {
+            pointer-events: all;
+            cursor: default;
+            color: #333;
+            font-weight: normal;
+
+            &.disabled {
+                pointer-events: all;
+                cursor: default;
+                color: #333 !important;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .modal-form-modulengine{
+        .content-box{
+            padding: 0;
+        }
+    }
+
+    .dynamic-form .field-block {
+        margin-top: 12px;
+    }
+    .dynamic-field{
+        &.date-field {
+            .mydp {
+                .selectiongroup{
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+.modal .dropdown-menu.dropdown-password-box.infobox-alignment {
+    right: auto;
+    left: 311px;
+}
+
+
+.trim-content-visible {
+    .formgroup__inputfield {
+        a {
+            >span {
+                width: auto;
+            }
+        }
+    }
+
+    .formgroup {
+        .formgroup__inputfield {
+
+            input[type="text"],
+            input[type="password"] {
+                height: 19px !important;
+                padding: 0 0 2px;
+            }
+        }
+    }
+}
+
+.password-reset-inpus {
+    padding-right: 80px !important;
+}
+
+.location-state-width {
+    max-width: 325px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+ul.location-state-width {
+    overflow-x: hidden !important;
+    li{
+        a{
+            white-space: normal;
+            word-wrap: break-word;
+        }
+    }
+}
+
+.title-lh{
+    span{
+        line-height: normal;
+    }
+}
+.checkbox-mh{
+    height: 18px;
+    margin: 0;
+}
+.forminput-width-description{
+    width: calc(100% - 15px);
+}
+.user-panel-h50{
+    height: calc(100vh - 317px);
+}
+.group-panel{
+    .group-text-reduce{
+        max-width: 70%;
+    }
+}
+@media only screen and (max-width:1024px) {
+    .modal .dropdown-menu.dropdown-password-box.infobox-alignment {
+        right: 26px;
+        left: auto;
+        top: auto;
+    }
+}
+@media only screen and (max-width:700px){
+    .location-state-width {
+        max-width: calc(100% - 22px) !important;
+       
+    }
+}

@@ -1,0 +1,2 @@
+<ng-content></ng-content>
+<div class="btn btn-sm btn-showpassword" data-test-id="btn-showhidebutton" (click)="toggleShow()" *ngIf='input.nativeElement.value.length>0'>{{showPassword ? ('showhidecontainer.hide' | translate) : ('showhidecontainer.show' | translate)}}</div>

@@ -1,0 +1,101 @@
+
+@import '../utils/classvariables';
+@import '../utils/variables';
+@import '../utils/mixins';
+@import '../utils/extend';
+.useraccount{
+    //margin-top: 6px;
+    position: relative;
+
+    .account-list{
+        cursor: pointer;
+    }
+    .dropdown-menu{
+        min-width: 257px;
+        max-width: 257px;
+        top: 49px;
+        left: 0;        
+        color: $black;
+        padding: 0;
+        @extend %boxshadow;
+        li{
+            padding: 15px;
+            &.account-list{
+                border-bottom: 2px solid $light-grey-tb;
+                -webkit-border-bottom: 2px solid $light-grey-tb;
+                -moz-border-bottom: 2px solid $light-grey-tb;
+                &:last-child{
+                    border-color: transparent;
+                }
+            }
+            .media-footer{
+                overflow: hidden;
+            }
+        }
+    }
+    .media-footer{
+        margin: 0 -15px;;
+        @include element('block') {
+            box-sizing: border-box;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .btn{
+            padding: 0 15px;
+            line-height: 22px;
+            height: 28px;
+            width: 100%;
+            background: $white;
+            border-color: #ccc;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: block;
+            overflow: hidden;
+        }
+    }
+    .media-heading{
+        margin: 0;
+    }
+    .media-left, .media-body, .media-tools{
+        vertical-align: middle;
+        display: table-cell;
+    }
+    .media-tools{
+        width: auto;
+    }
+
+    .media-body{
+        width:100%;
+        word-break: break-all;
+    }
+}
+.media{
+    display: table;
+    height: $headerheight;
+    padding: 0;
+    &.user-account-media{
+        height: auto;
+        display: block;
+        padding: 0;
+        .media-tools{
+            padding: 0 0 0 20px;
+        }
+        .success-icon{
+            width: 25px;
+            height: 36px;
+            display: table-cell;
+        }
+    }
+}
+
+.media-tools{
+    i{
+        &.material-icons{
+            line-height: inherit;
+        }
+    }
+}
+.img-user {
+    width:36px;
+}
+

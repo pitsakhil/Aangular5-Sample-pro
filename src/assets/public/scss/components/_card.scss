@@ -1,0 +1,51 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+@import '../utils/extend';
+
+.card {
+    display: flex;
+    width:100%;
+    margin-bottom: 20px;
+    &.align-center{
+        align-items: center;
+    }
+
+    @include element('thumbnail') {
+        padding-right: 14px;
+
+    }
+    @include element('body') {
+        flex:1;
+        &.forminput-width{
+            flex: inherit;
+            width:62.5%;
+        }
+    }
+    @include element('title') {
+        margin-bottom: 0;
+        margin-top: 0;
+        color: $grey-heading;
+    }
+}
+
+.card__thumbnail{
+    @include modifier('field') {
+        width: calc(32% + 12px);
+    }
+}
+
+.thumbnail {
+    @include element('image') {
+        width: 63px;
+        &.right{
+            float: right;
+        }
+    }
+}
+
+
+.content-box{
+    border-bottom: 2px solid #f5f5f5;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

@@ -1,0 +1,147 @@
+
+@import '../utils/variables';
+@import '../utils/mixins';
+@import '../utils/extend';
+
+.boxpanel{
+    @extend %blockelem;
+    background: $white;
+    border-radius: 4px;
+    margin-bottom: 2px;
+
+    @include element('header') {
+        @extend %blockelem;
+        padding: 6px 15px;
+        position: relative;
+        border-bottom: 2px solid $bg-grey;
+        height:40px;
+        display: table !important;
+    }
+
+    @include element('boxshadow') {
+       @extend %boxshadow;
+    }
+
+    @include element('body') {
+        @extend %blockelem;
+        padding: 4px 15px;
+        position: relative;
+    }
+
+    @include element('h100') {
+        height: calc(100vh - 154px);
+    }
+
+    @include element('toggleicons') {
+        .boxpanel__header{
+            display: table;
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .box-tools{
+            @extend %toolbarspadding;
+        }
+    }
+
+    @include element('border-top') {
+        border-top:2px solid $bg-grey;
+        border-radius: 0px;
+    }
+    @include element('xy-hidden') {
+        overflow: hidden;
+    }
+    @include element('xy-scroll') {
+        overflow: auto;
+        height: 100%;
+    }
+}
+
+
+
+.box-panel-icon-lefmenushow,
+.box-panel-icon-rightmenushow,
+.box-panel-icon-tablebarshow {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: table-cell;
+    width: 1.875em;
+    vertical-align: middle;
+    text-align: center;
+    position: relative
+}
+
+.box-panel-icon-lefmenushow::after,
+.box-panel-icon-rightmenushow::before,
+.box-panel-icon-tablebarshow::after {
+    content: '';
+    border-left: 2px solid #f5f5f5;
+    position: absolute;
+    top: -6px;
+    height: 39px;
+}
+
+.box-panel-icon-lefmenushow::after,
+.box-panel-icon-tablebarshow::after {
+    right: 0
+}
+
+.box-panel-icon-rightmenushow::before {
+    left: 0
+}
+
+.box-height-lg{
+    height: calc(100vh - 194px);
+    overflow-y: auto;
+}
+
+.box-height-xs{
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
+.max-height-50{
+    max-height: 50%;
+    overflow-y: auto;
+}
+
+.s-boxheader, .s-boxbody{
+    float: left;
+    width:100%;
+    display: block;
+}
+
+.s-boxheader{
+    padding: 6px 0;
+    position: relative;
+    border-bottom: 2px solid #f5f5f5;
+    height: 40px;
+    z-index: 99;
+}
+
+.content-panel{
+    border-bottom: 1px solid #f5f5f5; 
+    border-top: 1px solid #f5f5f5; 
+    float: left;
+    width: 100%;
+    &.content-padding__horizontal{
+        padding:12px 0;
+    }
+    &.content-padding{
+        padding:12px;
+    }
+}
+.arrow-up, .arrow-down{
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+.m-dp-xlg-none{
+    display: none;
+}
+.truncate-text{
+    li{
+        a{
+            @include truncate(150px); 
+        }
+    }
+}

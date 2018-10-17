@@ -1,0 +1,66 @@
+.icon-dropdown{
+    .dropdown-menu{
+        min-width: 45px !important;
+        width: 45px !important;
+        padding: 0 !important;
+        top:29px;
+        li{
+            a{
+                padding: 4px 0px !important;
+                text-align: center;
+            }
+        }
+        .material-icons{
+            float: none !important;
+        }
+    }
+}
+
+.modal .dropdown-menu.dropdown-password-box {
+    position: absolute;
+    top: -131px;
+    left: 206px;
+}
+.infobox-label-warp{
+    position: relative;
+}
+@media (max-width:1023px) {
+    .modal .dropdown-menu.dropdown-password-box {
+        position: absolute;
+        top: -132px;
+        left: auto;
+        right: 15%;
+    }
+}
+
+
+.dropdown-password-box{
+    li > a:hover{
+        background: transparent;
+    }
+}
+.dropdown-info-mail-import-info {
+    left: 0px;
+    min-height: 196px;
+    width: 218px;
+    top: -167px;
+    p {
+        padding: 0 14px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .modal .dropdown-menu.dropdown-info-addaccount{
+        left: 28px !important;
+        min-height: 196px;
+        width: 218px;
+        top: 28px !important;
+        p {
+            padding: 0 14px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+    }
+}

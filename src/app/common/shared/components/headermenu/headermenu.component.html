@@ -1,0 +1,131 @@
+<nav class="d-navigation">
+    <ul class="navlist">
+        <li routerLinkActive="active-link">
+            <a href="{{baseRoute.DASHBOARD +env.DOMAIN_NAME}}"  data-test-id="headermenu-nav-home">
+                <i class="icon m-icon icon-dashboardo"></i>
+                <span>{{ 'dashboard.headerMenu.home' | translate }}</span>
+            </a>
+        </li>
+        <li routerLinkActive="active-link">
+            <a href="{{baseRoute.SETTINGS +env.DOMAIN_NAME+routingPath.GENERAL_SETTINGS}}"  data-toggle="dropdown" data-test-id="headermenu-nav-settings">
+                <i class="icon m-icon icon-settingso"></i>
+                <span>{{ 'dashboard.headerMenu.settings' | translate }}</span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li *ngIf="userData['isAdmin']">
+                    <a href="{{baseRoute.SETTINGS +env.DOMAIN_NAME+routingPath.GENERAL_SETTINGS}}" 
+                        data-test-id="headermenu-nav-company">
+                        <span>{{ 'dashboard.headerMenu.generalsettings' | translate }}</span>
+                    </a>
+                </li>
+                <li *ngIf="userData['isAdmin']">
+                    <a href="{{baseRoute.SETTINGS +env.DOMAIN_NAME+routingPath.SYSTEM_SETTINGS}}"
+                        data-test-id="headermenu-nav-systemsettings">
+                        <span>{{ 'dashboard.headerMenu.systemSettings' | translate }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{baseRoute.SETTINGS +env.DOMAIN_NAME+routingPath.USER_SETTINGS}}"
+                        data-test-id="headermenu-nav-passwordreset">
+                        <span>{{ 'dashboard.headerMenu.userSettings' | translate }}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li routerLinkActive="active-link" *ngFor="let module of moduleList">
+            <a href="{{'http://'+formatData(module) +env.DOMAIN_NAME}}"  >
+                <i class="icon m-icon icon-{{formatData(module)}}o"></i>
+                <span>{{module['name']}}</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+
+<!-- NAVIGATION FOR MOBILE VIEW 
+<nav class="m-navigation">
+    <ul class="hamburger-menu">
+       
+        <li>
+            <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="true">
+                <i class="material-icons icon-white">dehaze</i>
+            </a>
+
+            <ul class="unstyled-list dropdown-menu">
+                <li routerLinkActive="active-link">
+                    <a href="javascript:void();" routerLink="/dashboard" (click)="navigateToDashboard()" data-test-id="headermenu-nav-home">
+                        <i class="icon m-icon icon-dashboardo"></i>
+                        <span>{{ 'dashboard.headerMenu.home' | translate }}</span>
+                    </a>
+                </li>
+                <li routerLinkActive="active-link" *ngFor="let module of moduleList">
+                    <a href="javascript:void(0);" routerLink="/{{formatData(module)}}" (click)='navigate(module)'>
+                        <i class="icon m-icon icon-{{formatData(module)}}o"></i>
+                        <span>{{module['name']}}</span>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+    </ul>
+</nav>
+ NAVIGATION FOR MOBILE VIEW -->
+
+<!-- NAVIGATION FOR MOBILE VIEW -->
+<nav class="m-navigation">
+    <ul class="hamburger-menu">
+
+        <li>
+            <a id="mainDrop" href="javascript:void(0);" (click)="toggleDropDown()">
+                <i class="material-icons icon-white">dehaze</i>
+            </a>
+
+            <ul id="dropDownMenu" class="unstyled-list dropdown-menu">
+                <li routerLinkActive="active-link">
+                    <a href="{{baseRoute.DASHBOARD +env.DOMAIN_NAME}}" data-test-id="headermenu-nav-home">
+                        <i class="icon m-icon icon-dashboardo"></i>
+                        <span>{{ 'dashboard.headerMenu.home' | translate }}</span>
+                    </a>
+                </li>
+                <li routerLinkActive="active-link">
+                    <a href="{{baseRoute.SETTINGS +env.DOMAIN_NAME+routingPath.GENERAL_SETTINGS}}" (click)="myAccFunc();" data-test-id="headermenu-nav-settings">
+                        <i class="icon m-icon icon-settingso"></i>
+                        <span>{{ 'dashboard.headerMenu.settings' | translate }}</span>
+                        <ul class="unstyled-list main-tools pull-right">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="material-icons icon-30 accordian-arrow-width">{{accordinArrow$}}</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </a>
+                    <ul id="demoAcc" class="dp-none">
+                        <li routerLinkActive="active-link" *ngIf="!!userData && userData['isAdmin']">
+                            <a href="{{baseRoute.SETTINGS +env.DOMAIN_NAME+routingPath.GENERAL_SETTINGS}}" data-test-id="headermenu-nav-company">
+                                <span>{{ 'dashboard.headerMenu.generalsettings' | translate }}</span>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active-link" *ngIf="!!userData && userData['isAdmin']">
+                            <a href="{{baseRoute.SETTINGS +env.DOMAIN_NAME+routingPath.SYSTEM_SETTINGS}}"  data-test-id="headermenu-nav-systemsettings">
+                                <span>{{ 'dashboard.headerMenu.systemSettings' | translate }}</span>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active-link">
+                            <a href="{{baseRoute.SETTINGS +env.DOMAIN_NAME+routingPath.USER_SETTINGS}}"  data-test-id="headermenu-nav-passwordreset">
+                                <span>{{ 'dashboard.headerMenu.userSettings' | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li routerLinkActive="active-link" *ngFor="let module of moduleList">
+                    <a href="{{'http://'+formatData(module) +env.DOMAIN_NAME}}" >
+                        <i class="icon m-icon icon-{{formatData(module)}}o"></i>
+                        <span>{{module['name']}}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!--// NAVIGATION FOR MOBILE VIEW -->

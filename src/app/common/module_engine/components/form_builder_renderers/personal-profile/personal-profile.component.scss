@@ -1,0 +1,22 @@
+.form-input-field{
+    
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -14px;
+    
+        .form-input-control{
+            border-top: none;
+            border-left: none ;
+            border-right: none ;
+            font-size: 12px;
+            color:#333;
+        }
+    }
+    
+    .template-header{
+        margin: 6px 0 12px 132px;
+    }
+    
+    .form-input-header{
+        margin-left:10px;
+    }

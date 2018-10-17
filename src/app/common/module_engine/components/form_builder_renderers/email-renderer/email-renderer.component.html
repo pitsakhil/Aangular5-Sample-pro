@@ -1,0 +1,10 @@
+<div class="dynamic-field form-input" [formGroup]="group"  *ngIf="copy">
+  <label *ngIf="copy.field_title" [title]=" copy.field_title">{{ copy.field_title }}</label>
+  <input type="email" #sub [title]="copy.field_value" [value]="copy.field_value" [attr.disabled]="copy.field_disabled?'disabled':null"
+      [formControlName]="copy.field_name" [placeholder]="copy.field_placeholder" [attr.data-test-id]="getCurrentModule()+'-txt-'+ copy.field_name + '-'+ formindex">   
+</div>
+
+
+
+
+
