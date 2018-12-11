@@ -1,0 +1,7 @@
+<div class="dynamic-field form-input" [formGroup]="group" *ngIf="copy">
+    <label [title]=" copy.field_title">{{ copy.field_title }}</label>
+    <input type="text" #sub [value]="copy.field_value?copy.field_value:sub.value==='undefined'?'':sub.value" [maxlength]="config.field_validation.maxlength"
+        [ngClass]="{'display-none' :copy.field_name ==='from'}" [attr.disabled]="copy.field_disabled?'disabled':null" [formControlName]="copy.field_name"
+        [title]="sub.value" [placeholder]="copy.field_name==='subject'?'':copy.field_placeholder" id="input_label" [attr.data-test-id]="getCurrentModule()+'-txt-'+ copy.field_name + '-'+ formindex">
+    <label [ngClass]="{'display-none':copy.field_name !=='from'}" for="input_label" class="input_badge_field">{{copy.field_value}}</label>
+</div>

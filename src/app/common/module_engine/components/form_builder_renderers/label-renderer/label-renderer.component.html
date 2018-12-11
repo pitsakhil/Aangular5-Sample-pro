@@ -1,0 +1,4 @@
+<div class="dynamic-field form-input" [formGroup]="group">
+    <input class="text-label" [formControlName]="config.field_name" value="" ngDefaultControl [attr.data-test-id]="getCurrentModule()+'-txt-'+ config.field_name + '-'+ formindex"
+        readonly>
+    <div>

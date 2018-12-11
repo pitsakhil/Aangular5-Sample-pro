@@ -1,0 +1,41 @@
+@import '../utils/classvariables';
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.navlist{
+    float: left;
+    margin-bottom: 0;
+    margin-left:0;
+    padding-left: 0;
+    display: table;
+    height: $headerheight;
+    >li{
+        padding: 0 13px;
+        width: auto;
+        display: table-cell;
+        position: relative;
+        vertical-align: middle;
+        >a{
+            color: $white;
+            display: block;
+            text-align: center;
+            >span{
+                display: block;
+                font-size: $font-size-h5;
+                margin: -7px 0 0;
+                line-height: initial;
+            }
+        }
+        a{
+            text-decoration: none;
+            vertical-align: middle;
+        }
+    }
+}
+
+.logowrap{
+    a{
+        float: right;
+        margin: 7px 0 0;
+    }
+}

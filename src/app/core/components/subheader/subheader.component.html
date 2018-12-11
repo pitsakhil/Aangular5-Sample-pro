@@ -1,0 +1,55 @@
+<section class="filterbar container__fluid two-column-nopadding">
+    <section class="subheader hide-mobile">
+        <div class="pull-left">
+            <app-companylogo></app-companylogo>
+        </div>
+        <div class="pull-left">
+            <div class="subheader-btn-group">
+                <ul class="filter-search filter-search__shadow">
+                    <li>
+                        <app-search></app-search>
+                    </li>
+                    <li>
+                        <app-spinner></app-spinner>
+                    </li>
+                </ul>
+                <ul class="filterlist filterlist__shadow">
+                    <li>
+                        <button data-test-id="home-filterbtn-dashboard" class="btn mr-l0 active" (click)="navigateToDashboard()" type="button">{{
+                            'dashboard.subheader' | translate }}</button>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Mobile Subheader -->
+    <section class="subheader m-subheader hide-desktop">
+        <div class="m-subheader__wrap">
+            <div class="m-subheader__block">
+                <div class="pull-left">
+                    <app-companylogo></app-companylogo>
+                </div>
+                <div class="pull-left">
+                    <div class="subheader-btn-group">
+                        <ul class="filter-search filter-search__shadow">
+                            <li>
+                                <app-search></app-search>
+                            </li>
+                            <li>
+                                <app-spinner></app-spinner>
+                            </li>
+                        </ul>
+                        <ul class="filterlist filterlist__shadow">
+                            <li>
+                                <button data-test-id="home-filterbtn-dashboard" class="btn btn-default btm-sm active mr-l0" (click)="navigateToDashboard()" type="button">{{
+                                    'dashboard.subheader' | translate }}</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--// Mobile Subheader -->
+</section>

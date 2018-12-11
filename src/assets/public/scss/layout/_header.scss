@@ -1,0 +1,87 @@
+@import '../utils/classvariables';
+@import '../utils/variables';
+@import '../utils/mixins';
+@import '../utilities/extend';
+.#{$header} {
+    // height:58px;
+    height: $headerheight;
+    box-shadow: 1px 1px 7px #DADADA;
+    @include modifier('blue') {
+        background: $dark-blue;
+        color: $white;
+    }
+    @include modifier('fixed-top') {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 200;
+        @extend %boxshadow;
+    }
+    @include element('subheader') {
+        height: 4.25em;
+    }
+    @include element('shadow') {
+        @extend %boxshadow;
+    }
+    .date {
+        font-size: $font-size-h5;
+        width: 186px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        display: block;
+        line-height: initial;
+    }
+}
+
+.hamburger-menu {
+    display: inline;
+    list-style: none;
+    padding-left: 0;
+    vertical-align: middle;
+    float: left;
+    margin-top: 10px;
+    margin-left: 15px;
+    .dropdown-menu>li {
+        display: inline-block;
+        width: 100%;
+    }
+    .m-icon {
+        display: block;
+        float: left;
+    }
+    span {
+        display: block;
+        float: left;
+        line-height: 27px;
+    }
+}
+
+.img-account {
+    width: 36px;
+}
+
+.right-header-menu {
+    ul {
+        &.nav-list {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            li {
+                padding: 7px 13px;
+            }
+        }
+    }
+}
+
+body.fixed-header {
+    padding-top: 52px;
+}
+
+.header-fixed-top {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 1px 1px 7px #DADADA;
+    z-index: 200;
+}

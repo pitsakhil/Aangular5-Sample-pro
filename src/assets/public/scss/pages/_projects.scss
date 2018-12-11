@@ -1,0 +1,53 @@
+@import './assets/public/scss/variables';
+.attachment-height-lg{
+    height: calc(100vh - 432px);
+}
+@media screen and (max-width: 1409px) {
+    #projects {
+        .column-large--15 {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width:1023px) {
+    #projects {
+        .column-large--15,
+        .column-large--10,
+        .column-large--19,
+        .column-large--20 {
+            width: 100%;
+        }
+    }
+}
+
+.dynamic-field.form-input.tiny-edit-content {
+    height: auto;
+}
+
+.project-detail-editor {
+    .description-field {
+        padding-left: 0;
+        img {
+            width: auto !important;
+            max-width: 100%;
+        }
+    }
+}
+
+.input-size {
+    min-height: 22px;
+    background: transparent;
+    cursor: not-allowed;
+    background-color: transparent !important;
+}
+
+/*Targeting mozilaa firefox */
+
+@-moz-document url-prefix() {
+    #projects {
+        .metadata-form-wrap .metadata-content {
+            overflow: inherit;
+        }
+    }
+}

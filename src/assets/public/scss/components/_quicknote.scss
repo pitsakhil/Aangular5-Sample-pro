@@ -1,0 +1,56 @@
+.quicknotes-wrapper{
+    .box-panel-header{
+        display: table;
+    }
+    .metadata-heading{
+        display: table-cell;
+        vertical-align: middle;
+        max-width: 125px;
+    }
+    .box-panel-body {
+        position: initial !important;
+        .box-panel-body-header{
+            margin: 0;
+        }
+    }
+    .toolbars{
+        span{
+            &.icon{
+                display: table-cell;
+                vertical-align: middle;
+            }
+            &.icon-text{
+                top: 0;
+                display: table-cell;
+            }
+        }
+    }
+}
+.quicknote-contents{
+    height: 100%;
+    .quicknote-row p{
+        margin: 0 !important;
+        word-break: break-all;
+    }
+    .ag-layout-normal{
+        &.ag-body-viewport{
+            margin-right: -20px;
+        }
+    }
+    .ag-cell{
+        padding: 5px !important;
+    }
+    .ag-row{
+        position: relative !important;
+        transform: translateY(0px) !important;
+    }
+}
+.ag-overlay{
+    top: 1px;
+}
+.ag-overlay-wrapper{
+    vertical-align: top;
+}
+.quicknotes-collapse{
+    margin-right: -20px;
+}

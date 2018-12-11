@@ -1,0 +1,12 @@
+<a href="javascript:void(0)" *ngIf="gridType==='navbar'||gridType==='navbaroverlay'"  title="{{'tooltip.togglenav' | translate}}" (click)="toggleGrid(gridType)">
+    <i class="material-icons icon-30">sort</i>
+</a>
+<a href="javascript:void(0)" *ngIf="gridType==='tablebar'" title="{{'tooltip.toggletable' | translate}}" (click)="toggleGrid(gridType)">
+    <i class="material-icons icon-30" >list</i>
+</a>
+<a href="javascript:void(0)" *ngIf="gridType==='rightbar'||gridType==='rightbaroverlay'"  title="{{'tooltip.toggleright' | translate}}" (click)="toggleGrid(gridType)">
+    <i class="material-icons icon-30">toll</i>
+</a>
+<a href="javascript:void(0)" *ngIf="gridType==='maincontent'" title="{{'tooltip.togglemain' | translate}}" (click)="toggleGrid(gridType)">
+    <i class="material-icons icon-30" >data_usage </i>
+</a>

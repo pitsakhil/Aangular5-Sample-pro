@@ -1,0 +1,968 @@
+@font-face {
+    font-family: 'fileicons';
+    src:  url('./assets/public/fonts/fileicons.eot?hjso6i');
+    src:  url('./assets/public/fonts/fileicons.eot?hjso6i#iefix') format('embedded-opentype'),
+      url('./assets/public/fonts/fileicons.ttf?hjso6i') format('truetype'),
+      url('./assets/public/fonts/fileicons.woff?hjso6i') format('woff'),
+      url('./assets/public/fonts/fileicons.svg?hjso6i#fileicons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .file-icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'fileicons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .fileiconai .path1:before {
+    content: "\e900";
+    color: rgb(242, 241, 242);
+  }
+  .fileiconai .path2:before {
+    content: "\e901";
+    margin-left: -1em;
+    color: rgb(211, 208, 211);
+  }
+  .fileiconai .path3:before {
+    content: "\e902";
+    margin-left: -1em;
+    color: rgb(211, 208, 211);
+  }
+  .fileiconai .path4:before {
+    content: "\e903";
+    margin-left: -1em;
+    color: rgb(233, 215, 53);
+  }
+  .fileiconai .path5:before {
+    content: "\e904";
+    margin-left: -1em;
+    color: rgb(209, 191, 30);
+  }
+  .fileiconai .path6:before {
+    content: "\e905";
+    margin-left: -1em;
+    color: rgb(233, 215, 53);
+  }
+  .fileiconai .path7:before {
+    content: "\e906";
+    margin-left: -1em;
+    color: rgb(196, 180, 28);
+  }
+  .fileiconai .path8:before {
+    content: "\e907";
+    margin-left: -1em;
+    color: rgb(196, 180, 28);
+  }
+  .fileiconai .path9:before {
+    content: "\e908";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconai .path10:before {
+    content: "\e909";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconavi .path1:before {
+    content: "\e90a";
+    color: rgb(242, 242, 241);
+  }
+  .fileiconavi .path2:before {
+    content: "\e90b";
+    margin-left: -1em;
+    color: rgb(211, 210, 208);
+  }
+  .fileiconavi .path3:before {
+    content: "\e90c";
+    margin-left: -1em;
+    color: rgb(211, 210, 208);
+  }
+  .fileiconavi .path4:before {
+    content: "\e90d";
+    margin-left: -1em;
+    color: rgb(53, 188, 233);
+  }
+  .fileiconavi .path5:before {
+    content: "\e90e";
+    margin-left: -1em;
+    color: rgb(30, 164, 209);
+  }
+  .fileiconavi .path6:before {
+    content: "\e90f";
+    margin-left: -1em;
+    color: rgb(53, 188, 233);
+  }
+  .fileiconavi .path7:before {
+    content: "\e910";
+    margin-left: -1em;
+    color: rgb(28, 154, 196);
+  }
+  .fileiconavi .path8:before {
+    content: "\e911";
+    margin-left: -1em;
+    color: rgb(28, 154, 196);
+  }
+  .fileiconavi .path9:before {
+    content: "\e912";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconavi .path10:before {
+    content: "\e913";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconavi .path11:before {
+    content: "\e914";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconeps .path1:before {
+    content: "\e915";
+    color: rgb(241, 241, 242);
+  }
+  .fileiconeps .path2:before {
+    content: "\e916";
+    margin-left: -1em;
+    color: rgb(208, 208, 211);
+  }
+  .fileiconeps .path3:before {
+    content: "\e917";
+    margin-left: -1em;
+    color: rgb(208, 208, 211);
+  }
+  .fileiconeps .path4:before {
+    content: "\e918";
+    margin-left: -1em;
+    color: rgb(233, 150, 53);
+  }
+  .fileiconeps .path5:before {
+    content: "\e919";
+    margin-left: -1em;
+    color: rgb(233, 141, 33);
+  }
+  .fileiconeps .path6:before {
+    content: "\e91a";
+    margin-left: -1em;
+    color: rgb(233, 150, 53);
+  }
+  .fileiconeps .path7:before {
+    content: "\e91b";
+    margin-left: -1em;
+    color: rgb(196, 119, 28);
+  }
+  .fileiconeps .path8:before {
+    content: "\e91c";
+    margin-left: -1em;
+    color: rgb(196, 119, 28);
+  }
+  .fileiconeps .path9:before {
+    content: "\e91d";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconeps .path10:before {
+    content: "\e91e";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconeps .path11:before {
+    content: "\e91f";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconFolder .path1:before {
+    content: "\e920";
+    color: rgb(41, 128, 185);
+  }
+  .fileiconFolder .path2:before {
+    content: "\e921";
+    margin-left: -1em;
+    color: rgb(41, 128, 185);
+  }
+  .fileiconFolder .path3:before {
+    content: "\e922";
+    margin-left: -1em;
+    color: rgb(52, 152, 219);
+  }
+  .fileicongif .path1:before {
+    content: "\e923";
+    color: rgb(242, 241, 242);
+  }
+  .fileicongif .path2:before {
+    content: "\e924";
+    margin-left: -1em;
+    color: rgb(208, 208, 211);
+  }
+  .fileicongif .path3:before {
+    content: "\e925";
+    margin-left: -1em;
+    color: rgb(208, 208, 211);
+  }
+  .fileicongif .path4:before {
+    content: "\e926";
+    margin-left: -1em;
+    color: rgb(233, 165, 53);
+  }
+  .fileicongif .path5:before {
+    content: "\e927";
+    margin-left: -1em;
+    color: rgb(209, 139, 23);
+  }
+  .fileicongif .path6:before {
+    content: "\e928";
+    margin-left: -1em;
+    color: rgb(233, 165, 53);
+  }
+  .fileicongif .path7:before {
+    content: "\e929";
+    margin-left: -1em;
+    color: rgb(196, 133, 28);
+  }
+  .fileicongif .path8:before {
+    content: "\e92a";
+    margin-left: -1em;
+    color: rgb(196, 133, 28);
+  }
+  .fileicongif .path9:before {
+    content: "\e92b";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileicongif .path10:before {
+    content: "\e92c";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileicongif .path11:before {
+    content: "\e92d";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconhtml .path1:before {
+    content: "\e92e";
+    color: rgb(241, 241, 242);
+  }
+  .fileiconhtml .path2:before {
+    content: "\e92f";
+    margin-left: -1em;
+    color: rgb(208, 211, 210);
+  }
+  .fileiconhtml .path3:before {
+    content: "\e930";
+    margin-left: -1em;
+    color: rgb(208, 211, 210);
+  }
+  .fileiconhtml .path4:before {
+    content: "\e931";
+    margin-left: -1em;
+    color: rgb(233, 53, 53);
+  }
+  .fileiconhtml .path5:before {
+    content: "\e932";
+    margin-left: -1em;
+    color: rgb(212, 30, 31);
+  }
+  .fileiconhtml .path6:before {
+    content: "\e933";
+    margin-left: -1em;
+    color: rgb(233, 53, 53);
+  }
+  .fileiconhtml .path7:before {
+    content: "\e934";
+    margin-left: -1em;
+    color: rgb(196, 28, 28);
+  }
+  .fileiconhtml .path8:before {
+    content: "\e935";
+    margin-left: -1em;
+    color: rgb(196, 28, 28);
+  }
+  .fileiconhtml .path9:before {
+    content: "\e936";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconhtml .path10:before {
+    content: "\e937";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconhtml .path11:before {
+    content: "\e938";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconhtml .path12:before {
+    content: "\e939";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconjpg .path1:before {
+    content: "\e93a";
+    color: rgb(241, 242, 242);
+  }
+  .fileiconjpg .path2:before {
+    content: "\e93b";
+    margin-left: -1em;
+    color: rgb(208, 211, 210);
+  }
+  .fileiconjpg .path3:before {
+    content: "\e93c";
+    margin-left: -1em;
+    color: rgb(208, 211, 210);
+  }
+  .fileiconjpg .path4:before {
+    content: "\e93d";
+    margin-left: -1em;
+    color: rgb(233, 53, 100);
+  }
+  .fileiconjpg .path5:before {
+    content: "\e93e";
+    margin-left: -1em;
+    color: rgb(233, 33, 85);
+  }
+  .fileiconjpg .path6:before {
+    content: "\e93f";
+    margin-left: -1em;
+    color: rgb(233, 53, 100);
+  }
+  .fileiconjpg .path7:before {
+    content: "\e940";
+    margin-left: -1em;
+    color: rgb(196, 28, 70);
+  }
+  .fileiconjpg .path8:before {
+    content: "\e941";
+    margin-left: -1em;
+    color: rgb(196, 28, 70);
+  }
+  .fileiconjpg .path9:before {
+    content: "\e942";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconjpg .path10:before {
+    content: "\e943";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconjpg .path11:before {
+    content: "\e944";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconmov .path1:before {
+    content: "\e945";
+    color: rgb(241, 242, 241);
+  }
+  .fileiconmov .path2:before {
+    content: "\e946";
+    margin-left: -1em;
+    color: rgb(209, 211, 208);
+  }
+  .fileiconmov .path3:before {
+    content: "\e947";
+    margin-left: -1em;
+    color: rgb(209, 211, 208);
+  }
+  .fileiconmov .path4:before {
+    content: "\e948";
+    margin-left: -1em;
+    color: rgb(173, 53, 233);
+  }
+  .fileiconmov .path5:before {
+    content: "\e949";
+    margin-left: -1em;
+    color: rgb(148, 29, 207);
+  }
+  .fileiconmov .path6:before {
+    content: "\e94a";
+    margin-left: -1em;
+    color: rgb(173, 53, 233);
+  }
+  .fileiconmov .path7:before {
+    content: "\e94b";
+    margin-left: -1em;
+    color: rgb(142, 28, 196);
+  }
+  .fileiconmov .path8:before {
+    content: "\e94c";
+    margin-left: -1em;
+    color: rgb(142, 28, 196);
+  }
+  .fileiconmov .path9:before {
+    content: "\e94d";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconmov .path10:before {
+    content: "\e94e";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconmov .path11:before {
+    content: "\e94f";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconmp3 .path1:before {
+    content: "\e950";
+    color: rgb(241, 241, 242);
+  }
+  .fileiconmp3 .path2:before {
+    content: "\e951";
+    margin-left: -1em;
+    color: rgb(208, 210, 211);
+  }
+  .fileiconmp3 .path3:before {
+    content: "\e952";
+    margin-left: -1em;
+    color: rgb(208, 210, 211);
+  }
+  .fileiconmp3 .path4:before {
+    content: "\e953";
+    margin-left: -1em;
+    color: rgb(233, 89, 53);
+  }
+  .fileiconmp3 .path5:before {
+    content: "\e954";
+    margin-left: -1em;
+    color: rgb(233, 73, 33);
+  }
+  .fileiconmp3 .path6:before {
+    content: "\e955";
+    margin-left: -1em;
+    color: rgb(233, 89, 53);
+  }
+  .fileiconmp3 .path7:before {
+    content: "\e956";
+    margin-left: -1em;
+    color: rgb(196, 62, 28);
+  }
+  .fileiconmp3 .path8:before {
+    content: "\e957";
+    margin-left: -1em;
+    color: rgb(196, 62, 28);
+  }
+  .fileiconmp3 .path9:before {
+    content: "\e958";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconmp3 .path10:before {
+    content: "\e959";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconmp3 .path11:before {
+    content: "\e95a";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconmp4 .path1:before {
+    content: "\e95b";
+    color: rgb(241, 241, 242);
+  }
+  .fileiconmp4 .path2:before {
+    content: "\e95c";
+    margin-left: -1em;
+    color: rgb(208, 211, 210);
+  }
+  .fileiconmp4 .path3:before {
+    content: "\e95d";
+    margin-left: -1em;
+    color: rgb(208, 211, 210);
+  }
+  .fileiconmp4 .path4:before {
+    content: "\e95e";
+    margin-left: -1em;
+    color: rgb(233, 53, 53);
+  }
+  .fileiconmp4 .path5:before {
+    content: "\e95f";
+    margin-left: -1em;
+    color: rgb(212, 30, 31);
+  }
+  .fileiconmp4 .path6:before {
+    content: "\e960";
+    margin-left: -1em;
+    color: rgb(233, 53, 53);
+  }
+  .fileiconmp4 .path7:before {
+    content: "\e961";
+    margin-left: -1em;
+    color: rgb(196, 28, 28);
+  }
+  .fileiconmp4 .path8:before {
+    content: "\e962";
+    margin-left: -1em;
+    color: rgb(196, 28, 28);
+  }
+  .fileiconmp4 .path9:before {
+    content: "\e963";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconmp4 .path10:before {
+    content: "\e964";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconmp4 .path11:before {
+    content: "\e965";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconobj .path1:before {
+    content: "\e966";
+    color: rgb(242, 242, 241);
+  }
+  .fileiconobj .path2:before {
+    content: "\e967";
+    margin-left: -1em;
+    color: rgb(211, 210, 208);
+  }
+  .fileiconobj .path3:before {
+    content: "\e968";
+    margin-left: -1em;
+    color: rgb(211, 210, 208);
+  }
+  .fileiconobj .path4:before {
+    content: "\e969";
+    margin-left: -1em;
+    color: rgb(52, 60, 79);
+  }
+  .fileiconobj .path5:before {
+    content: "\e96a";
+    margin-left: -1em;
+    color: rgb(30, 37, 55);
+  }
+  .fileiconobj .path6:before {
+    content: "\e96b";
+    margin-left: -1em;
+    color: rgb(52, 60, 79);
+  }
+  .fileiconobj .path7:before {
+    content: "\e96c";
+    margin-left: -1em;
+    color: rgb(24, 29, 42);
+  }
+  .fileiconobj .path8:before {
+    content: "\e96d";
+    margin-left: -1em;
+    color: rgb(24, 29, 42);
+  }
+  .fileiconobj .path9:before {
+    content: "\e96e";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconobj .path10:before {
+    content: "\e96f";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconobj .path11:before {
+    content: "\e970";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconpdf .path1:before {
+    content: "\e971";
+    color: rgb(241, 241, 242);
+  }
+  .fileiconpdf .path2:before {
+    content: "\e972";
+    margin-left: -1em;
+    color: rgb(208, 210, 211);
+  }
+  .fileiconpdf .path3:before {
+    content: "\e973";
+    margin-left: -1em;
+    color: rgb(208, 210, 211);
+  }
+  .fileiconpdf .path4:before {
+    content: "\e974";
+    margin-left: -1em;
+    color: rgb(233, 89, 53);
+  }
+  .fileiconpdf .path5:before {
+    content: "\e975";
+    margin-left: -1em;
+    color: rgb(233, 73, 33);
+  }
+  .fileiconpdf .path6:before {
+    content: "\e976";
+    margin-left: -1em;
+    color: rgb(233, 89, 53);
+  }
+  .fileiconpdf .path7:before {
+    content: "\e977";
+    margin-left: -1em;
+    color: rgb(196, 62, 28);
+  }
+  .fileiconpdf .path8:before {
+    content: "\e978";
+    margin-left: -1em;
+    color: rgb(196, 62, 28);
+  }
+  .fileiconpdf .path9:before {
+    content: "\e979";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconpdf .path10:before {
+    content: "\e97a";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconpdf .path11:before {
+    content: "\e97b";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconphp .path1:before {
+    content: "\e97c";
+    color: rgb(241, 242, 241);
+  }
+  .fileiconphp .path2:before {
+    content: "\e97d";
+    margin-left: -1em;
+    color: rgb(209, 211, 208);
+  }
+  .fileiconphp .path3:before {
+    content: "\e97e";
+    margin-left: -1em;
+    color: rgb(209, 211, 208);
+  }
+  .fileiconphp .path4:before {
+    content: "\e97f";
+    margin-left: -1em;
+    color: rgb(173, 53, 233);
+  }
+  .fileiconphp .path5:before {
+    content: "\e980";
+    margin-left: -1em;
+    color: rgb(148, 29, 207);
+  }
+  .fileiconphp .path6:before {
+    content: "\e981";
+    margin-left: -1em;
+    color: rgb(173, 53, 233);
+  }
+  .fileiconphp .path7:before {
+    content: "\e982";
+    margin-left: -1em;
+    color: rgb(142, 28, 196);
+  }
+  .fileiconphp .path8:before {
+    content: "\e983";
+    margin-left: -1em;
+    color: rgb(142, 28, 196);
+  }
+  .fileiconphp .path9:before {
+    content: "\e984";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconphp .path10:before {
+    content: "\e985";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconphp .path11:before {
+    content: "\e986";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconpng .path1:before {
+    content: "\e987";
+    color: rgb(241, 241, 242);
+  }
+  .fileiconpng .path2:before {
+    content: "\e988";
+    margin-left: -1em;
+    color: rgb(208, 209, 211);
+  }
+  .fileiconpng .path3:before {
+    content: "\e989";
+    margin-left: -1em;
+    color: rgb(208, 209, 211);
+  }
+  .fileiconpng .path4:before {
+    content: "\e98a";
+    margin-left: -1em;
+    color: rgb(233, 111, 53);
+  }
+  .fileiconpng .path5:before {
+    content: "\e98b";
+    margin-left: -1em;
+    color: rgb(209, 88, 30);
+  }
+  .fileiconpng .path6:before {
+    content: "\e98c";
+    margin-left: -1em;
+    color: rgb(233, 111, 53);
+  }
+  .fileiconpng .path7:before {
+    content: "\e98d";
+    margin-left: -1em;
+    color: rgb(196, 82, 28);
+  }
+  .fileiconpng .path8:before {
+    content: "\e98e";
+    margin-left: -1em;
+    color: rgb(196, 82, 28);
+  }
+  .fileiconpng .path9:before {
+    content: "\e98f";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconpng .path10:before {
+    content: "\e990";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconpng .path11:before {
+    content: "\e991";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconpsd .path1:before {
+    content: "\e992";
+    color: rgb(242, 242, 241);
+  }
+  .fileiconpsd .path2:before {
+    content: "\e993";
+    margin-left: -1em;
+    color: rgb(211, 210, 208);
+  }
+  .fileiconpsd .path3:before {
+    content: "\e994";
+    margin-left: -1em;
+    color: rgb(211, 210, 208);
+  }
+  .fileiconpsd .path4:before {
+    content: "\e995";
+    margin-left: -1em;
+    color: rgb(53, 167, 233);
+  }
+  .fileiconpsd .path5:before {
+    content: "\e996";
+    margin-left: -1em;
+    color: rgb(30, 145, 212);
+  }
+  .fileiconpsd .path6:before {
+    content: "\e997";
+    margin-left: -1em;
+    color: rgb(53, 167, 233);
+  }
+  .fileiconpsd .path7:before {
+    content: "\e998";
+    margin-left: -1em;
+    color: rgb(28, 133, 196);
+  }
+  .fileiconpsd .path8:before {
+    content: "\e999";
+    margin-left: -1em;
+    color: rgb(28, 133, 196);
+  }
+  .fileiconpsd .path9:before {
+    content: "\e99a";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconpsd .path10:before {
+    content: "\e99b";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconpsd .path11:before {
+    content: "\e99c";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileicontxt .path1:before {
+    content: "\e99d";
+    color: rgb(242, 242, 241);
+  }
+  .fileicontxt .path2:before {
+    content: "\e99e";
+    margin-left: -1em;
+    color: rgb(211, 210, 208);
+  }
+  .fileicontxt .path3:before {
+    content: "\e99f";
+    margin-left: -1em;
+    color: rgb(211, 210, 208);
+  }
+  .fileicontxt .path4:before {
+    content: "\e9a0";
+    margin-left: -1em;
+    color: rgb(52, 60, 79);
+  }
+  .fileicontxt .path5:before {
+    content: "\e9a1";
+    margin-left: -1em;
+    color: rgb(30, 37, 55);
+  }
+  .fileicontxt .path6:before {
+    content: "\e9a2";
+    margin-left: -1em;
+    color: rgb(52, 60, 79);
+  }
+  .fileicontxt .path7:before {
+    content: "\e9a3";
+    margin-left: -1em;
+    color: rgb(24, 29, 42);
+  }
+  .fileicontxt .path8:before {
+    content: "\e9a4";
+    margin-left: -1em;
+    color: rgb(24, 29, 42);
+  }
+  .fileicontxt .path9:before {
+    content: "\e9a5";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileicontxt .path10:before {
+    content: "\e9a6";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileicontxt .path11:before {
+    content: "\e9a7";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconunknown-file .path1:before {
+    content: "\e9a8";
+    color: rgb(241, 242, 242);
+  }
+  .fileiconunknown-file .path2:before {
+    content: "\e9a9";
+    margin-left: -1em;
+    color: rgb(208, 211, 210);
+  }
+  .fileiconxls .path1:before {
+    content: "\e9aa";
+    color: rgb(242, 241, 241);
+  }
+  .fileiconxls .path2:before {
+    content: "\e9ab";
+    margin-left: -1em;
+    color: rgb(211, 208, 208);
+  }
+  .fileiconxls .path3:before {
+    content: "\e9ac";
+    margin-left: -1em;
+    color: rgb(211, 208, 208);
+  }
+  .fileiconxls .path4:before {
+    content: "\e9ad";
+    margin-left: -1em;
+    color: rgb(117, 233, 53);
+  }
+  .fileiconxls .path5:before {
+    content: "\e9ae";
+    margin-left: -1em;
+    color: rgb(93, 209, 30);
+  }
+  .fileiconxls .path6:before {
+    content: "\e9af";
+    margin-left: -1em;
+    color: rgb(117, 233, 53);
+  }
+  .fileiconxls .path7:before {
+    content: "\e9b0";
+    margin-left: -1em;
+    color: rgb(87, 196, 28);
+  }
+  .fileiconxls .path8:before {
+    content: "\e9b1";
+    margin-left: -1em;
+    color: rgb(87, 196, 28);
+  }
+  .fileiconxls .path9:before {
+    content: "\e9b2";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconxls .path10:before {
+    content: "\e9b3";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconxls .path11:before {
+    content: "\e9b4";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconzip .path1:before {
+    content: "\e9b5";
+    color: rgb(241, 242, 241);
+  }
+  .fileiconzip .path2:before {
+    content: "\e9b6";
+    margin-left: -1em;
+    color: rgb(211, 211, 208);
+  }
+  .fileiconzip .path3:before {
+    content: "\e9b7";
+    margin-left: -1em;
+    color: rgb(211, 211, 208);
+  }
+  .fileiconzip .path4:before {
+    content: "\e9b8";
+    margin-left: -1em;
+    color: rgb(101, 53, 233);
+  }
+  .fileiconzip .path5:before {
+    content: "\e9b9";
+    margin-left: -1em;
+    color: rgb(78, 30, 212);
+  }
+  .fileiconzip .path6:before {
+    content: "\e9ba";
+    margin-left: -1em;
+    color: rgb(101, 53, 233);
+  }
+  .fileiconzip .path7:before {
+    content: "\e9bb";
+    margin-left: -1em;
+    color: rgb(73, 28, 196);
+  }
+  .fileiconzip .path8:before {
+    content: "\e9bc";
+    margin-left: -1em;
+    color: rgb(73, 28, 196);
+  }
+  .fileiconzip .path9:before {
+    content: "\e9bd";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconzip .path10:before {
+    content: "\e9be";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .fileiconzip .path11:before {
+    content: "\e9bf";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  

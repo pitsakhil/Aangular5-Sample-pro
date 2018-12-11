@@ -1,0 +1,8 @@
+<span class="ag-header" *ngIf="params?.displayName!=='attachment_icon';else icon" (click)="onSortRequested(params?.column.getColId(),params)">
+    {{'aggrid.'+params?.displayName | translate}}
+    <i class="material-icons icon-18 icon-sort-asc" *ngIf="getSortOrder(params)==='desc'">keyboard_arrow_down</i>
+    <i class="material-icons icon-18 icon-sort-desc" *ngIf="getSortOrder(params)==='asc'">keyboard_arrow_up</i>
+</span>
+<ng-template #icon>
+    <i class="material-icons">attach_file</i>
+</ng-template>

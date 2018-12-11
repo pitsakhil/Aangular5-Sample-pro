@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags-->
+    <title>Scayla</title>
+    <!--Fav Ivon-->
+    <link rel="icon" href="../assets/public/images/favicon.png">
+    <!--Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Bootstrap-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
+    <!--if lt IE 9script(src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
+script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')-->
+</head>
+
+<body class="mobile rem-mini-calendar-active">
+    <!-- Application preloader-->
+    <div class="cssload-container" style="display: block;">
+        <!-- <div class="cssload-speeding-wheel"></div> -->
+        <img alt="loader" class="img-loader" src="./assets/public/images/loader.svg">
+    </div>
+    <!--/ Application preloader-->
+
+
+    <!-- application root component-->
+    <app-root></app-root>
+    <!-- /application root component-->
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            document.querySelector(".cssload-container").style.display = 'none';
+        }, true);
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<div class="boxpanel ht-100">
+    <div class="boxpanel__header">
+        <div class="box-tools">
+            <ul class="toolbars toolbars__black">
+                <li *ngIf="!attachmentsService?.editClick">
+                    <a [class.disabled]="isIconDisabled('add')" href="javascript:void(0)" data-toggle="dropdown" title="{{'tooltip.add' | translate}}">
+                        <i class="material-icons icon-30">add</i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="javascript:void(0)" (click)="selectFile.click()">{{ 'attachments.upload_new_file' | translate }}</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" [class.disabled]="isIconDisabled('create')" (click)="addRecord(1)">{{ 'attachments.create_new_folder' | translate }}</a>
+                        </li>
+                    </ul>
+                    <input #selectFile type="file" multiple [class.hidden]="true" (change)="addRecord(2,selectFile)" />
+                </li>
+                <li *ngIf="!attachmentsService?.editClick">
+                    <a [class.disabled]="isIconDisabled('edit')" (click)="onIconClicked('edit')" title="{{'tooltip.edit' | translate}}">
+                        <i class="material-icons icon-30">edit</i>
+                    </a>
+                </li>
+                <li *ngIf="attachmentsService?.editClick">
+                    <a title="{{'tooltip.close' | translate}}" (click)="isConfirm('close',pop_up)">
+                        <i class="material-icons icon-30">close</i>
+                    </a>
+                </li>
+                <li *ngIf="attachmentsService?.editClick">
+                    <a [class.disabled]="isIconDisabled('update')" (click)="onIconClicked('update')" title="{{'tooltip.save' | translate}}">
+                        <i class="material-icons icon-30">save</i>
+                    </a>
+                </li>
+                <li>
+                    <a [class.disabled]="isIconDisabled('delete')" (click)="isConfirm('delete',pop_up)" title="{{'tooltip.delete' | translate}}">
+                        <i class="material-icons icon-30">delete</i>
+                    </a>
+                </li>
+                <li>
+                    <a [class.disabled]="isIconDisabled('download')" (click)="onIconClicked('download')" title="{{'tooltip.download' | translate}}">
+                        <i class="material-icons icon-30">cloud_download</i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="toolbars toolbars__black">
+                <li class="title">
+                    <a href="javascript:void(0)">{{ 'attachments.title' | translate }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="boxpanel__body no-padding overflow-x">
+        <div class="form-full-width attachment-height-lg">
+            <app-attachments-tree-grid></app-attachments-tree-grid>
+        </div>
+    </div>
+</div>
+<!-- Modals here -->
+<div>
+    <a class="attachment-popup hidden" data-toggle="modal" data-target="#attachment_confirm_popup" #pop_up>pop_up</a>
+    <app-popup-modal [title]=" attachmentsService?.popUpTitle" buttonName="resetpassword.Ok" (confirm)="handleConfirm($event)"
+        class="modal" id="attachment_confirm_popup" role="dialog"></app-popup-modal>
+</div>

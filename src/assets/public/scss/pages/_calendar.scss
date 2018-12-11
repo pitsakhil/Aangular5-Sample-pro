@@ -1,0 +1,2232 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+@import '../utils/extend';
+@import '../moduleengine';
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+.calendarList-bullet {
+    width: 8px;
+    height: 8px;
+    float: left;
+    @include border-radius(100%);
+    margin-right: 10px;
+    margin-top: 5px;
+    flex-shrink: 0;
+
+    &-big {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        @include border-radius(100%);
+        background: $primary-red;
+        margin-right: 10px;
+    }
+}
+
+.calendarList-bullet+.calendarList-bullet {
+    display: none;
+}
+
+:host {
+    display: block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.dhx_cal_container.dhx-cal-main {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    font-size: 13px !important; // min-height: 1260px;
+}
+
+.scyala-calander {
+    .dhx_save_btn_set {
+        border: 1px solid $primary-blue;
+        color: $primary-white;
+        text-shadow: none;
+        background-color: $primary-blue;
+    }
+
+    .dhx_cal_event_line {
+        font-family: "TeXGyreHeros-Regular";
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .dhx_btn_set,
+    .dhx_btn_set div {
+        height: 30px;
+        padding: 0 20px;
+        line-height: 26px;
+    }
+
+    .dhx_cal_header {
+        border: 0px !important;
+    }
+
+    .dhx_scale_holder {
+        border-right: 1px solid $dhmlx-default-color;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+
+        &:first-child {
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                height: 1px;
+                background: $dhmlx-default-color;
+            }
+        }
+    }
+
+    .dhx_scale_hour {
+        border-bottom: 1px solid rgba(151, 151, 151, 0);
+    }
+
+    .dhx_month_body {
+        border-right: 1px solid $dhmlx-default-color;
+        border-bottom: 1px solid $dhmlx-default-color;
+    }
+
+    .dhx_month_head {
+        border-right: 1px solid $dhmlx-default-color;
+        font-size: 13px;
+    }
+
+    .dhx_scale_holder_now {
+        border-right: 1px solid $dhmlx-default-color;
+    }
+
+    .modal {
+        top: 0px !important
+    }
+
+    .label-field {
+        .ng-pristine {
+            border: 0px !important;
+            width: 149px;
+        }
+    }
+
+    .scale-week-date {
+        font-size: $primary-font-large-heading;
+        color: $primary-black;
+    }
+
+    .current-cell {
+        .scale-week-date {
+            color: $primary-red;
+        }
+    }
+
+    .scale-week-day {
+        font-size: $primary-font-heading;
+        margin-top: 6px;
+        color: $primary-dark-grey;
+    }
+
+    .dhx_scale_hour {
+        font-size: $primary-font;
+        color: $primary-dark-grey;
+    }
+
+    .scale-week,
+    .scale-week-day,
+    .scale-week-date {
+        border: none !important;
+    }
+
+    .scale-week {
+        border: none !important;
+    }
+
+    .scale-week {
+        &-day {
+            border: none !important;
+        }
+
+        &-date {
+            border: none !important;
+        }
+    }
+
+    .dhx_ {
+        &cal_header {
+            border-color: transparent;
+        }
+
+        &scale_bar {
+            border-color: transparent;
+        }
+
+        &scale_hour {
+            border-color: transparent;
+        }
+    }
+
+    .dhx_cal_navline {
+        display: none;
+    }
+
+    .week_number_inner {
+        margin: 12px 20px;
+        width: 75px;
+        height: 75px;
+        border: 1px solid $dhmlx-default-color;
+        @include border-radius(100%);
+        text-align: center;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .week_number_inner {
+        .week_number_value {
+            font-size: $font-size-h3;
+            line-height: 100%;
+            color: $primary-black;
+        }
+    }
+
+    .week_number_inner {
+        .week_number_label {
+            font-size: $font-size-h3;
+            line-height: 100%;
+            color: $primary-dark-grey;
+            text-transform: uppercase;
+        }
+    }
+
+    .week_number_inner {
+        &.current-cell {
+            .week_number_label {
+                color: $primary-red;
+            }
+        }
+    }
+
+    .controls {
+        text-align: right;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    .controls {
+        input {
+            border: 0;
+            background: transparent;
+            padding: 5px;
+        }
+    }
+
+    .controls {
+        input {
+            &:hover {
+                background: $dhmlx-default-color;
+            }
+        }
+    }
+
+    .dhx_cal_header {
+        border-bottom: 1px solid $dhmlx-default-color;
+
+        div {
+            div {
+                border-left: 0px solid $dhmlx-default-color;
+            }
+        }
+    }
+
+    .dhx_cal_data {
+        border-top: 1px solid transparent;
+    }
+
+    .scale-week {
+        padding-top: 0px;
+    }
+
+    .scale-week-day {
+        color: $primary-dark-grey;
+    }
+
+    .current-cell {
+        .scale-week-date {
+            color: $primary-red;
+        }
+    }
+
+    .dhx_scale_hour {
+        color: $primary-dark-grey;
+    }
+
+    .current-cell-wrap {
+        margin-top: -2px;
+    }
+
+    .dhx_cal_container {
+        font-family: "TeXGyreHeros-Regular";
+        -webkit-font-smoothing: antialiased;
+        font-size: 13px !important;
+    }
+
+    .dhx_cal_container {
+        &.dhx_mini_calendar {
+            border-bottom: 3px solid $secondary-grey !important;
+        }
+    }
+
+    .datepicker-input {
+        .mydp {
+            width: 100% !important;
+        }
+    }
+
+    .modal-select {
+        .ui-select-container {
+            &.dropdown {
+                height: 25px !important;
+            }
+        }
+    }
+
+    .modal-ng-select {
+        .modal-select {
+            span {
+                &.form-control {
+                    &.ui-select-toggle {
+                        height: 15px !important;
+                        line-height: 12px;
+                        padding-left: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+    .dhx_scheduler_day {
+        .dhx_scale_holder_now {
+            border-top: 1px solid $dhmlx-default-color;
+            border-bottom: 1px solid $dhmlx-default-color;
+            box-sizing: border-box;
+        }
+
+        .dhx_scale_bar {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: $font-size-h3;
+            color: $primary-black;
+        }
+    }
+
+    .dhx_scheduler_week {
+        .dhx_cal_data {
+            &:after {
+                position: absolute;
+                background: $dhmlx-default-color;
+                top: 0;
+                left: 120px;
+                width: calc(100% - 137px);
+                height: 1px;
+                content: '';
+            }
+        }
+    }
+
+    .dhx_scheduler_month {
+        .dhx_cal_data {
+            border: 1px solid $dhmlx-default-color;
+            border-right: 2px solid $dhmlx-default-color;
+            box-sizing: border-box;
+            border-bottom: 0px;
+        }
+
+        .dhx_cal_data.dhx_move_denied {
+            // min-height: 1157px;
+            height: calc(100vh - 310px) !important;
+        }
+    }
+
+    my-date-picker {
+        display: block;
+    }
+
+    .mydp {
+        .selectiongroup {
+            width: 100%;
+            display: block !important;
+        }
+    }
+
+    .calendar-ins-border {
+        border-bottom: 1px solid $primary-light-grey-seprator !important;
+        @include border-radius(0px !important);
+    }
+
+    .dhx_drag_marker {
+        background-color: rgba(255, 232, 99, 0) !important;
+        border-top: 1px solid rgba(182, 182, 182, 0) !important;
+        border-bottom: 1px solid rgba(182, 182, 182, 0) !important;
+    }
+
+    .dhx_calendar_click {
+        background-color: rgb(0, 85, 255) !important;
+    }
+
+    .dhx_scale_bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-family: "TeXGyreHeros-Regular";
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .add-account-modal {
+        min-height: 358px;
+        padding-bottom: 10px !important;
+
+        .form-default {
+            margin: 0px;
+            text-align: left;
+            width: 100% !important;
+            font-size: 13px !important;
+            height: 16px
+        }
+    }
+
+    ng-select {
+        width: 100%;
+
+        span {
+            padding-left: 0px !important;
+            text-align: left;
+
+            &.ui-select-match-text {
+                margin-top: -3px;
+                pointer-events: none;
+            }
+        }
+
+        .c-angle-down {
+            right: 0px !important;
+        }
+    }
+
+    .modal-body {
+        ul {
+            &.list-block {
+                >li {
+                    width: 65%;
+                    min-height: 15px;
+                    height: auto !important;
+
+                    &:first-child {
+                        width: 25%;
+                    }
+                }
+            }
+        }
+    }
+
+    .dhx_body {
+        @include border-radius(0px);
+        cursor: pointer;
+    }
+
+    .dhx_multi_day_icon_small {
+        border: 0px;
+    }
+
+    .dhx_event_move.dhx_title {
+        @include border-radius(0px);
+        height: 20px;
+        font-size: 13px;
+    }
+
+    .dhx_event_move.dhx_title div {
+        display: none;
+    }
+
+    .custom-app-select {
+        app-select {
+            width: 100%;
+        }
+    }
+
+    .form-serch-location {
+        padding-left: 0px;
+        padding: 0px;
+        height: 15px;
+    }
+
+    .mydp .selbtngroup {
+        width: auto;
+        float: right;
+        position: relative;
+        z-index: 999;
+
+        button {
+            cursor: pointer;
+            top: 0px;
+
+            &:hover {
+                background-color: rgba(255, 232, 99, 0);
+            }
+
+            i {
+                line-height: 12px;
+            }
+        }
+    }
+
+    .dhx_multi_day_icon {
+        border: 0px;
+    }
+
+    .ngSelect-fullWidth {
+        ul.ui-select-choices.dropdown-menu {
+            width: 100%;
+            max-width: 100%;
+            min-width: 100%;
+        }
+    }
+
+    .form-notes {
+        color: $primary-black;
+        word-break: break-all;
+        overflow: auto;
+        pointer-events: all;
+        margin-top: 2px;
+        font-size: 13px;
+    }
+
+    .ui-select-choices-row.active>a {
+        pointer-events: none;
+    }
+
+    .calendar-form-overflow {
+        max-height: calc(100vh - 250px);
+        overflow-y: auto;
+    }
+
+    .form-default-textarea {
+        min-height: 50px;
+        overflow-x: auto;
+        max-height: auto;
+        margin-top: 0px !important;
+        line-height: 18px;
+    }
+
+    .location-full-width {
+        position: relative;
+
+        .form-serch-location {
+            padding-right: 25px;
+            min-height: 19px;
+        }
+
+        .location-close {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: -1px;
+            display: none;
+        }
+
+        .show-close {
+            display: inline-block;
+        }
+
+        i.material-icons {
+            line-height: 12px;
+            font-size: 16px !important;
+        }
+    }
+
+    .form-edite-scroll {
+        max-height: calc(100vh - 240px);
+        overflow-y: auto;
+    }
+
+    ul.box-tools-list li.title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .modal ul.unstyled-list>li a {
+        cursor: default;
+    }
+
+    .list-block .label-field label {
+        margin-top: 3px;
+        margin-bottom: 0px;
+    }
+
+    scayla-select {
+        width: 100%;
+    }
+
+    .col-flex {
+        scayla-select {
+            width: 100%;
+
+            .settings-text {
+                min-height: 16px;
+            }
+
+            span.data-val {
+                min-width: 12px;
+            }
+        }
+    }
+
+    .pure-checkbox label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .datepicker-modify {
+        .mydp {
+            height: 15px !important;
+            border: 0px;
+        }
+
+        .selbtngroup {
+            height: 0px !important;
+        }
+    }
+
+    .selected-list .c-btn {
+        min-height: 0px !important;
+
+        .settings-text {
+            line-height: 16px;
+        }
+    }
+
+    .formgroup__inputfield input[type="text"] {
+        height: 14px !important;
+        padding-bottom: 1px;
+    }
+
+    .disabled .c-btn,
+    .form-disabled .c-btn,
+    .form-disabled .form-default,
+    .form-disabled .btnpicker.btnpickerenabled,
+    .form-disabled input[type="text"] {
+        padding-top: 1px;
+        color: #333333 !important;
+    }
+
+    .formgroup-auto {
+        height: auto;
+    }
+
+    .mydp {
+        * {
+            font-family: "TeXGyreHeros-Regular";
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .selectedmonth .monthvalue {
+            color: $black;
+            font-size: 13px;
+        }
+
+        .selectedday .datevalue {
+            span {
+                color: $white !important;
+            }
+        }
+
+        .selector {
+            z-index: 9999;
+            top: 5px;
+            border: 1px solid $primary-light-grey-seprator;
+
+            tr {
+                td {
+                    div {
+                        span {
+                            font-family: "TeXGyreHeros-Regular";
+                            -webkit-font-smoothing: antialiased;
+                            color: #333333;
+                            font-size: 13px;
+                        }
+
+                        &.currmonth.tablesingleday {
+                            span {
+                                color: $white !important;
+                            }
+                        }
+
+                        &.datevalue.prevmonth {
+                            span {
+                                color: $dark-grey !important;
+                            }
+                        }
+
+                        &.datevalue.nextmonth {
+                            span {
+                                color: $dark-grey !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .headerbtn {
+            background: $light-grey-tb;
+
+            &:focus {
+                color: $black;
+            }
+
+            &:hover {
+                color: $primary-black;
+            }
+        }
+
+        .headerlabelbtn {
+            background: $light-grey-tb;
+            color: $primary-black;
+            font-size: 13px;
+
+            &:focus {
+                color: $black;
+            }
+
+            &:hover {
+                color: $primary-black;
+            }
+        }
+
+        .yearchangebtn {
+            background: $light-grey-tb;
+
+            &:focus {
+                color: $black;
+            }
+        }
+
+        table.header {
+            border: 0px;
+        }
+
+        .yeartable {
+            border: 0px !important;
+        }
+
+        table.caltable {
+            border: 0px !important;
+        }
+    }
+
+    .selected-list .c-list .c-token {
+        max-width: 90% !important;
+    }
+
+    .selected-list .c-list {
+        width: 100% !important;
+    }
+
+    .dhx_cal_event .dhx_footer,
+    .dhx_cal_event .dhx_select_menu_footer {
+        background: none;
+    }
+
+    .dhx_event_resize.dhx_footer {
+        background-color: rgba(255, 255, 255, 0) !important;
+    }
+
+    .dhx_cal_event_clear {
+        font-family: "TeXGyreHeros-Regular";
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .datepicker-input .mydp {
+        height: 19px !important;
+    }
+
+    span.data-val span {
+        width: 80% !important;
+        line-height: 16px !important;
+    }
+
+    .dhx_scale_holder .dhx_cal_event .dhx_body {
+        overflow: hidden;
+    }
+
+    .calendar-toolbar-responsive {
+        li {
+            &.text-bold {
+                a {
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    .formgroup__valiadtion-ios {
+        .modal-validate {
+            position: absolute;
+            width: 100%;
+            left: 0px;
+        }
+    }
+
+    .mydp .caltable,
+    .mydp .monthtable,
+    .mydp .yeartable,
+    .mydp .daycell,
+    .mydp .monthcell,
+    .mydp .yearcell {
+        color: $black;
+        background: $light-grey-tb;
+        font-size: 13px;
+    }
+}
+
+.no-padding-r {
+    padding-right: 0px !important;
+}
+
+.aggrid-treview-remove-p {
+    .ag-row-group-leaf-indent {
+        margin-left: 0px;
+    }
+}
+
+.aggrid-treview-remove-p {
+    .ag-row-group-leaf-indent {
+        margin-left: 0px;
+    }
+}
+
+.calendar-days-align {
+    float: right;
+}
+
+.calendar-days-align {
+    li {
+        width: auto !important;
+    }
+}
+
+.calendar-days-align {
+    li {
+        &:last-child {
+            margin-left: 15px;
+        }
+    }
+}
+
+.calendar-days-align {
+    .days-navigation {
+        li {
+            input[type="button"] {
+                color: $primary-black;
+            }
+        }
+    }
+}
+
+.calendar-days-align {
+    li {
+        input[type="button"] {
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            font-size: 13px !important;
+            font-weight: bold !important;
+            color: $primary-dark-grey;
+            cursor: pointer;
+            background: rgba(151, 151, 151, 0);
+        }
+    }
+}
+
+.mr-left {
+    margin-left: 15px;
+}
+
+.arrow-mr-right {
+    margin-right: 5px;
+}
+
+.arrow-mr-left {
+    margin-left: 5px;
+}
+
+.row-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .row-flex-noMargin {
+        margin-top: 0px;
+    }
+}
+
+.row-flex-left {
+    @extend .row-flex;
+    justify-content: flex-start;
+}
+
+.row-flex-columns {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .field-min-height {
+        min-height: 20px;
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+
+        .btn-options {
+            position: relative;
+            top: 3px;
+        }
+
+        .ng-value {
+            font-weight: 400;
+            background-color: $primary-white;
+            @include border-radius(0px);
+            color: $primary-black;
+            padding: 0px 0px;
+            font-size: 13px;
+            position: relative;
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-bottom: 0px;
+            margin-right: 10px;
+        }
+
+        &:last-child {
+            margin-bottom: 5px;
+            align-items: flex-start;
+        }
+
+        app-select {
+            width: 100%;
+        }
+
+        .ng-select .ng-value-label {
+            display: inline-block;
+            min-height: 15px;
+            max-width: 277px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 5px;
+        }
+
+        .ng-select-dropdown-outer .ng-select-dropdown .ng-option.marked {
+            margin-top: 0;
+            border-top: 0px solid $secondary-grey;
+            word-break: normal;
+        }
+
+        span.ng-option-label {
+            padding: 3px 0px;
+        }
+
+        .ng-value-icon {
+            width: 5px;
+            height: 5px;
+        }
+    }
+
+    .ng-clear-zone {
+        display: none;
+    }
+}
+
+.col-flex {
+    width: 90px;
+    flex-shrink: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .modal-select {
+        width: 100%;
+        height: 16px;
+    }
+}
+
+.col-flex-date-width {
+    width: 149px;
+    flex-shrink: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.col-flex-separator {
+    width: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    flex-shrink: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.row-flex {
+    &.chk-box-align {
+        margin-top: 0px;
+    }
+
+    .selectiongroup {
+        height: 15px;
+    }
+}
+
+.col-flex-hrs {
+    width: 30px;
+    margin-right: 5px;
+    flex-shrink: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.col-flex-input-100 {
+    width: 100% !important;
+}
+
+.scayla-mini-calendar {
+    position: relative;
+    background: $secondary-grey;
+
+    .dhx_cal_container {
+        &.dhx_mini_calendar {
+            padding: 0px;
+
+            .dhx_calendar_click {
+                background: $primary-blue !important;
+                color: $primary-white;
+            }
+
+            .dhx_year_week {
+                height: 26px !important;
+                background: $primary-blue !important;
+                border: 0px !important;
+                margin: 10px 0px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+                width: 100%;
+            }
+
+            .dhx_scale_bar {
+                height: 26px !important;
+                background: $primary-blue !important;
+                color: $primary-white;
+                padding: 0px;
+                border: 0px !important;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: $primary-font;
+                margin-left: 0px;
+                width: 100% !important;
+                flex-grow: 0;
+                position: static;
+                justify-content: center;
+                font-family: "TeXGyreHeros-Regular";
+                -webkit-font-smoothing: antialiased;
+
+                &:first-child {
+                    margin-left: 0px;
+                }
+            }
+
+            .dhx_month_head {
+                font-size: 13px;
+                width: 20px;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                height: 20px;
+                line-height: 9px;
+            }
+
+            .dhx_now {
+                .dhx_month_head {
+                    background: $primary-blue !important;
+                    color: $primary-white !important;
+                    @include border-radius(6px !important);
+
+                    &.dhx_year_event {
+                        position: relative;
+                        background: $primary-blue !important;
+                        color: $primary-white !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .dhx_cal_container {
+        .dhx_year_month {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 15px;
+            padding-left: 25px;
+            padding-top: 9px;
+
+            .dhx_cal_next_button {
+                background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAATElEQVR4AWOAgFHAycBBinIuhl0MO0jRosrwiuE/aVp0yNHymlQtuqRr0Wf4BdSygVjlTAzTgcp/MHgMKeWI8PkBVk4C8ABCisAoAAB5ZR4T0a+Z/QAAAABJRU5ErkJggg==') !important;
+                left: 86px !important;
+                top: 2px !important;
+                position: absolute;
+                background-size: 26px !important;
+                background-repeat: no-repeat !important;
+            }
+
+            .dhx_cal_prev_button {
+                background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAZCAQAAACWALYfAAAACXBIWXMAAAsTAAALEwEAmpwYAAADGGlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjaY2BgnuDo4uTKJMDAUFBUUuQe5BgZERmlwH6egY2BmYGBgYGBITG5uMAxIMCHgYGBIS8/L5UBFTAyMHy7xsDIwMDAcFnX0cXJlYE0wJpcUFTCwMBwgIGBwSgltTiZgYHhCwMDQ3p5SUEJAwNjDAMDg0hSdkEJAwNjAQMDg0h2SJAzAwNjCwMDE09JakUJAwMDg3N+QWVRZnpGiYKhpaWlgmNKflKqQnBlcUlqbrGCZ15yflFBflFiSWoKAwMD1A4GBgYGXpf8EgX3xMw8BSMDVQYqg4jIKAUICxE+CDEESC4tKoMHJQODAIMCgwGDA0MAQyJDPcMChqMMbxjFGV0YSxlXMN5jEmMKYprAdIFZmDmSeSHzGxZLlg6WW6x6rK2s99gs2aaxfWMPZ9/NocTRxfGFM5HzApcj1xZuTe4FPFI8U3mFeCfxCfNN45fhXyygI7BD0FXwilCq0A/hXhEVkb2i4aJfxCaJG4lfkaiQlJM8JpUvLS19QqZMVl32llyfvIv8H4WtioVKekpvldeqFKiaqP5UO6jepRGqqaT5QeuA9iSdVF0rPUG9V/pHDBYY1hrFGNuayJsym740u2C+02KJ5QSrOutcmzjbQDtXe2sHY0cdJzVnJRcFV3k3BXdlD3VPXS8Tbxsfd99gvwT//ID6wIlBS4N3hVwMfRnOFCEXaRUVEV0RMzN2T9yDBLZE3aSw5IaUNak30zkyLDIzs+ZmX8xlz7PPryjYVPiuWLskq3RV2ZsK/cqSql01jLVedVPrHzbqNdU0n22VaytsP9op3VXUfbpXta+x/+5Em0mzJ/+dGj/t8AyNmf2zvs9JmHt6vvmCpYtEFrcu+bYsc/m9lSGrTq9xWbtvveWGbZtMNm/ZarJt+w6rnft3u+45uy9s/4ODOYd+Hmk/Jn58xUnrU+fOJJ/9dX7SRe1LR68kXv13fc5Nm1t379TfU75/4mHeY7En+59lvhB5efB1/lv5dxc+NH0y/fzq64Lv4T8Ffp360/rP8f9/AA0ADzT6lvFdAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAACaSURBVHjajNPBDYMwDIXhH5A6BsrA7RC0PTBGJ0FmEnOgARPsgM+fIuflpcGfBAgo8SQEIYGiAUwIiiKkCGWiKE8fWfKl9ZAlH1pvpxM5I0veKymRS44oIBZZMliyowrZ0W8jM48yNu+kkc5HVRbd7sDinAyrJb6x+tv92VULRrqomQW708zXdccn+hitbKLPOzUhU+b875YBANrYwJ7SzCnHAAAAAElFTkSuQmCC') !important;
+                left: 10px !important;
+                top: 8px !important;
+                position: absolute;
+                background-size: 10px !important;
+                background-repeat: no-repeat !important;
+            }
+
+            .mini-moth {
+                font-size: 13px;
+                color: $primary-black;
+            }
+
+            .calendar-year {
+                font-size: 13px;
+            }
+        }
+
+        &.dhx_mini_calendar {
+            .dhx_month_head {
+                height: 20px !important;
+
+                &.active-mini-calendar {
+                    background-color: $dark-blue !important;
+                    border-radius: 6px;
+                    -webkit-border-radius: 6px;
+                    -moz-border-radius: 6px;
+                    -ms-border-radius: 6px;
+                    -o-border-radius: 6px;
+                    color: $primary-white !important;
+
+                    &:hover {
+                        background: $dark-blue !important;
+                        color: $primary-white !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .dhx_month_head {
+        &:hover {
+            background: $primary-hover-grey !important;
+            @include border-radius(6px);
+        }
+
+        &.dhx_year_event {
+            &:hover {
+                background-color: $primary-hover-grey !important;
+                color: $primary-white;
+            }
+        }
+    }
+
+    .dhx_calendar_click {
+        &:hover {
+            background: $primary-hover-grey !important;
+            @include border-radius(6px);
+        }
+    }
+
+    .dhx_year_body {
+        >table {
+            width: 100%;
+            margin: 0 auto;
+
+            tr {
+                height: 35px;
+            }
+        }
+    }
+
+    .dhx_now {
+        .dhx_month_body {
+            @extend %dhxbodyAndhead;
+        }
+
+        .dhx_month_head {
+            @extend %dhxbodyAndhead;
+        }
+    }
+
+    .dhx_month_head.dhx_year_event {
+        background-color: $primary-white !important;
+        color: $primary-black !important;
+    }
+
+    .dhx_cal_container.dhx_mini_calendar .dhx_month_head.dhx_year_event.active-mini-calendar {
+        color: $primary-white !important;
+        background: $primary-blue !important;
+    }
+
+    .dhx_mini_calendar .dhx_month_head {
+        color: $primary-black !important;
+    }
+
+    .mini-calendar-custom-head {
+        height: 35px;
+        background: $primary-white;
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 15px 0px 0px;
+
+        .miniCalendar-year {
+            color: $primary-dark-grey;
+        }
+    }
+
+    .calendar-year {
+        color: $primary-dark-grey;
+    }
+
+    .dhx_cal_container.dhx_mini_calendar {
+        .dhx_after {
+            pointer-events: none;
+
+            .dhx_month_head {
+                color: $primary-dark-grey !important;
+
+                &:hover {
+                    background: $white !important;
+                }
+
+                &.active-mini-calendar {
+                    background: rgba(0, 0, 0, 0) !important;
+                }
+            }
+        }
+    }
+
+    .dhx_cal_container.dhx_mini_calendar {
+        .dhx_before {
+            pointer-events: none;
+
+            .dhx_month_head {
+                color: $primary-dark-grey !important;
+
+                &:hover {
+                    background: $white !important;
+                }
+
+                &.active-mini-calendar {
+                    background-color: transparent !important;
+                    color: $primary-dark-grey !important;
+                }
+            }
+        }
+    }
+
+    .mini-calender-navigation-wrap {
+        display: flex;
+        align-items: center;
+        color: $primary-black;
+    }
+}
+
+.textbox-wrap {
+    border-bottom: 1px solid $secondary-grey;
+    margin-bottom: 10px;
+
+    .eventname-text-box {
+        width: 100%;
+        min-height: 47px;
+        font-size: $primary-font-heading;
+        padding: 5px 23px;
+        border: 0px;
+        color: $primary-black;
+        font-weight: 400;
+    }
+
+    .eventNameValidation {
+        margin-left: 23px;
+    }
+}
+
+.event-modal-fileds-warp {
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: .0625em solid $secondary-grey;
+
+    .mydp .selectorarrow {
+        z-index: 99999999;
+    }
+}
+
+// MINICALENDAR
+.mincalendar-modified {
+    float: left;
+    padding: 0px;
+    width: 100%;
+    margin-bottom: 3px;
+    @extend %noselect;
+
+    .minicalendar-main {
+        width: 100%;
+
+        .dhx_mini_calendar {
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 0px !important;
+        }
+    }
+
+    .dhx_year_body {
+        width: 100%;
+    }
+
+    tbody {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+}
+
+.box-panel {
+    .box-panel-index {
+        z-index: 3;
+    }
+}
+
+.visibility-align {
+    float: right;
+    margin-right: 15px;
+    margin-top: 0px;
+
+    i {
+        font-size: 15px;
+        display: none;
+    }
+}
+
+.calendar-list-wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .ag-row-hover:hover {
+        .visibility-align {
+            i {
+                display: block;
+            }
+        }
+    }
+
+    .toggle-icon-show {
+        display: block !important;
+        color: $primary-dark-grey;
+    }
+
+    .ag-menu-option>span {
+        padding: 0px;
+    }
+
+    .ag-menu-list {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        display: block;
+
+        .ag-menu-option {
+            display: block;
+            line-height: 23px;
+            padding: 0px 20px;
+            font-size: 13px;
+
+            &:hover {
+                background: $primary-blue;
+                color: $primary-white;
+            }
+        }
+    }
+
+    .ag-layout-normal .ag-body-container {
+        width: 100% !important;
+    }
+
+    .ag-layout-normal .ag-body-viewport {
+        width: 100%;
+    }
+
+    .aggrid-table {
+        width: 100%;
+    }
+
+    .ag-header.ag-pivot-off {
+        display: none;
+    }
+
+    .ag-body {
+        top: 0px !important;
+    }
+}
+
+.col-flex-input-100 {
+    text-align: center;
+}
+
+.field-block-left-margin {
+    margin-left: 29px;
+}
+
+.dhx_multi_day {
+    border-top: 0px;
+}
+
+.current-cell-disabled {
+    display: none;
+}
+
+.remove-wn-disable {
+    .current-cell-disabled {
+        display: flex !important;
+    }
+}
+
+.remove-wn-disable {
+    .wndisabled {
+        display: none !important;
+    }
+}
+
+.aggrid-inputs {
+    .ag-cell-edit-input {
+        color: $primary-black !important;
+        padding: 2px 5px;
+    }
+}
+
+.aggrid-inputs {
+    .ag-cell-edit-input:focus {
+        color: $primary-black !important;
+    }
+}
+
+.calendar-list-mini-calWrap {
+    height: calc(100vh - 130px);
+
+    .calendar-list-title {
+        color: $primary-dark-grey;
+        font-size: 13px;
+    }
+
+    .ag-row.ag-row-no-focus.ag-row-even.ag-row-no-animation.ag-row-group.ag-row-level-0.ag-row-group-expanded .calendar-list-wrap .calendar-list-title {
+        color: $primary-black !important;
+        font-size: 13px;
+    }
+
+    .calendar-list-heading {
+        .calendar-list-title {
+            color: $primary-black !important;
+            font-size: 13px;
+            width: auto !important;
+        }
+    }
+
+    .ag-body-container {
+        .ag-row:first-child {
+            .ag-cell .material-icons {
+                cursor: pointer;
+            }
+        }
+    }
+
+    #navtree {
+        height: calc(100vh - 154px) !important;
+    }
+
+    .aggrid-table .btn-options {
+        position: relative;
+        top: -6px;
+    }
+}
+
+// .ag-row.ag-row-even.ag-row-no-animation.ag-row-group.ag-row-level-0.ag-row-group-expanded.ag-row-focus {
+//     .ag-cell.ag-cell-not-inline-editing.text-muted.ag-str-cell.ag-cell-value.ag-cell-focus .text-ellips:not(.ag-row-selected) {
+//         color: #333 !important;
+//         font-size: 14px;
+//     }
+// }
+.calendar-days-align {
+    .days-navigation {
+        li {
+            &:last-child {
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+.calendar-toggle-color {
+    li {
+        &.active {
+            input[type="button"] {
+                color: $primary-black;
+            }
+        }
+    }
+}
+
+img {
+    &.img-form-loader {
+        width: 24px;
+        vertical-align: top;
+        display: inline-block;
+        margin-top: 2px;
+    }
+}
+
+.event_one {
+    &:after {
+        color: $primary-blue !important;
+        content: ".";
+        position: absolute;
+        left: -1px;
+        bottom: 16px;
+        width: 100%;
+        height: 0;
+        font-size: 37px;
+        letter-spacing: -3px;
+        font-family: serif;
+    }
+}
+
+.event_two {
+    &:after {
+        color: $primary-blue !important;
+        content: "..";
+        position: absolute;
+        left: -1px;
+        bottom: 16px;
+        height: 0;
+        font-size: 37px;
+        letter-spacing: -3px;
+        font-family: serif;
+        width: 100%;
+    }
+}
+
+.event_three {
+    &:after {
+        color: $primary-blue !important;
+        content: "...";
+        position: absolute;
+        left: -1px;
+        bottom: 16px;
+        height: 0;
+        font-size: 37px;
+        letter-spacing: -3px;
+        font-family: serif;
+        width: 100%;
+    }
+}
+
+.calendar-dots-warp {
+    display: flex;
+    position: absolute;
+    bottom: -6px;
+    width: 100%;
+    justify-content: center;
+    left: 0px;
+    flex-shrink: 0;
+
+    span {
+        width: 6px;
+        height: 6px;
+        @include border-radius(100%);
+        background: $primary-red;
+        display: inline-block;
+        margin: 0 0;
+        flex-shrink: 0;
+        transform: scale(0.6);
+    }
+}
+
+// custom mini header
+#mini_calendar_one {
+    .dhx_year_month {
+        display: none;
+    }
+
+    .dhx_cal_container {
+        &.dhx_mini_calendar .dhx_year_week {
+            margin-top: 0px;
+        }
+    }
+}
+
+.calendar-error-msg {
+    .validation-error {
+        &.validation-msg {
+            color: $primary-red;
+            font-size: 13px;
+            float: left;
+            width: 149px;
+            margin: 2px 0px 10px 0px;
+            clear: both;
+        }
+    }
+}
+
+.calendar-list-wrap {
+    .cal-add-warp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 17px;
+        height: 17px;
+        margin: 11px 0px 0px 7px;
+        @include border-radius(100%);
+        background: $primary-green;
+
+        .cal-list-add {
+            color: $primary-white;
+            font-weight: 500;
+            font-size: 18px;
+            padding: 0px 0px 1px;
+            box-sizing: border-box;
+            display: block;
+        }
+    }
+
+    .calendar-list-wrap {
+        span.calendar-list-title {
+            width: 159px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            line-height: 26px;
+        }
+    }
+
+    .ag-group-contracted>.material-icons {
+        margin-top: -4.5px;
+    }
+
+    .aggrid-table .ag-group-value {
+        height: 100%;
+    }
+
+    .ag-bl-center-row.ag-bl-normal-center-row {
+        width: 100%;
+    }
+}
+
+.pac-container {
+    &.pac-logo {
+        z-index: 9999999 !important;
+
+        &:after {
+            content: "";
+            background-image: none !important;
+        }
+    }
+}
+
+.rem-mini-calendar-active .mincalendar-modified .dhx_year_body .dhx_calendar_click {
+    background: $primary-white !important;
+    color: $primary-black;
+}
+
+body .main-block .mincalendar-modified .dhx_year_body {
+    .active-mini-calendar {
+        background: $primary-blue !important;
+        color: $primary-white;
+        @include border-radius(6px !important);
+    }
+
+    td {
+        &.dhx_before {
+            .active-mini-calendar {
+                background: $primary-white !important;
+                @include border-radius(6px !important);
+            }
+        }
+
+        &.dhx_after {
+            .active-mini-calendar {
+                background: $primary-white !important;
+                @include border-radius(6px !important);
+            }
+        }
+    }
+}
+
+// .scyala-calander .dhx_cal_data{
+//     box-sizing: border-box;
+// }
+.ag-grid-inputs .ag-cell-inline-editing .ag-cell-edit-input {
+    border: 1px solid $primary-light-grey-seprator;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.scyala-calander .viewmode .selected-list .c-btn .settings-text {
+    line-height: 20px;
+}
+
+.scyala-calander .formgroup-alignment span.data-val span {
+    margin-top: 2px;
+}
+
+.viewmode .formgroup__inputfield input[type="text"] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.viewmode .formgroup__inputfield .col-flex-separator {
+    color: $black;
+}
+
+@media all and (-ms-high-contrast:none) {
+    .calendar-list-wrap .cal-add-warp {
+        margin: 11px 0px 0px 7px;
+    }
+
+    .calendar-list-wrap .cal-add-warp .cal-list-add {
+        font-size: 15px;
+        padding: 4px 0px 2px;
+    }
+
+    // .ng-value-container{
+    //    display: block !important;
+    // }
+    .ng-select.ng-multiple .ng-control .ng-value-container .ng-input {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: columns;
+        flex-direction: columns;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 100%;
+    }
+
+    .ng-select .ng-control .ng-value-container .ng-input>input {
+        height: 15px;
+    }
+}
+
+.ag-menu-option {
+    cursor: pointer;
+}
+
+.ag-menu-option-disabled {
+    pointer-events: none;
+    color: $primary-light-grey-seprator;
+}
+
+.form-disabled {
+    pointer-events: none;
+    color: $primary-light-grey-seprator;
+
+    .calendar-ins-border {
+        border-bottom: 0px !important;
+    }
+
+    .form-control {
+        border-bottom: 0px !important;
+    }
+
+    .ng-value-icon {
+        display: none;
+    }
+
+    .eventname-text-box {
+        color: $primary-black;
+    }
+
+    .form-serch-location {
+        margin-bottom: 10px;
+    }
+
+    i.icon-blue {
+        display: none;
+    }
+
+    i {
+        pointer-events: none;
+
+        &.form-save {
+            color: $primary-light-grey-seprator;
+        }
+    }
+
+    .location-close {
+        display: none !important;
+    }
+
+    @extend .disabled;
+
+    ul.list-block>li.field-value {
+        margin-top: 1px;
+    }
+
+    .row-flex,
+    .row-flex-left {
+        margin-top: 1px;
+    }
+
+    .textbox-wrap .eventname-text-box {
+        text-overflow: ellipsis;
+    }
+
+    .c-btn .c-list .c-remove {
+        display: none;
+    }
+
+    .datepicker-input .mydp {
+        height: 18px !important;
+    }
+}
+
+.ng-full-width {
+    width: 100%;
+}
+
+.calendar-click-disabled {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    z-index: 9;
+    opacity: 0;
+}
+
+.ui-select-choices-row>a.dropdown-item div {
+    white-space: normal;
+    word-break: break-word;
+}
+
+.settings-ng-select-fix {
+    .ui-select-match-text {
+        pointer-events: none;
+    }
+
+    .ui-select-choices-row.active>a {
+        pointer-events: none;
+    }
+}
+
+.icon-success {
+    text-align: center;
+    display: block;
+    font-size: 80px;
+    margin-bottom: 12px;
+    color: $primary-green !important;
+}
+
+.mydp .selection {
+    font-size: 13px !important;
+}
+
+.dhx_cal_container .dhx_multi_day {
+    border: 0px;
+}
+
+.dhx_cal_cover {
+    position: fixed;
+    height: 100% !important;
+}
+
+.selected-list .c-btn {
+    line-height: 16px !important;
+}
+
+// .form-control[disabled],
+// .form-control[readonly],
+// fieldset[disabled] .form-control {
+//     cursor: default;
+// }
+.ag-menu {
+    min-height: 152px;
+}
+
+.aggrid-treeview .ag-body-container,
+.aggrid-listitem .ag-body-container,
+.aggrid-treeview-bg .ag-body-container {
+    min-height: 155px
+}
+.ag-grid-inputs  .ag-row-no-focus .ag-cell{
+    width: 100% !important;
+}
+.ag-grid-inputs  .ag-row-selected .ag-cell{
+    width: 100% !important;    
+}
+.ag-grid-inputs .ag-row-focus .ag-cell{
+    width: 100% !important;  
+}
+@media not all and (min-resolution:.001dpcm) {
+    .scyala-calander .formgroup__inputfield input[type="text"] {
+        height: 18px !important;
+        padding-bottom: 1px;
+    }
+
+    .scyala-calander .add-account-modal .form-default {
+        height: 18px;
+    }
+
+    .form-control[disabled],
+    .form-control[readonly],
+    fieldset[disabled] .form-control {
+        color: $black !important;
+        -webkit-text-fill-color: $black !important;
+    }
+
+    .viewmode span.data-val span {
+        line-height: 19px !important;
+    }
+
+    .viewmode .datepicker-input .mydp {
+        height: 21px !important;
+    }
+
+    .viewmode .formgroup__inputfield input[type="text"] {
+        height: 20px !important;
+    }
+
+    .viewmode .add-account-modal .form-default {
+        height: 20px;
+    }
+
+    .viewmode .mydp .selbtngroup button {
+        top: 3px;
+    }
+
+    .viewmode .selected-list .c-btn .settings-text {
+        line-height: 20px;
+    }
+
+    .viewmode .formgroup-alignment span.data-val span {
+        margin-top: 0px;
+    }
+
+    .viewmode .formgroup__inputfield input[type="text"] {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .ag-grid-inputs .ag-cell-inline-editing .ag-cell-edit-input {
+        min-height: 20px;
+    }
+
+    // .viewmode {
+    //     background: pink;
+    // }
+}
+
+@media only screen and (max-width:1024px) {
+    .modal-dialog.modal-add-account {
+        width: calc(100% - 20px) !important;
+        margin: 10px auto;
+    }
+
+    .col-flex-date-width {
+        width: 100%;
+        flex-shrink: 1;
+    }
+
+    .scyala-calander .modal {
+        top: 0px !important;
+    }
+
+    .dhx_cal_container.dhx-cal-main {
+        width: 1024px;
+        overflow: visible;
+    }
+
+    .scyala-calander {
+        overflow: auto;
+        height: calc(100vh - 200px);
+    }
+
+    .col-flex {
+        width: 65px;
+    }
+
+    .col-flex-hrs {
+        width: 20px;
+    }
+
+    span.data-val span {
+        width: 77% !important;
+    }
+
+    .map-top-40 {
+        top: 40px;
+    }
+
+    .scyala-calander .modal-dialog.modal-add-account {
+        top: 40px;
+    }
+
+    .calendar-toolbar-responsive {
+        li {
+            &.text-bold {
+                width: auto !important;
+            }
+        }
+    }
+
+    .scyala-calander .add-account-modal .form-default {
+        top: -4px;
+    }
+    .scyala-calander .hours-format-width span.data-val span {
+        max-width: 38px !important;
+    }
+
+    @supports (-webkit-overflow-scrolling: touch) {
+        .scyala-calander .formgroup__inputfield input[type="text"] {
+            height: 12px !important;
+            line-height: 1.42857143;
+            vertical-align: middle;
+            overflow: visible;
+            background-image: none;
+            display: block;
+        }
+
+        .scyala-calander .col-flex scayla-select .settings-text {
+            min-height: 17px;
+        }
+
+        .location-text {
+            display: block;
+            padding-bottom: 0px;
+            line-height: 1.3333;
+            background-image: none;
+            overflow: visible !important;
+            min-height: 20px !important;
+            padding-bottom: 3px;
+            line-height: normal !important;
+        }
+
+        .scyala-calander .disabled .formgroup__inputfield input[type="text"] {
+            margin-top: -2px;
+        }
+
+        .scyala-calander .dhx_scheduler_week .dhx_cal_data:after {
+            width: calc(100% - 120px);
+        }
+
+        .scyala-calander .mydp .selector {
+            overflow: auto;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+        }
+
+        .calendar-list .ag-cell-inline-editing .ag-cell-edit-input {
+            min-height: 30px;
+        }
+
+        .scyala-calander .formgroup__inputfield input[type="text"] {
+            height: 18px !important;
+            padding-bottom: 1px;
+            overflow: auto;
+            line-height: 1.333;
+        }
+
+        .scyala-calander .mydp .selbtngroup button i {
+            line-height: 15px;
+        }
+
+        .form-disabled .scyala-calander .add-account-modal .form-default {
+            top: -2px;
+        }
+
+        .ag-grid-inputs .ag-cell-inline-editing .ag-cell-edit-input {
+            border: 1px solid $primary-light-grey-seprator;
+            min-height: 20px !important;
+            box-shadow: none !important;
+            border-radius: 0px;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            -ms-border-radius: 0px;
+            -o-border-radius: 0px;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .scyala-calander .minute-width span.data-val span {
+            width: 40px !important;
+        }
+
+        .scyala-calander .form-disabled span.data-val span {
+            line-height: 18px !important;
+        }
+
+
+    }
+}
+
+// Ipad fix
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {
+    .scyala-calander .formgroup__inputfield input[type="text"] {
+        height: 18px !important;
+        padding-bottom: 1px;
+        overflow: auto;
+        line-height: 1.333;
+    }
+}
+
+// Iphone X
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    .scyala-calander .form-edite-scroll {
+        max-height: calc(100vh - 250px) !important;
+        overflow-y: auto;
+    }
+    .scyala-calander .viewmode .add-account-modal .form-default{
+        top: 0px;
+    }
+    .scyala-calander .viewmode .formgroup__inputfield input[type="text"],  {
+        height: 25px !important;
+    }
+    .scyala-calander .viewmode span.data-val span{
+        height: 25px !important;
+        margin-top: 1px;
+    }
+    
+}
+
+// Iphone X landscape
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation:landscape) {
+    .scyala-calander .form-edite-scroll {
+        max-height: calc(100vh - 100px) !important;
+        overflow-y: auto;
+    }
+}
+
+// Iphone 7 potrate
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-device-pixel-ratio: 2) {
+    .scyala-calander .form-edite-scroll {
+        max-height: calc(100vh - 180px) !important;
+        overflow-y: auto;
+    }
+    .scyala-calander .viewmode .add-account-modal .form-default{
+        top: 0px;
+    }
+    .scyala-calander .viewmode .formgroup__inputfield input[type="text"],  {
+        height: 25px !important;
+    }
+    .scyala-calander .viewmode span.data-val span{
+        height: 25px !important;
+        margin-top: 1px;
+    }
+}
+
+@media only screen and (max-width:999px) {
+    @media screen and (orientation: landscape) {
+        .mobile-modal-scroll {
+            overflow: auto;
+            height: calc(100vh - 95px);
+        }
+
+        .calendar-list-potrate {
+            min-height: 300px;
+        }
+
+        .calender-potrate-view {
+            min-height: 300px;
+        }
+
+        .modal-ss {
+            .title-trim {
+                a {
+                    @include truncate(70px);
+                }
+            }
+        }
+    }
+
+    .scyala-calander .form-edite-scroll {
+        max-height: calc(100vh - 95px);
+        overflow-y: auto;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .show-days-ipad {
+        display: block !important;
+
+        .hide-md {
+            display: block !important;
+        }
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .modal-expanded {
+        .mobile-text-trim {
+            @include truncate(70px);
+        }
+    }
+
+    .modal-ss {
+        .mobile-text-trim {
+            @include truncate(70px);
+        }
+    }
+}
+
+@media only screen and (max-width:430px) {
+    .modal-body ul.list-block>li {
+        margin-right: 10px;
+    }
+
+    .scyala-calander .mydp .selector {
+        left: -39px;
+    }
+}

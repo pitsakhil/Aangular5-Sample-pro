@@ -1,0 +1,279 @@
+.formwrap {
+    width: 100%;
+    padding-right: 10px;
+}
+
+.formgroup {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+
+    @include element('label') {
+        width: 32%;
+        margin-right: 14px;
+        font-size: 13px !important;
+        line-height: 13px;
+        position: relative;
+        line-height: 22px;
+
+        label,
+        a {
+            display: block;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            color: #999999;
+            font-weight: normal;
+            margin: 0;
+        }
+    }
+
+    @include element('inputfield') {
+        width: 62.5%;
+        display: flex;
+        position: relative;
+        font-size: $font-size-h4;
+        height: 34px;
+
+        label {
+            font-weight: normal;
+        }
+
+        .label-flex {
+            display: flex;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            @include form-input(100%, 13px);
+            height: 16px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        scayla-select,
+        app-showhidecontainer {
+            width: 100%
+        }
+
+        a > span{
+            width:calc(100% - 40px);
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
+    @include element('textarea') {
+        width: 62.5%;
+        position: relative;
+        font-size: 13px !important;
+        display: table-cell;
+
+        textarea {
+            width: 100% !important;
+            max-height:85px !important;
+            min-height: 85px;
+        }
+    }
+    @include element('min-height'){
+        min-height: 32px;
+    }
+    @include element('block') {
+        display: block;
+        width: 62.5%;
+        min-height: 34px;
+    }
+
+}
+
+.formgroup.formgroup--block{
+    display: block;
+    .formgroup__inputfield, .formgroup__label{
+        display: inline-block;
+        vertical-align: text-top;
+    }
+    .infobox-label{
+        float: right;
+    }
+
+    .infobox-span{
+        width: 100%;
+        float: right;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: -4px;
+        padding-right: 20px;
+    }
+
+    .validation-error{
+        position: relative;
+        top:0;
+    }
+    
+}
+
+.formcontrol {
+    @include element('input') {
+        @include formcontrol-input(100%, 16px, 25px);
+    }
+}
+
+.input {
+    @include element('h3') {
+        font-size: $font-size-h3;
+        line-height: 20px;
+        padding-bottom: 5px;
+    }
+
+    @include element('h4') {
+        font-size: $font-size-h4;
+        line-height: 16px;
+        padding-bottom: 5px;
+    }
+
+    // @include element('description') {
+    //     margin-left: 100px;
+    //     width: calc(100% - 100px);
+    // }
+}
+
+.description-field {
+    padding-left: 100px;
+    min-height: 25px;
+    line-height: 25px;
+    margin-top: 5px;
+
+    >p {
+        line-height: 16px;
+        word-wrap: break-word;
+    }
+}
+
+// .form-input{
+//     @include form-input(100%, 18px);
+// }
+.disabled {
+
+    .formgroup__inputfield input[type="text"],
+    .formgroup__inputfield input[type="password"] {
+        border: none;
+        border: 0;
+        color: #333;
+    }
+}
+
+#settings {
+    .form-input-text {
+        width: 100%;
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #CACACA;
+        padding-left: 0px;
+        line-height: 12px;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    #companySettings{
+        .form-input-text{
+            width: calc(100% - 35px);
+        }
+    }
+
+    .category-form {
+        .form-input-text {
+            width: calc(100% - 25px);
+        }
+    }
+}
+
+.form_group_textarea {
+    height: auto !important;
+    min-height: 34px;
+}
+
+.validation-error-bottom {
+    bottom: 0px !important;
+}
+
+.form-dropdown-menu {
+    top: 15px;
+}
+
+.showall-checkox-align {
+    position: absolute;
+    right: 15px;
+    top: 0px;
+}
+
+.formcontrol__input.input__h3 {
+    height: 28px;
+}
+
+
+.metadata-form .formgroup__inputfield{
+    height: auto !important;
+}
+
+@media screen and (max-width:480px){
+    .formgroup.formgroup--block{
+        .formgroup__inputfield{
+            width: 58.5%;
+            height: auto;
+            min-height: 34px;
+        }
+    }
+}
+
+
+#settings{
+    .formgroup.formgroup--block{
+        display: block;
+        min-height: 42px;
+        .formgroup__inputfield{
+            width: 58.5%;
+            height: auto;
+            min-height: 34px;
+
+           input{
+               height:auto;
+           }
+        }
+    }
+    .formgroup{
+        .formgroup__inputfield{
+            input[type="text"], input[type="password"]{
+                height: 22px;
+            }
+        }
+    }
+
+    .form-dropdown-menu{
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .resetpassword{
+        .material-icons.icon-password-req{
+            margin-top: -1px;
+            position: absolute;
+            right: 0;
+        }
+    }
+}
+
+.input-visible-hidden{
+    position: absolute;
+    left: 29px;
+    visibility: hidden;
+    top: 0;
+    width: auto;
+    opacity: 0;
+
+   
+}

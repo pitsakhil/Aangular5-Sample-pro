@@ -1,0 +1,10 @@
+<div class="dynamic-field form-input" [formGroup]="group" [class.disabled]="disabled">
+    <label [title]="copy.field_title">{{ copy.field_title }}</label>
+    <ng-select [items]="items" (removed)="removed($event)" (data)="refreshValue($event)" [title]="titlePatchValue" [class.grey]="isGray"
+        [placeholder]="copy.field_placeholder" *ngIf="copy && dataLoaded else other_content" required='false' [formControlName]="copy.field_name"
+        [attr.data-test-id]="getCurrentModule()+'-select-'+ copy.field_name + '-'+ formindex">
+    </ng-select>
+    <ng-template #other_content>
+        <img class="img-form-loader" src="./assets/public/images/loader.svg" alt="loader">
+    </ng-template>
+</div>

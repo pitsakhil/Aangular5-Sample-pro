@@ -1,0 +1,70 @@
+<!-- File Attachment Block -->
+<section class="fileupload" *ngIf="progress?.count">
+    <div class="fileupload__header" (click)="hideDown()">
+        <ul class="fileupload__progress fileupload__bg">
+            <li class="pull-left">
+                <i class="material-icons">cloud_upload</i>
+            </li>
+            <li class="upload-details">
+                <span class="total-upload">{{progress?.count}}</span> <span title="{{ 'attachments.files uploading' | translate
+            }}">{{ 'attachments.files uploading' | translate
+                }}....</span>
+                <span class="total-percent">({{progress?.upload}}%)</span>
+            </li>
+            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': progress.upload + '%'}" aria-valuenow="{ progress?.upload }"
+                aria-valuemin="0" aria-valuemax="100"></div>
+        </ul>
+    </div>
+    <div class="fileupload__body" [hidden]="!!isHide">
+        <ul class="fileupload__body__header">
+            <li class="fileupload__bg">
+                <div class="filename-block">
+                    <span>
+                        <img src="./assets/public/images/extension-icons/unknown_file.svg" />
+                    </span> <span title="{{ 'attachments.all_files' | translate }}">{{ 'attachments.all_files' | translate }}</span>
+                </div>
+                <div class="fileoption">
+                    <ul class="fileoption__progess">
+                        <li class="fileoption__txt">({{progress?.upload}}%)</li>
+                        <li class="fileoption__svg">
+                            <round-progress [current]="progress?.upload" [max]="100" [color]="'#004E70'" [background]="'#D9EDF7'"
+                                [radius]="9" [stroke]="9" [semicircle]="false" [rounded]="false" [clockwise]="true"
+                                [responsive]="false" [duration]="200" [animation]="'easeInOutBounce'" [animationDelay]="0"
+                                (onRender)="doSomethingWithCurrentValue($event)"></round-progress>
+                        </li>
+                        <li (click)="allCancel(queue)">
+                            <i class="material-icons cancel-icon">cancel</i>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li *ngFor="let item of queue | async" class="fileupload__bg">
+                <div class="filename-block">
+                    <span [innerHtml]="getIconTemplate(item['file'])"></span> <span title="{{ item?.file?.file_name }}">{{ item?.file?.file_name }}</span>
+                </div>
+                <div class="fileoption">
+                    <ul class="fileoption__progess">
+                        <li *ngIf="!item.isSuccess()" class="fileoption__txt">{{ item.progress + '%' }}</li>
+                        <li class="fileoption__txt" *ngIf="item.isSuccess()">
+                            <span class="tag tag-success"><i class="material-icons success-icon">done</i></span>
+                        </li>
+                        <li class="fileoption__txt" *ngIf="item.isError()">
+                            <span class="tag tag-danger">Error</span>
+                        </li>
+                        <li *ngIf="!item.isSuccess()" class="fileoption__svg">
+                            <round-progress [current]="item.progress" [max]="100" [color]="'#004E70'" [background]="'#D9EDF7'"
+                                [radius]="9" [stroke]="9" [semicircle]="false" [rounded]="false" [clockwise]="true"
+                                [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0"
+                                (onRender)="doSomethingWithCurrentValue($event)"></round-progress>
+                        </li>
+                        <li *ngIf="!item.isSuccess()" (click)="itemCancel(item)">
+                            <i class="material-icons cancel-icon">cancel</i>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</section>

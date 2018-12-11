@@ -1,0 +1,16 @@
+.btn-options,span.relative{
+    .material-icons {
+        font-size: 21px;
+        &.icon-blue{
+            margin-top: -10px;
+            margin-left: 5px;
+        }
+    }
+}
+
+i.material-icons.icon-flag.icon-blue{
+    width: 22px;
+    display: inline-block;
+    margin-left: 5px;
+}
+

@@ -1,0 +1,71 @@
+<div class="content-box col-24 profile-edit">
+    <div class="col-me-12">
+        <!-- CARD GOES HERE -->
+        <div class="card align-center">
+            <div class="card__thumbnail card__thumbnail--field">
+                <img class="thumbnail__image image-md right" src="./assets/public/images/user-img.png" [attr.data-test-id]="getCurrentModule()+'-file-img-0'">
+            </div>
+
+            <div class="card__body">
+                <div class="content">
+                    <div class="first-field">
+                        <div class="form-inline-block">
+                            <div appDynamicFields [config]="copy['salutation']['fields']" [group]="group" [formindex]="0"></div>
+                        </div>
+                        <div class="form-inline-block">
+                            <div appDynamicFields [config]="copy['title']['fields']" [group]="group" [formindex]="0"></div>
+                        </div>
+                    </div>
+                    <div class="second-field">
+                        <div class="form-input-field">
+                            <div appDynamicFields [config]="copy['first_name']['fields']" [group]="group" [formindex]="0"></div>
+                        </div>
+                        <div class="form-input-field">
+                            <div appDynamicFields [config]="copy['second_name']['fields']" [group]="group" [formindex]="0"></div>
+                        </div>
+                        <div class="form-input-field">
+                            <div appDynamicFields [config]="copy['last_name']['fields']" [group]="group" [formindex]="0"></div>
+                        </div>
+                    </div>
+                    <div class="third-field">
+                        <div appDynamicFields [config]="copy['company_label']['fields']" [group]="group" [formindex]="0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--//CARD ENDS HERE -->
+    </div>
+</div>
+
+
+<div class="content-box col-24 profile-view">
+        <div class="col-me-12">
+            <!-- CARD GOES HERE -->
+            <div class="card align-center">
+                <div class="card__thumbnail card__thumbnail--field">
+                    <img class="thumbnail__image image-md right" src="./assets/public/images/user-img.png" >
+                </div>
+    
+                <div class="card__body">
+                    <div class="content">
+                        <div class="first-field">
+                            <div class="dynamic-field form-input">
+                                <input type="text" [value]="getTitle(group?.value)">
+                            </div>
+                        </div>
+                        <div class="second-field text-title ">
+                            <div class="dynamic-field form-input">
+                                <input type="text" value="{{copy['first_name']['fields']['field_value']+' '+copy['second_name']['fields']['field_value']+' '+copy['last_name']['fields']['field_value']}}">
+                            </div>
+                        </div>
+                        <div class="third-field">
+                            <div class="dynamic-field form-input">
+                                <input type="text" value="{{group?.value['company_label']}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//CARD ENDS HERE -->
+        </div>
+    </div>

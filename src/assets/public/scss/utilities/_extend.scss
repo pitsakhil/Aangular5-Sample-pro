@@ -1,0 +1,39 @@
+%form-label{
+    color: #999999;
+    text-align: right;
+    word-break: break-word;
+    font-weight: normal;
+    font-size: 13px;
+    margin-right: 20px;
+    width: 114px;
+    display: block;
+    float: left;
+    margin-left: 48px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: -1px;
+}
+
+
+%form-input{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #CACACA;
+    padding-left: 0px;
+    line-height: 12px;
+    padding: 0;
+    margin-top: -0.5px;
+    font-size: 13px;
+    box-shadow: none;
+    width: 149px;
+    display: block;
+    float:left;
+    color:#333;
+}
+
+%ng-option{
+    padding: 4px;
+    margin-left: -10px;
+    margin-right: -10px;
+}

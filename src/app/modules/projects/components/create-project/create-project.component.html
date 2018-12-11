@@ -1,0 +1,129 @@
+<div class="column-large--{{toggleService.getGridVal()}} ht-fixed-100 maincontent">
+    <div class="boxpanel boxpanel_h100 boxpanel__boxshadow boxpanel__toggleicons">
+        <div class="boxpanel__header">
+            <div class="box-panel-icon-lefmenushow navbar-toggle-btn" *ngIf="!toggleService.checkGridActive('navbar')">
+                <app-navbar-toggle [gridType]="'navbar'"></app-navbar-toggle>
+            </div>
+            <div class="box-panel-icon-lefmenushow navbar-overlay-btn" *ngIf="!toggleService.checkGridActive('navbaroverlay')">
+                <app-navbar-toggle [gridType]="'navbaroverlay'"></app-navbar-toggle>
+            </div>
+            <div class="box-panel-header">
+                <div class="box-tools">
+                    <ul class="toolbars toolbars__black">
+                        <li>
+                            <a title="{{'tooltip.close' | translate}}" class="jq-close" href="javascript:void(0)" data-toggle="modal" (click)="pageExit(projectForm,leavePageCheck)">
+                                <i class="material-icons icon-30">close</i>
+                            </a>
+                        </li>
+
+                        <li *ngIf="projectForm">
+                            <a title="{{'tooltip.save' | translate}}" class="jq-edit-project" href="javascript:void(0)" [class.disabled]="!projectForm.valid||attachmentsService?.allDisable"
+                                (click)="saveProject(projectForm,createProjectVariable.isApiComplete)">
+                                <i class="material-icons icon-30">save</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="{{'tooltip.flag' | translate}}" (click)="setPriority(createProjectVariable)">
+                                <i class="material-icons icon-30" [class.icon-light-red]="!!createProjectVariable.isPriority">flag</i>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="toolbars toolbars__black ui-tabs">
+                        <li class="text-bold tab">
+                            <a href="javascript:void(0)">{{'project.projects' | translate}}</a>
+                        </li>
+                        <li>
+                            <a #leavePageCheck data-toggle="modal" data-target="#leave_page"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box-panel-icon-rightmenushow rightbar-toggle-btn" *ngIf="!toggleService.checkGridActive('rightbar')">
+                <app-navbar-toggle [gridType]="'rightbar'"></app-navbar-toggle>
+            </div>
+            <div class="box-panel-icon-rightmenushow rightbar-overlay-btn" *ngIf="!toggleService.checkGridActive('rightbaroverlay')">
+                <app-navbar-toggle [gridType]="'rightbaroverlay'"></app-navbar-toggle>
+            </div>
+        </div>
+
+        <div class="boxpanel__body no-padding box-height-lg height-auto-mobile">
+
+            <div *ngIf="projectForm; else loader" class="me-ng-select--custom">
+                <form [formGroup]="projectForm">
+                    <div class="content-panel content-padding__horizontal">
+                        <div class="col-12">
+                            <!-- CARD GOES HERE -->
+                            <div class="card align-center">
+                                <div class="card__thumbnail card__thumbnail--field">
+                                    <img class="thumbnail__image right" src="./assets/public/images/user-images/1.png">
+                                </div>
+
+                                <div class="card__body">
+                                    <div class="content">
+                                        <div>
+                                            <input formControlName="name" class="formcontrol__input input__h3" type="text" [title]="'project.projectName' | translate"
+                                                maxlength="255" [placeholder]="'project.projectName' | translate">
+                                            <input formControlName="short_name" class="formcontrol__input input__h4" type="text" [title]="'project.shortName' | translate"
+                                                [placeholder]="'project.shortName' | translate" maxlength="12">
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--//CARD ENDS HERE -->
+                        </div>
+                    </div>
+
+                    <div class="content-panel content-padding__horizontal">
+                        <div class="col-12">
+                            <div class="formwrap-aligned">
+                                <div class="formgroup">
+                                    <div class="formgroup__label text-right">
+                                        <label>{{'project.projectNumber' | translate}}</label>
+                                    </div>
+                                    <div class="formgroup__inputfield project_input-width">
+                                        <input class="formcontrol__input input__h4 no-border" type="text" [value]="null" disabled>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Description fields -->
+                    <div class="content-panel content-padding__horizontal">
+                        <div appDynamicFields [formindex]="0" [config]="createProjectVariable.config['data'][4]" [group]="projectForm"></div>
+                    </div>
+                    <!-- // Description fields -->
+
+                </form>
+            </div>
+
+
+            <div class="content-panel">
+                <div class="s-boxbody">
+                    <app-attachments (attachmentSaved)="attachmentUploaded()"></app-attachments>
+                </div>
+            </div>
+            <ng-template #loader>
+                <div class="box-panel">
+                    <div class="box-panel-body">
+                        <app-loader></app-loader>
+                    </div>
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="column-fixed--5 rightbar ht-fixed-100" [class.gridfixed-dp-none]="!toggleService.checkGridActive('rightbaroverlay')"
+    [class.grid-dp-none]="!toggleService.checkGridActive('rightbar')">
+
+    <app-create-metadata [documentId]="createProjectVariable.documentId" [moduleId]="createProjectVariable.moduleId" (saveMetadata)="getMetadata($event)"
+        [isFlag]="isFlag"></app-create-metadata>
+</div>
+<app-popup-modal [title]="createProjectVariable.confirmMessageKey$" buttonName="resetpassword.Ok" (confirm)="handleConfirm($event)"
+    class="modal fade" id="leave_page" role="dialog"></app-popup-modal>

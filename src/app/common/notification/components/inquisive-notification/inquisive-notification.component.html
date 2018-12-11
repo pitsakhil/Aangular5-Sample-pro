@@ -1,0 +1,6 @@
+<div class="inquisive-notification-wrapper" [ngClass]="position" data-test-id="app-notification">
+    <app-notification *ngFor="let a of notifications; let i = index" [item]="a" [timeOut]="timeOut" [clickToClose]="clickToClose"
+        [maxLength]="maxLength" [showProgressBar]="showProgressBar" [pauseOnHover]="pauseOnHover" [theClass]="theClass" [rtl]="rtl"
+        [animate]="animate" [position]="i">
+    </app-notification>
+</div>

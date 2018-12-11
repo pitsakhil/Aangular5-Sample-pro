@@ -1,0 +1,23 @@
+<div class="boxpanel boxpanel__boxshadow boxpanel__h100">
+
+    <div class="boxpanel__header toolbar">
+        <div class="box-tools nav nav-tabs">
+            <ul class="toolbars toolbars__black pull-right">
+                <li class="rightbar-toggle-btn">
+                    <app-navbar-toggle [gridType]="'rightbar'"></app-navbar-toggle>
+                </li>
+                <li class="rightbar-overlay-btn">
+                    <app-navbar-toggle [gridType]="'rightbaroverlay'"></app-navbar-toggle>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="scrollable" class="boxpanel__body box-height-lg no-padding">
+        <app-metadata *ngIf="documentId" [documentId]="documentId" [moduleId]="moduleId" [updateDocumentId]="updateDocumentId"
+            [isFlag]="isFlag">
+        </app-metadata>
+        <app-quicknotes *ngIf="documentId" [documentId]="documentId"></app-quicknotes>
+    </div>
+
+</div>

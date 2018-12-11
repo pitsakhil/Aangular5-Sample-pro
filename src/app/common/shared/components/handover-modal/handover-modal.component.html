@@ -1,0 +1,73 @@
+<div class="modal-dialog modal-medium">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <form class="form-modern" [formGroup]="addHandOverForm" (ngSubmit)="submitForm(addHandOverForm)">
+      <div class="modal-header">
+        <ul class="toolbars toolbars__black">
+          <li>
+            <a class="closeModal" id="modalClose" data-dismiss="modal" (click)="closeModal()" data-test-id="handover-btn-close">
+              <i class="material-icons icon-30 closeHandover" title="{{'tooltip.close' | translate}}">close</i>
+            </a>
+          </li>
+          <li>
+            <a>
+              <i class="material-icons icon-30 form-save" (click)="submitbtn.click()" title="{{'tooltip.save' | translate}}"
+                data-test-id="oudetailview-btn-savenode" [class.disabled]="!addHandOverForm.valid || disableSave">send</i>
+            </a>
+          </li>
+          <li  class="text-bold">
+              <a  title="{{'aggrid.newHandover' | translate}}" class="default mobile-text-trim">{{'aggrid.newHandover'|translate}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-body modal-default metadata-form-wrap ">
+
+        <div class="formwrap formwrap-nopadding modal-from-wrap">
+
+          <div class="formgroup">
+            <div class="formgroup__label text-right">
+              <label>{{'aggrid.HandoverTo'|translate}}</label>
+            </div>
+            <div class="formgroup__inputfield">
+              <scayla-select data-test-id="calendar-list-selectbox" [data]="metadataVariables?.responsibleData"
+                formControlName="handover_to" [settings]="singleDropdown">
+              </scayla-select>
+            </div>
+          </div>
+          <div class="formgroup">
+            <div class="formgroup__label text-right">
+              <label>{{'aggrid.Deadline'|translate}}</label>
+            </div>
+
+            <div class="formgroup__inputfield formgroup__inputfield_width">
+              <div class="dp-flex dp-flex-center handover-modal-time">
+                <div class="datepicker__block date-picker-custom">
+                  <my-date-picker class="datepicker-me datepicker-input datepicker-modify" [options]="myOptions"
+                    (dateChanged)="onDateChanged($event)" formControlName="deadline_date"></my-date-picker>
+                </div>
+                <input class="timepick" id="appt-time" type="time" name="appt-time" value="timeInput" formControlName="deadline_time">
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="formgroup">
+            <div class="formgroup__label text-right">
+              <label>{{'metadata.text'|translate}}</label>
+            </div>
+            <div class="formgroup__textarea nomargin formgroup__inputfield form_group_textarea">
+              <div>
+                <textarea class="form-control form-default form-default-textarea" formControlName="notes" name="notes"
+                  id="notes" maxlength="250"></textarea>
+              </div>
+              <div class="form-notes">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button #submitbtn class="submitbtn hidden" type="submit"></button>
+    </form>
+  </div>
+</div>

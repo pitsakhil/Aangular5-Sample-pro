@@ -1,0 +1,6 @@
+<div class="column-fixed--4 navbar ht-fixed-100" [class.grid-dp-none]="!toggleService.checkGridActive('navbar')"
+[class.gridfixed-dp-none]="!toggleService.togglePanelOptions.navbaroverlay">
+    <app-project-treeview ></app-project-treeview>
+</div>
+<router-outlet></router-outlet>
+<app-inquisive-notification data-test-id="dashboard-notification-popup" [options]="options" (onCreate)="onCreate($event)" (onDestroy)="onDestroy($event)"></app-inquisive-notification>

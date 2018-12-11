@@ -1,0 +1,187 @@
+<div class="cuppa-dropdown" (clickOutside)="closeDropdown()">
+    <div class="selected-list" #selectedList>
+
+        <!-- Created for showing selected values as list for cloneview view ***@author Vishnu C A <vishnu.ca@pitsolutions.com>*** -->
+        <div class="scayla-select-horizontal" *ngIf="settings.selectType === 'clone'">
+            <div *ngIf="selectedItems?.length > 0 && !settings.singleSelection">
+                <div class="c-token" *ngFor="let item of selectedItems;trackBy: trackByFn.bind(this)">
+                    <span *ngIf="!badgeTempl" class="c-label data-val">{{item[settings.labelKey]}}</span>
+                    <span *ngIf="badgeTempl" class="c-label">
+                        <c-templateRenderer [data]="badgeTempl" [item]="item"></c-templateRenderer>
+                    </span>
+                    <span class="c-remove" (click)="onItemClick(item)">
+                        <i class="material-icons scayla-remove vlist-view">
+                            remove_circle
+                        </i>
+
+                    </span>
+                    <span class="c-add" (click)="toggleShowSelect()" *ngIf="selectedItemsNotListed.length <= 0">
+                        <i class="material-icons scayla-add vlist-view">
+                            add_circle
+                        </i>
+                    </span>
+                </div>
+                <div class="c-token" *ngFor="let item of selectedItemsNotListed;trackBy: trackByFn.bind(this)">
+                    <span *ngIf="!badgeTempl" class="c-label">{{item}}</span>
+                    <span *ngIf="badgeTempl" class="c-label">
+                        <c-templateRenderer [data]="badgeTempl" [item]="item"></c-templateRenderer>
+                    </span>
+                    <span class="c-remove" (click)="onItemClickNotListed(item)">
+                        <i class="material-icons scayla-remove vlist-view">
+                            remove_circle
+                        </i>
+
+                    </span>
+                    <span class="c-add" (click)="toggleShowSelect()">
+                        <i class="material-icons scayla-add vlist-view">
+                            add_circle
+                        </i>
+                    </span>
+                </div>
+            </div>
+            <div id="dropdown-{{id}}" class="c-btn" *ngIf="showSelect || selectedItems.length === 0" (click)="toggleDropdown($event)"
+                [ngClass]="{'disabled': settings.disabled}">
+                <span *ngIf="selectedItems?.length == 0">{{defaultSettings.text}}</span>
+                <span *ngIf="(!!(selectedItems.length > 0) || !!(selectedItemsNotListed[0] > 0)) && !!settings.clearEnabled"
+                    class="clear-all" (click)="onClearAll($event)">
+                    <i class="material-icons">
+                        clear_all
+                    </i>
+                </span>
+                <span *ngIf="!isActive" class="c-angle-down">
+                    <i class="material-icons">
+                        arrow_drop_down
+                    </i>
+                </span>
+                <span *ngIf="isActive" class="c-angle-up">
+                    <i class="material-icons">
+                        arrow_drop_up
+                    </i>
+
+                </span>
+            </div>
+        </div>
+        <!-- Created for showing selected values as list for tagview view ***@author Vishnu C A <vishnu.ca@pitsolutions.com>*** -->
+
+        <div class="c-btn" id="dropdown-{{id}}" (click)="toggleDropdown($event)" [ngClass]="{'disabled': settings.disabled}"
+            *ngIf="settings.selectType === 'tag' || settings.selectType === 'customtag'">
+            <span class="settings-text" *ngIf="selectedItems?.length == 0 && selectedItemsNotListed?.length == 0">{{settings.text}}</span>
+            <span *ngIf="settings.singleSelection && (selectedItems?.length > 0 || selectedItemsNotListed?.length > 0)"
+                class="data-val">
+                <span *ngFor="let item of selectedItems;trackBy: trackByFn.bind(this);">
+                    {{item[settings.labelKey]}}
+                </span>
+            </span>
+            <div class="c-list" *ngIf="!settings.singleSelection">
+                <div class="c-token" *ngFor="let item of selectedItems;trackBy: trackByFn.bind(this)">
+                    <span *ngIf="!badgeTempl" class="c-label data-val">{{item[settings.labelKey]}}</span>
+                    <span *ngIf="badgeTempl" class="c-label">
+                        <c-templateRenderer [data]="badgeTempl" [item]="item"></c-templateRenderer>
+                    </span>
+                    <span class="c-remove" (click)="onItemClick(item)">
+                        <i class="material-icons scayla-remove tag-close">
+                            clear
+                        </i>
+
+                    </span>
+                </div>
+                <div class="c-token" *ngFor="let item of selectedItemsNotListed;trackBy: trackByFn.bind(this)">
+                    <span *ngIf="!badgeTempl" class="c-label">{{item}}</span>
+                    <span *ngIf="badgeTempl" class="c-label">
+                        <c-templateRenderer [data]="badgeTempl" [item]="item"></c-templateRenderer>
+                    </span>
+                    <span class="c-remove" (click)="onItemClickNotListed(item)">
+                        <i class="material-icons scayla-remove tag-close">
+                            clear
+                        </i>
+
+                    </span>
+                </div>
+            </div>
+            <span class="countplaceholder" *ngIf="selectedItems?.length > settings.badgeShowLimit">+{{selectedItems?.length
+                - settings.badgeShowLimit }}</span>
+
+            <span *ngIf="(!!(selectedItems.length > 0) || !!(selectedItemsNotListed[0] > 0)) && !!settings.clearEnabled"
+                class="clear-all" (click)="onClearAll($event)">
+                <i class="material-icons">
+                    clear_all
+                </i>
+            </span>
+
+
+            <span *ngIf="!isActive" class="c-angle-down">
+                <i class="material-icons">
+                    arrow_drop_down
+                </i>
+            </span>
+            <span *ngIf="isActive" class="c-angle-up">
+                <i class="material-icons">
+                    arrow_drop_up
+                </i>
+
+            </span>
+        </div>
+    </div>
+    <div [setPosition]="selectedListHeight?.val" class="dropdown-list" [ngClass]="{'dropdown-list-top': settings.position == 'top'}"
+        [hidden]="!isActive">
+        <div [ngClass]="{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}" class="arrow-2"></div>
+        <div [ngClass]="{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}"></div>
+        <div class="list-area">
+            <div class="pure-checkbox select-all" *ngIf="settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection"
+                (click)="toggleSelectAll()">
+                <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelectAll" [disabled]="settings.limitSelection == selectedItems?.length" />
+                <label>
+                    <span [hidden]="isSelectAll">{{settings.selectAllText}}</span>
+                    <span [hidden]="!isSelectAll">{{settings.unSelectAllText}}</span>
+                </label>
+            </div>
+            <div class="list-filter" *ngIf="settings.enableSearchFilter">
+                <span class="c-search">
+                    <i class="material-icons scayla-type">
+                        search
+                    </i>
+                </span>
+
+                <input class="c-input" *ngIf="!settings.lazyLoading && !searchTempl" #searchInput type="text"
+                    [placeholder]="settings.searchPlaceholderText" (keyup)="filterInfiniteList($event)" (keydown)="keyDownEvent($event)">
+                <!-- <c-templateRenderer *ngIf="searchTempl" [data]="searchTempl" [item]="item"></c-templateRenderer> -->
+            </div>
+            <span class="settings-emptytext" *ngIf="listdata?.length <= 0">- {{defaultSettings.empty}} -</span>
+            <ul *ngIf="!settings.groupBy && listdata?.length > 0" [style.maxHeight]="settings.maxHeight+'px'" class="lazyContainer">
+                <span *ngIf="itemTempl">
+                    <li *ngFor="let item of listdata | listFilter: filter : settings.searchBy; let i = index;" (click)="onItemClick(item)"
+                        class="pure-checkbox">
+                        <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="settings.limitSelection == selectedItems?.length && !isSelected(item)" />
+                        <label></label>
+                        <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                    </li>
+
+                </span>
+                <span *ngIf="!itemTempl && !settings.lazyLoading">
+                    <li *ngFor="let item of listdata | listFilter:filter : settings.searchBy; let i = index;"
+                        [class.selected]="isSelected(item)" (click)="onItemClick(item)" class="pure-checkbox">
+                        <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="settings.limitSelection == selectedItems?.length && !isSelected(item)" />
+                        <label>{{item[settings.labelKey]}}</label>
+                    </li>
+
+                </span>
+                <span *ngIf="!itemTempl && settings.lazyLoading">
+                    <div [ngStyle]="{'height':totalHeight+'px'}" style="position: relative;">
+
+
+                        <li *ngFor="let item of chunkArray | listFilter:filter : settings.searchBy; let i = index;"
+                            (click)="onItemClick(item)" style="position: absolute;width: 100%;" class="pure-checkbox"
+                            [styleProp]="chunkIndex[i]">
+                            <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)"
+                                [disabled]="settings.limitSelection == selectedItems?.length && !isSelected(item)" />
+                            <label>{{item[settings.labelKey]}}</label>
+                        </li>
+                    </div>
+                </span>
+            </ul>
+            <h4 class="list-message" *ngIf="data?.length == 0 && settings.selectType === 'customtag'">
+                <b>{{defaultSettings.noDataLabel}}</b>
+            </h4>
+        </div>
+    </div>
+</div>

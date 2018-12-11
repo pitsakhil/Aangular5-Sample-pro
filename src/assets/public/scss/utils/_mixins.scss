@@ -1,0 +1,110 @@
+
+//BORDER RADIUS
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+//USER SELECT
+@mixin user-select($value) {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+// TEXT TRUNCATE
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/// BLOCK ELEMENT
+/// @access public
+/// @param {String} $element - Element's name
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+///  BLOCK MODIFIER
+/// @access public
+/// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
+/// UL list style
+@mixin listmodel($marg, $padd){
+    margin: $marg;
+    padding: $padd;
+    list-style-type: none;
+}
+
+//BUTON DEFAULT
+@mixin btn-default($width, $height){
+    width: $width;
+    height: $height;
+    display: inline-block;
+    vertical-align: middle;
+    border-color: transparent;
+    text-align: center;
+    padding: 0px 12px;
+    //line-height: 29px;
+    &:focus{
+        outline: 0;
+    }
+}
+
+//TEXT ELLIPS
+@mixin text-ellipsis($max-width){
+    max-width:$max-width;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+//FORM INPUT
+
+@mixin form-input($width, $font-size ){
+    width: $width;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #CACACA;
+    padding-left: 0px;
+    line-height: 16px;
+    padding: 0;
+    font-size: $font-size;
+    box-shadow: none;
+}
+
+
+
+//EM TO PX CONVERSTION
+$browser-context: 14; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+//FORM CONTROL WITHOU GROUP
+
+@mixin formcontrol-input($width, $lineheight, $height){
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #000;
+    border-radius: 0;
+    line-height: $lineheight;
+    height: $height;
+    border-bottom: 1px solid #CACACA;
+    width: $width;
+    color: $black ;
+}

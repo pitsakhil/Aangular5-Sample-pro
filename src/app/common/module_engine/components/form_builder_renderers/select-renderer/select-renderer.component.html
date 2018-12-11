@@ -1,0 +1,12 @@
+<div class="dynamic-field form-input form-select" [attr.toggle-id]="copy.field_name" [formGroup]="group">
+    <label>
+        <span class="field_span">{{ copy.field_title }}</span>
+        <i class="material-icons icon-30 icon-toggle" *ngIf="copy.is_toggle&&!toggle" (click)="toggleAction(copy.toggle_fields)">keyboard_arrow_down</i>
+        <i class="material-icons icon-30 icon-toggle" *ngIf="copy.is_toggle&&toggle" (click)="toggleAction(copy.toggle_fields)">keyboard_arrow_right</i>
+    </label>
+
+    <app-select [items]="copy.options" bindLabel="id" bindValue="text" (change)="onChange($event)" [formControlName]="copy.field_name"
+        [placeholder]="copy.field_placeholder" [attr.disabled]="copy.field_disabled?'disabled':null" [multiple]="true"
+        [addTag]='true' [attr.data-test-id]="getCurrentModule()+'-select-'+ copy.field_name + '-'+ formindex">
+    </app-select>
+</div>

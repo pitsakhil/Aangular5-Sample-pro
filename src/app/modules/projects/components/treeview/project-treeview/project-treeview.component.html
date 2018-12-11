@@ -1,0 +1,19 @@
+<div class="boxpanel boxpanel__boxshadow boxpanel__h100">
+    <div class="boxpanel__header">
+        <div class="box-tools">
+            <ul class="toolbars">
+                <li class="navbar-toggle-btn">
+                    <app-navbar-toggle [gridType]="'navbar'"></app-navbar-toggle>
+                </li>
+                <li class="navbar-overlay-btn">
+                    <app-navbar-toggle [gridType]="'navbaroverlay'"></app-navbar-toggle>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content boxpanel__body no-apdding box-height-lg">
+        <ng-container>
+            <app-project-treeview-grid ></app-project-treeview-grid>
+        </ng-container>
+    </div>
+</div>

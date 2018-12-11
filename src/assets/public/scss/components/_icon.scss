@@ -1,0 +1,334 @@
+
+@import './assets/public/scss/variables';
+.icon-white{
+    color:$white !important;
+}
+
+
+
+.icon,
+.icon:before,
+[class*=" icon-c"],
+[class^=icon-c] {
+    font-style: normal;
+    font-variant: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.icon,
+.icon:before {
+    font-family: m-icon
+}
+
+.icon-spin {
+    width: 40px;
+    text-align: center;
+    line-height: 30px
+}
+
+
+.icon {
+    position: relative;
+    font-size: $primary-font-large-heading + 2;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga'
+}
+
+.icon-accountingf:before,
+.icon-accountingo:hover:before {
+    content: "\E001"
+}
+
+.icon-accountingo:before {
+    content: "\E002"
+}
+
+.icon-addf:before,
+.icon-addo:hover:before {
+    content: "\E003"
+}
+
+.icon-addo:before {
+    content: "\E004"
+}
+
+.icon-calendarf:before,
+.icon-calendaro:hover:before {
+    content: "\E005"
+}
+
+.icon-calendaro:before {
+    content: "\E006"
+}
+
+.icon-contactsf:before,
+.icon-contactso:hover:before {
+    content: "\E007"
+}
+
+.icon-contactso:before {
+    content: "\E008"
+}
+
+.icon-crmf:before,
+.icon-crmo:hover:before {
+    content: "\E009"
+}
+
+.icon-crmo:before {
+    content: "\E00A"
+}
+
+.icon-dashboardf:before,
+.icon-dashboardo:hover:before {
+    content: "\E00B"
+}
+
+.icon-dashboardo:before {
+    content: "\E00C"
+}
+
+.icon-documentsf:before,
+.icon-documentso:hover:before {
+    content: "\E00D"
+}
+
+.icon-documentso:before {
+    content: "\E00E"
+}
+
+.icon-mailf:before,
+.icon-mailo:hover:before {
+    content: "\E00F"
+}
+
+.icon-mailo:before {
+    content: "\E010"
+}
+
+.icon-moref:before,
+.icon-moreo:hover:before {
+    content: "\E011"
+}
+
+.icon-moreo:before {
+    content: "\E012"
+}
+
+.icon-notificationf:before,
+.icon-notificationo:hover:before {
+    content: "\E013"
+}
+
+.icon-notificationo:before {
+    content: "\E014"
+}
+
+.icon-photosf:before,
+.icon-photoso:hover:before {
+    content: "\E015"
+}
+
+.icon-photoso:before {
+    content: "\E016"
+}
+
+.icon-projectsf:before,
+.icon-projectso:hover:before {
+    content: "\E017"
+}
+
+.icon-projectso:before {
+    content: "\E018"
+}
+
+.icon-purchasef:before,
+.icon-purchaseo:hover:before {
+    content: "\E019"
+}
+
+.icon-purchaseo:before {
+    content: "\E01A"
+}
+
+.icon-salesf:before,
+.icon-saleso:hover:before {
+    content: "\E01B"
+}
+
+.icon-saleso:before {
+    content: "\E01C"
+}
+
+.icon-settingsf:before,
+.icon-settingso:hover:before {
+    content: "\E01D"
+}
+
+.icon-settingso:before {
+    content: "\E01E"
+}
+
+.icon-timef:before,
+.icon-timeo:hover:before {
+    content: "\E01F"
+}
+
+.icon-timeo:before {
+    content: "\E020"
+}
+
+.icon-Trainingf:before,
+.icon-Trainingo:hover:before {
+    content: "\E021"
+}
+
+.icon-Trainingo:before {
+    content: "\E022"
+}
+
+.material-icons {
+    font-size: $primary-font-large-heading - 2;
+    cursor: pointer
+}
+
+.material-icons.icon-30 {
+    font-size: $primary-font-large-heading - 2;
+    text-align: center;
+    float: left
+}
+
+.material-icons.icon-14 {
+    font-size: $primary-font-large-heading - 10;
+    line-height: 25px;
+    text-align: center;
+    float: left
+}
+
+.material-icons.icon-48 {
+    width: 48px;
+    height: 48px;
+    font-size: $primary-font-large-heading - 2;
+    text-align: center;
+    display: inline-block;
+    float: left;
+    padding: 6px
+}
+
+.icon-hover>.svgf {
+    width: 22px;
+    opacity: 0
+}
+
+.icon-hover:hover>.svgf {
+    opacity: 1
+}
+
+.icon-hover:hover>.svgo {
+    opacity: 0
+}
+
+.icon-green {
+    color: #61C771 !important
+}
+
+.icon-red {
+    color: #d0021b !important
+}
+
+.icon-blue {
+    color: #2076AE !important
+}
+
+.icon-light-red {
+    color: #ED3E53 !important
+}
+
+.icon-grey {
+    color: #CACACA
+}
+
+.icon-disabled {
+    color: #cacaca;
+}
+
+.icon-blue,
+.icon-search {
+    color: #004E70
+}
+
+.icon-search {
+    position: absolute;
+    left: 20px;
+    top: 4px
+}
+
+.icon-12 {
+    font-size: $primary-font-large-heading - 12;
+}
+
+.icon-company-logo {
+    font-size: $primary-font-large-heading + 8 !important;
+}
+
+
+
+
+.icon-calendar {
+    position: absolute;
+    right: 0;
+    top: -12px
+}
+
+.material-icons.icon-event {
+    font-size: $primary-font-heading - 10;
+}
+
+.icon-label-dropdown {
+    float: right;
+    margin-right: -5px
+}
+
+.icon-18 {
+    font-size: $primary-font-heading;
+}
+
+.icon-noti {
+    position: absolute !important;
+    left: 52px;
+    font-size: 8.5px !important
+}
+
+.icon-dash {
+    height: 3px;
+    width: 10px;
+    display: none;
+    margin: 0 auto 0 2px
+}
+
+.not-all .icon-dash {
+    display: inline-block
+}
+
+
+.icon-cm {
+    font-size: $primary-font-heading + 4;
+}
+
+.icon-cl {
+    font-size: $primary-font-heading - 2;
+}
+
+.icon-xs {
+    font-size: $primary-font-heading - 2;
+}
+
+.icon-default {
+    cursor: default !important;
+}

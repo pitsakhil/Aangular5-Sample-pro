@@ -1,0 +1,237 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+@import '../utils/extend';
+
+.toolbars {
+    @extend %unstyledlist;
+    //float: left;
+    width: auto;
+    display: table-cell;
+    vertical-align: middle;
+    .material-icons {
+        width: 32px;
+        vertical-align: middle;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: $primary-font;
+        display: table-cell;
+        &.active{
+            color: $black;
+            font-weight: 700;
+        }
+    }
+
+    .text-wrap {
+        @include text-ellipsis(140px);
+        color: $black;
+    }
+
+    ul {
+        display: table-cell;
+
+        &.dropdown-menu {
+            display: none;
+        }
+    }
+
+    .open {
+        ul {
+            &.dropdown-menu {
+                display: block;
+                top: 29px;
+            }
+        }
+    }
+
+    .dropdown-menu>li {
+        float: left;
+        width: 100%;
+    }
+
+    .dropdown-menu>li>a {
+        display: inline-block;
+    }
+
+    >li {
+        display: table-cell;
+        position: relative;
+        vertical-align: middle;
+
+        &.title {
+            a {
+                padding-left: 10px;
+                font-size: $primary-font !important;
+                @include truncate(150px);
+            }
+        }
+    }
+
+    @include element('uitab') {
+        //padding: 0 10px;
+
+        li {
+            &.tab {
+                padding: 0 5px;
+
+                a {
+                    @include text-ellipsis(140px);
+                    font-size: $primary-font;
+                    color: $light-grey-ac;
+                    display: table-cell;
+
+                    &.active {
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+
+    @include element('paginate') {
+        margin: 0;
+    }
+
+    @include modifier('title') {
+        >li.title {
+            font-size: $primary-font !important;
+            font-weight: 700 !important;
+            color: $black !important;
+            margin-left: 10px;
+            line-height: 22px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+
+    @include element('black') {
+        a {
+            color: $primary-black;
+
+            &.disabled {
+                color: $light-grey-ac;
+            }
+        }
+    }
+
+    .pagination {
+        margin: 0;
+    }
+}
+
+.toolicon__black {
+    a {
+        color: $primary-black;
+
+        &.disabled {
+            color: $light-grey-ac;
+        }
+    }
+}
+
+.mr-left {
+    margin-left: auto;
+}
+
+.tool-title {
+    li {
+        padding: 0 5px;
+    }
+}
+
+.material-icons {
+    &.icon-32 {
+        width: 32px;
+    }
+}
+
+li {
+    &.pagination {
+        a {
+            font-size: $primary-font;
+        }
+    }
+}
+
+.box-tools,
+.box-panel-header {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.ui-tabs {
+    margin-top: 8px !important;
+
+    a {
+        display: table-cell !important;
+        padding-left: 10px;
+        font-size: $primary-font;
+    }
+}
+
+.s-boxheader {
+    display: table;
+}
+
+.show-md-dp {
+    display: none;
+}
+
+.modal {
+    .modal-header {
+            ul>li.title {
+                a {
+                    @include truncate(80px !important);
+                }
+            }
+       
+
+        ul {
+            &.ui-tabs {
+                >li {
+                    width: auto !important;
+                    max-width: auto !important;
+                }
+            }
+        }
+    }
+}
+
+//.showall-checkbox {
+/*.box-tools {
+    ul>li.title{
+       a{
+           @include truncate(80px !important);
+       } 
+    }
+}
+ul{
+    &.ui-tabs{
+        >li{
+            width: auto !important;
+            max-width: auto !important;
+        }
+    }
+}*/
+.showall-checkbox{
+    margin-top: 10px !important;
+}
+
+.modal-header .toolbars li button {
+    padding: 0px;
+    margin: 0px;
+    background: transparent;
+    border: 0px;
+    vertical-align: text-top;
+    padding-top: 2px;
+    color: $black; 
+}
+
+
+@media screen and (max-width:479px){
+    .hide-xs-boxtools{
+        display: none !important;
+    }
+}

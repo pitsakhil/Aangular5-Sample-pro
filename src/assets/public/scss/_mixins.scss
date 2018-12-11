@@ -1,0 +1,100 @@
+
+@import './classvariables';
+//BORDER RADIUS
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+//USER SELECT
+@mixin user-select($value) {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+// TEXT TRUNCATE
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/// BLOCK ELEMENT
+/// @access public
+/// @param {String} $element - Element's name
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+///  BLOCK MODIFIER
+/// @access public
+/// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
+
+// Font Family Mixin
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: woff) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+@include font-face(HelveticaNeue, assets/public/fonts/HelveticaNeue);
+@include font-face(HelveticaNeue-Light, assets/public/fonts/HelveticaNeue-Light);
+@include font-face(HelveticaNeue-LightItalic, assets/public/fonts/HelveticaNeue-LightItalic);
+@include font-face(HelveticaNeue-Medium, assets/public/fonts/HelveticaNeue-Medium);
+@include font-face(m-icon, assets/public/fonts/m-icon);
+@include font-face(TeXGyreHeros-Bold, assets/public/fonts/TeXGyreHeros-Bold);
+@include font-face(TeXGyreHeros-BoldItalic, assets/public/fonts/TeXGyreHeros-BoldItalic);
+@include font-face(TeXGyreHerosCondensed-Bold, assets/public/fonts/TeXGyreHerosCondensed-Bold);
+@include font-face(TeXGyreHerosCondensed-Italic, assets/public/fonts/TeXGyreHerosCondensed-Italic);
+@include font-face(TeXGyreHerosCondensed-Regular, assets/public/fonts/TeXGyreHerosCondensed-Regular);
+@include font-face(TeXGyreHeros-Italic, assets/public/fonts/TeXGyreHeros-Italic);
+@include font-face(TeXGyreHeros-Regular, assets/public/fonts/TeXGyreHeros-Regular);

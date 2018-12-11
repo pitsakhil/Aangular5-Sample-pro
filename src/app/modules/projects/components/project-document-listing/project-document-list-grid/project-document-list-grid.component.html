@@ -1,0 +1,62 @@
+<div class="tablebar column-fixed--5  mobile-width--100 ht-fixed-100" [class.column-large--20]="!toggleService.checkGridActive('maincontent')"
+    [class.column-large--24]="!toggleService.checkGridActive('maincontent') && !toggleService.checkGridActive('navbar')" [class.dp-none]="!toggleService.checkGridActive('tablebar')"
+    [class.m-dp-none]="!!toggleService.checkGridActive('maincontent')">
+    <div class="boxpanel boxpanel__h100 boxpanel__boxshadow boxpanel__toggleicons">
+        <div class="boxpanel__header">
+            <div class="box-panel-icon-lefmenushow navbar-toggle-btn" *ngIf="!toggleService.checkGridActive('navbar')">
+                <app-navbar-toggle [gridType]="'navbar'"></app-navbar-toggle>
+            </div>
+            <div class="box-panel-icon-lefmenushow navbar-overlay-btn" *ngIf="!toggleService.checkGridActive('navbaroverlay')">
+                <app-navbar-toggle [gridType]="'navbaroverlay'"></app-navbar-toggle>
+            </div>
+            <div class="box-panel-icon-lefmenushow navbar-overlay-btn toolbars__black show-sm" *ngIf="!toggleService.checkGridActive('navbaroverlay')">
+                <a href="javascript:void(0)" (click)="triggerPanelOpen()" [class.disabled]="!gridOptions?.api?.getSelectedNodes()?.length">
+                    <i class="material-icons icon-30">data_usage</i>
+                </a>
+            </div>
+            <div class="box-panel-header">
+                <div class="box-tools">
+                    <ul class="toolbars toolbars__black">
+                          
+                        <li [class.dp-none]="!toggleService.checkGridActive('maincontent')">
+                            <app-navbar-toggle [gridType]="'tablebar'"></app-navbar-toggle>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" data-toggle="dropdown" title="{{'tooltip.add' | translate}}" [class.disabled]="!projectService.enableAdd && _projectId!==0">
+                                <i class="material-icons icon-30">add</i>
+                            </a>
+                            <ul class="dropdown-menu" data-test-id="passwordreset-dropdown-prinfoicon" role="menu">
+                                <li>
+                                    <a href="javascript:void(0)" (click)="navigateToProject()">{{'project.create_project' | translate}}</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <ul class="toolbars toolbars__black">
+                        <li class="text-bold">
+                            <a href="javascript:void(0)" data-test-id="project-title-projecttitle">{{ 'project.projects' | translate }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content boxpanel__body no-padding box-height-lg project-list project-list-cursor">
+            <div></div>
+            <ng-container >
+                <ag-grid-angular id="projectListByCategory" data-test-id="project-table-projectlistbyvategory" class="aggrid aggrid__txtblack aggrid__striped aggrid__cellbg project-list-height"
+                    [gridOptions]="gridOptions" [toolPanelSuppressSideButtons]="true">
+                </ag-grid-angular>
+            </ng-container>
+
+           
+        </div>
+    </div>
+</div>
+
+
+
+
+<app-project-details *ngIf="toggleService.checkGridActive('maincontent')"></app-project-details>

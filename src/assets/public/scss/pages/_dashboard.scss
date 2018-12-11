@@ -1,0 +1,26 @@
+@import './assets/public/scss/variables';
+
+.dashboard-right-block {
+    .media-heading {
+        position: relative !important;
+        font-size: $primary-font-heading;
+        width: 100%;
+        line-height: 24px;
+        margin-bottom: 6px;
+        padding-bottom: 6px;
+        font-weight: 700;
+        &:after{
+        content: '';
+        position: absolute;
+        height: 1px;
+        background: #fff;
+        width: 100% !important;
+        top: inherit !important;
+        bottom: -2px;
+        right: 0;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto
+        }
+    }
+}

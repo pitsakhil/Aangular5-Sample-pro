@@ -1,0 +1,15 @@
+<div class="modal-dialog modal-small modal-small-middle">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="text-center">{{'notification.'+title | translate}}</h4>
+        </div>
+        <div class="modal-footer">
+            <div class="footer-btns">
+                <a class="btn btn-sm pull-left" data-dismiss="modal" (click)="cancel()">{{'resetpassword.cancel' | translate}}</a>
+                <a class="btn btn-sm pull-right" [class.disabled]="!!isClicked" data-dismiss="modal" (click)="confirmed()"> {{ buttonName | translate}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+

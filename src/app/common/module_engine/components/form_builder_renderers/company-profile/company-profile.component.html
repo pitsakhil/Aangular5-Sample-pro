@@ -1,0 +1,53 @@
+<div class="content-box col-24 profile-edit">
+    <div class="col-me-12">
+        <!-- CARD GOES HERE -->
+        <div class="card align-center">
+            <div class="card__thumbnail card__thumbnail--field">
+                <img src="./assets/public/images/user-img.png" class="thumbnail__image right" [attr.data-test-id]="getCurrentModule()+'-file-img-0'">
+            </div>
+
+            <div class="card__body">
+                <div class="content">
+                    <div class="second-field">
+                        <div class="form-input-field">
+                            <div appDynamicFields [config]="copy['company_title']['fields']" [group]="group" [formindex]="0"></div>
+                        </div>
+                    </div>
+                    <div class="third-field">
+                        <div class="form-input-field">
+                            <div appDynamicFields [config]="copy['branch']['fields']" [group]="group"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--//CARD ENDS HERE -->
+    </div>
+</div>
+
+<div class="content-box col-24 profile-view">
+    <div class="col-me-12">
+         <!-- CARD GOES HERE -->
+         <div class="card align-center">
+                <div class="card__thumbnail card__thumbnail--field">
+                    <img src="./assets/public/images/user-img.png" class="thumbnail__image right">
+                </div>
+    
+                <div class="card__body">
+                    <div class="content">
+                        <div class="second-field text-title ">
+                            <div class="dynamic-field form-input">
+                                <input type="text" value="{{group?.value['company_title']}}">
+                            </div>
+                        </div>
+                        <div class="third-field">
+                            <div class="dynamic-field form-input">
+                                <input type="text" value="{{group?.value['branch']}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//CARD ENDS HERE -->
+    </div>
+</div>

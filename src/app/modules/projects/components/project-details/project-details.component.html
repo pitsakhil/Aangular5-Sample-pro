@@ -1,0 +1,363 @@
+<div class="column-large--{{toggleService.getGridVal()}} ht-fixed-100 maincontent  mobile-width--100    ">
+    <div class="boxpanel boxpanel_h100 boxpanel__boxshadow boxpanel__toggleicons">
+        <div class="boxpanel__header">
+            <div class="box-panel-icon-lefmenushow hide-desktop">
+                <app-navbar-toggle [gridType]="'navbaroverlay'"></app-navbar-toggle>
+            </div>
+            <div class="box-panel-icon-lefmenushow hide-desktop">
+                <a title="{{'tooltip.close' | translate}}" (click)="toggleService.mainContentClose();">
+                    <i class="material-icons icon-30">list</i>
+                </a>
+            </div>
+            <div class="box-panel-icon-lefmenushow m-dp-xlg-none" *ngIf="!toggleService.checkGridActive('tablebar')">
+                <app-navbar-toggle [gridType]="'navbaroverlay'"></app-navbar-toggle>
+            </div>
+            <div class="box-panel-icon-lefmenushow m-dp-none" *ngIf="!toggleService.checkGridActive('navbar')&&!toggleService.checkGridActive('tablebar')">
+                <app-navbar-toggle [gridType]="'navbar'"></app-navbar-toggle>
+            </div>
+            <div class="box-panel-icon-lefmenushow m-dp-none" *ngIf="!toggleService.checkGridActive('tablebar')">
+                <app-navbar-toggle [gridType]="'tablebar'"></app-navbar-toggle>
+            </div>
+
+            <div class="box-panel-header toolbar">
+                <div class="box-tools hide-xs-mobile">
+                    <ul class="toolbars toolbars__black">
+                        <li>
+                            <a title="{{'tooltip.close' | translate}}" class="jq-close" data-toggle="modal" (click)="exitPage(projectForm,leavePageCheck)">
+                                <i class="material-icons icon-30">close</i>
+                            </a>
+                        </li>
+                      
+                        <li *ngIf="!projectDetailVariable.editMode" [class.disabled]="!showInfoBox(projectDetailVariable)||!projectForm||!this.projectDetailVariable.isApiComplete">
+                            <a title="{{'tooltip.edit' | translate}}" class="jq-edit-project" (click)="toggleEditMode(projectDetailVariable)">
+                                <i class="material-icons icon-30">edit</i>
+                            </a>
+                        </li>
+
+                        <li *ngIf="projectDetailVariable.editMode">
+                            <a title="{{'tooltip.save' | translate}}" class="jq-save-project" [class.disabled]="!projectForm.valid||attachmentsService?.allDisable"
+                                (click)="saveproject(isApiComplete,projectForm)">
+                                <i class="material-icons icon-30">save</i>
+                            </a>
+                        </li>
+
+                        <li (click)="setPriority(projectDetailVariable.isApiComplete,projectDetailVariable.editMode)"
+                            [class.disabled]="!showInfoBox(projectDetailVariable)">
+                            <a href="javascript:void(0)" title="{{'tooltip.flag' | translate}}" [class.disabled]="!projectDetailVariable.editMode">
+                                <i class="material-icons icon-30" [class.icon-light-red]="!!projectDetailVariable.isPriority">flag</i>
+                            </a>
+                        </li>
+                        <li [class.disabled]="!showInfoBox(projectDetailVariable)">
+                            <a title="{{'tooltip.delete' | translate}}" data-toggle="modal" data-target="#project_delete"
+                                [class.disabled]="!_projectService.enableDelete">
+                                <i class="material-icons icon-30">delete</i>
+                            </a>
+                        </li>
+                        <li [class.disabled]="!projectDetailVariable.isHandover">
+                            <a href="javascript:void(0)" title="{{'tooltip.handover' | translate}}">
+                                <i class="material-icons icon-30" aria-expanded="false" data-toggle="modal" data-target="#showHandoverModal">description</i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="toolbars toolbars__black ui-tabs">
+                        <li class="tab">
+                            <a class="active" href="javaScript:void(0)" [ngClass]="{active: viewProject}" (click)="toggleTab('project')">{{'project.projects'|
+                                translate}}</a>
+                        </li>
+                        <li class="tab">
+                            <a href="javaScript:void(0)" [ngClass]="{active: viewHistory}" (click)="toggleTab('history')">{{'project.history'|
+                                translate}}</a>
+                        </li>
+                        <li>
+                            <a #leavePageCheck data-toggle="modal" data-target="#leave_page"></a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!--- Mobile Toolbar 480px-767px : Begin-->
+                <div class="box-tools hide-xs-m-mob">
+                    <ul class="toolbars toolbars__black">
+                        <li>
+                            <a title="{{'tooltip.close' | translate}}" class="jq-close" data-toggle="modal" (click)="exitPage(projectForm,leavePageCheck)">
+                                <i class="material-icons icon-30">close</i>
+                            </a>
+                        </li>
+                       
+                        <li *ngIf="!projectDetailVariable.editMode" [class.disabled]="!showInfoBox(projectDetailVariable)||!projectForm||!this.projectDetailVariable.isApiComplete">
+                            <a title="{{'tooltip.edit' | translate}}" class="jq-edit-project" (click)="toggleEditMode(projectDetailVariable)">
+                                <i class="material-icons icon-30">edit</i>
+                            </a>
+                        </li>
+                        <!-- Dropdown -->
+                        <li class="hide-md icon-dropdown">
+                            <a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="material-icons icon-30">more_horiz</i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li *ngIf="projectDetailVariable.editMode">
+                                    <a title="{{'tooltip.save' | translate}}" class="jq-save-project" [class.disabled]="!projectForm.valid"
+                                        (click)="saveproject(isApiComplete,projectForm)">
+                                        <i class="material-icons icon-30">save</i>
+                                    </a>
+                                </li>
+
+                                <li (click)="setPriority(projectDetailVariable.isApiComplete,projectDetailVariable.editMode)"
+                                    [class.disabled]="!showInfoBox(projectDetailVariable)">
+                                    <a href="javascript:void(0)" title="{{'tooltip.flag' | translate}}"
+                                        [class.disabled]="!projectDetailVariable.editMode">
+                                        <i class="material-icons icon-30" [class.icon-light-red]="!!projectDetailVariable.isPriority">flag</i>
+                                    </a>
+                                </li>
+                                <li [class.disabled]="!showInfoBox(projectDetailVariable)">
+                                    <a title="{{'tooltip.delete' | translate}}" data-toggle="modal" data-target="#project_delete"
+                                        [class.disabled]="!_projectService.enableDelete">
+                                        <i class="material-icons icon-30">delete</i>
+                                    </a>
+                                </li>
+                                <li [class.disabled]="!projectDetailVariable.isHandover">
+                                    <a href="javascript:void(0)" title="{{'tooltip.handover' | translate}}">
+                                        <i class="material-icons icon-30" aria-expanded="false" data-toggle="modal"
+                                            data-target="#showHandoverModal">description</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Dropdown -->
+                    </ul>
+                    <ul class="toolbars toolbars__black toolbars__uitab list-overflow-disable">
+                        <!-- // Desktop Toolbar hidden-->
+                        <li class="tab">
+                            <a class="active" href="javaScript:void(0)" [ngClass]="{active: viewProject}" (click)="toggleTab('project')">{{'project.projects'
+                                | translate}}</a>
+                        </li>
+                        <li class="tab">
+                            <a href="javaScript:void(0)" [ngClass]="{active: viewHistory}" (click)="toggleTab('history')">{{'project.history'
+                                | translate}}</a>
+                        </li>
+                        <!-- // Desktop Toolbar hidden -->
+                    </ul>
+                </div>
+                <!--- Mobile Toolbar 480px-767px : Begin-->
+
+
+
+                <!--- Mobile Toolbar 480px : Begin-->
+                <div class="box-tools show-xs-mob">
+                    <ul class="toolbars toolbars__black">
+                        <li>
+                            <a title="{{'tooltip.close' | translate}}" class="jq-close" data-toggle="modal" (click)="exitPage(projectForm,leavePageCheck)">
+                                <i class="material-icons icon-30">close</i>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="javascript:void(0)" data-toggle="dropdown" title="{{'tooltip.add' | translate}}" [class.disabled]="!_projectService.enableAdd">
+                                <i class="material-icons icon-30">add</i>
+                            </a>
+                            <ul class="dropdown-menu" data-test-id="passwordreset-dropdown-prinfoicon" role="menu">
+                                <li>
+                                    <a href="javascript:void(0)" (click)="navigateToProject()">{{'project.create_project'
+                                        | translate}}</a>
+                                </li>
+
+                            </ul>
+                        </li> -->
+                        <li *ngIf="!projectDetailVariable.editMode" [class.disabled]="!showInfoBox(projectDetailVariable)">
+                            <a title="{{'tooltip.edit' | translate}}" (click)="toggleEditMode(projectDetailVariable)">
+                                <i class="material-icons icon-30">edit</i>
+                            </a>
+                        </li>
+                        <!-- Dropdown -->
+                        <li class="hide-md icon-dropdown">
+                            <a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="material-icons icon-30">more_horiz</i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li *ngIf="projectDetailVariable.editMode">
+                                    <a title="{{'tooltip.save' | translate}}" class="jq-save-project" [class.disabled]="!projectForm.valid"
+                                        (click)="saveproject(isApiComplete,projectForm)">
+                                        <i class="material-icons icon-30">save</i>
+                                    </a>
+                                </li>
+
+                                <li (click)="setPriority(projectDetailVariable.isApiComplete,projectDetailVariable.editMode)"
+                                    [class.disabled]="!showInfoBox(projectDetailVariable)">
+                                    <a href="javascript:void(0)" title="{{'tooltip.flag' | translate}}"
+                                        [class.disabled]="!projectDetailVariable.editMode">
+                                        <i class="material-icons icon-30" [class.icon-light-red]="!!projectDetailVariable.isPriority">flag</i>
+                                    </a>
+                                </li>
+                                <li [class.disabled]="!showInfoBox(projectDetailVariable)">
+                                    <a title="{{'tooltip.delete' | translate}}" data-toggle="modal" data-target="#project_delete"
+                                        [class.disabled]="!_projectService.enableDelete">
+                                        <i class="material-icons icon-30">delete</i>
+                                    </a>
+                                </li>
+                                <li [class.disabled]="!projectDetailVariable.isHandover">
+                                    <a href="javascript:void(0)" title="{{'tooltip.handover' | translate}}">
+                                        <i class="material-icons icon-30" aria-expanded="false" data-toggle="modal"
+                                            data-target="#showHandoverModal">description</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Dropdown -->
+                    </ul>
+                    <ul class="toolbars toolbars__black toolbars__uitab list-overflow-disable">
+                        <!-- // Desktop Toolbar hidden-->
+                        <li class="hide-lg">
+                            <a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="material-icons">keyboard_arrow_right</i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="tab">
+                                    <a class="active" href="javaScript:void(0)" [ngClass]="{active: viewProject}"
+                                        (click)="toggleTab('project')">{{'project.projects'
+                                        | translate}}</a>
+                                </li>
+                                <li class="tab">
+                                    <a href="javaScript:void(0)" [ngClass]="{active: viewHistory}" (click)="toggleTab('history')">{{'project.history'
+                                        | translate}}</a>
+                                </li>
+                                <li>
+                                    <a #leavePageCheck data-toggle="modal" data-target="#leave_page"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- // Desktop Toolbar hidden -->
+                    </ul>
+                </div>
+                <!--- Mobile Toolbar 480px : Begin-->
+            </div>
+            <div class="box-panel-icon-rightmenushow rightbar-toggle-btn" *ngIf="!toggleService.checkGridActive('rightbar')">
+                <app-navbar-toggle [gridType]="'rightbar'"></app-navbar-toggle>
+            </div>
+            <div class="box-panel-icon-rightmenushow rightbar-overlay-btn" *ngIf="!toggleService.checkGridActive('rightbaroverlay')">
+                <app-navbar-toggle [gridType]="'rightbaroverlay'"></app-navbar-toggle>
+            </div>
+        </div>
+
+        <div class="boxpanel__body no-padding height-auto-mobile" [class.box-height-lg]="!viewHistory">
+   
+            <ng-container *ngIf="projectDetailVariable.projectId!==0&&projectDetailVariable.projectId">
+                <div *ngIf="projectForm; else loader">
+                    <form [formGroup]="projectForm" [class.view-mode]="!projectDetailVariable.editMode" *ngIf="viewProject">
+                        <div class="content-panel content-padding__horizontal">
+                            <div class="col-12">
+                                <!-- CARD GOES HERE -->
+                                <div class="card align-center">
+                                    <div class="card__thumbnail card__thumbnail--field">
+                                        <img class="thumbnail__image right" src="./assets/public/images/user-images/1.png">
+                                    </div>
+
+                                    <div class="card__body forminput-width">
+                                        <div class="content">
+                                            <div>
+                                                <input formControlName="name" class="formcontrol__input input__h3" type="text" [title]="'project.projectName' | translate"
+                                                    maxlength="255" [placeholder]="'project.projectName' | translate" [class.text-ellips]="!projectDetailVariable.editMode">
+                                                <input formControlName="short_name" class="formcontrol__input input__h4" type="text" [title]="'project.shortName' | translate"
+                                                    maxlength="12" [placeholder]="'project.shortName' | translate">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--// CARD ENDS HERE -->
+                            </div>
+                        </div>
+
+                        <div class="content-panel content-padding__horizontal">
+                            <div class="col-12">
+                                <div class="project-head">
+                                    <div class="formgroup">
+                                        <div class="formgroup__label text-right">
+                                            <label>{{'project.projectNumber' | translate}}</label>
+                                        </div>
+                                        <div class="formgroup__inputfield project_input-width" *ngIf="projectDetailVariable?.projectData['project_number']">
+                                            <input class="formcontrol__input input__h4 input-size" type="text" [value]="projectDetailVariable?.projectData['project_number']"
+                                                disabled>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-panel content-padding__horizontal" *ngIf="projectDetailVariable.editMode else textarea">
+                            <div *ngIf="projectDetailVariable.editMode; else textarea">
+                                <div appDynamicFields [formindex]="0" [config]="projectDetailVariable.config['data'][4]" [group]="projectForm"></div>
+                            </div>
+                        </div>
+
+
+                        <ng-template #textarea>
+                            <div class="content-panel content-padding">
+                                <div [innerHTML]="projectDetailVariable.patchValue"></div>
+                            </div>
+                        </ng-template>
+
+                    </form>
+                </div>
+            </ng-container>
+
+            <!-- Loader -->
+            <ng-template #loader>
+                <div class="box-panel">
+                    <div class="box-panel-body">
+                        <app-loader></app-loader>
+                    </div>
+                </div>
+            </ng-template>
+            <!--// Loader -->
+
+            <div *ngIf="projectDetailVariable?.projectId===0 &&!viewHistory">               
+                <div class="boxpanel boxpanel_h100 ">
+                    <div class="message-infobox infobox-height__100">
+                        <p class="h4 text-center h4-dark-grey text-center">{{'project.info' | translate}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- Attachments Block -->
+            <div class="content-panel" *ngIf="!viewHistory">
+                <div class="s-boxbody">
+                    <app-attachments *ngIf="projectDetailVariable?.documentId" [sf_id]="projectDetailVariable?.documentId"
+                        (attachmentSaved)="attachmentUploaded()"></app-attachments>
+                </div>
+            </div>
+            <!-- // Attachments Block -->
+
+            <!-- History Block -->
+            <div class="content-panel" *ngIf="viewHistory">
+                <div class="s-boxbody">
+                    <app-history *ngIf="viewHistory" [documentId]="projectDetailVariable.documentId"></app-history>
+                </div>
+            </div>
+            <!-- // History Block -->
+
+        </div>
+    </div>
+
+
+</div>
+<div class="column-fixed--5 rightbar ht-fixed-100" [class.gridfixed-dp-none]="!toggleService.checkGridActive('rightbaroverlay')"
+    [class.grid-dp-none]="!toggleService.checkGridActive('rightbar')">
+    <app-right-bar [documentId]="projectDetailVariable.documentId" [moduleId]="projectDetailVariable.moduleId">
+    </app-right-bar>
+</div>
+
+<div>
+    <app-popup-modal [title]="projectDetailVariable.confirmMessageKey$" buttonName="resetpassword.Ok" (confirm)="handleCloseConfirmPopUp($event)"
+        class="modal" id="leave_page" role="dialog"></app-popup-modal>
+</div>
+
+<div>
+    <app-popup-modal [title]="projectDetailVariable.confirmDeleteMessageKey$" buttonName="resetpassword.Ok" (confirm)="handleDeleteConfirm($event,projectDetailVariable.isApiComplete)"
+        class="modal" id="project_delete" role="dialog"></app-popup-modal>
+</div>
+<app-handover-modal [documentId]="projectDetailVariable.documentId" id="showHandoverModal" class="modal" role="dialog"></app-handover-modal>

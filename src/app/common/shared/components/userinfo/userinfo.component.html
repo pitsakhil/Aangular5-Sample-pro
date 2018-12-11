@@ -1,0 +1,54 @@
+
+<div class="useraccount col--4" id="userInfo-toggle">
+    <div class="media" (click)="onToggleUserIcon()">
+        <div class="media-left">
+            <a class="show-account" href="javascript:void(0)">
+                <img class="media-object img-circle img-user" data-test-id="dashboard-img-userimg" src="./assets/public/images/user-img.png" alt="...">
+            </a>
+        </div>
+        <div class="media-body useraccount__details" *ngIf="allVal">
+            <h4 class="media-heading" data-test-id="header-userinfo-userdata">{{ userData }}</h4>
+            <span class="date" data-test-id="header-userinfo-date" title="{{ 'datepipe.currentweek' | translate }} {{ today | datepipe: allVal}}">{{ 'datepipe.currentweek' | translate }} {{ today | datepipe: allVal}} </span>
+        </div>
+    </div>
+    <ul class="dropdown-menu droplist" id="useracoount">
+        <li class="account-list" *ngFor="let data of companyData">
+            <div class="media user-account-media" (click)="accountSwitch(data.id)">
+                <div class="media-left">
+                    <a>
+                        <img class="media-object img-account img-circle" src="./assets/public/images/user-images/1.png" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ data.name }}</h4>
+                    <h6>{{user_details.accounts[0].email}}</h6>
+                </div>
+                <div class="media-tools">
+                    <a>
+                        <i class="material-icons icon-grey" [class.icon-green]="data.id === authService.getCompanyId()">check_circle</i>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="media-footer row">
+                <div class="media-footer__block visible-hidden col-sm-12 col-xs-12">
+                    <button class="btn btm-sm mr-l0" type="button" data-test-id="header-userinfo-addacount">{{ 'core.userinfo.addaccount' | translate }}</button>
+                </div>
+                <div class="media-footer__block col-sm-12 col-xs-12">
+                    <button class="btn mr-l0" data-test-id="header-userinfobtn-logout" (click)="_helperService.logoutApiFunction()" type="button">{{ 'core.userinfo.logout' | translate }}</button>
+                </div>
+            </div>
+        </li>
+        <!--<li>
+            <div class="media-footer">
+                <div class="media-footer__block visible-hidden pull-left">
+                    <button class="btn btn-default btm-sm mr-l0" type="button" data-test-id="header-userinfo-addacount">{{ 'core.userinfo.addaccount' | translate }}</button>
+                </div>
+                <div class="media-footer__block pull-right">
+                    <button class="btn btn-default mr-l0 pull-right" data-test-id="header-userinfobtn-logout" (click)="_helperService.logoutApiFunction()" type="button">{{ 'core.userinfo.logout' | translate }}</button>
+                </div>
+            </div>
+        </li>-->
+    </ul>
+</div>

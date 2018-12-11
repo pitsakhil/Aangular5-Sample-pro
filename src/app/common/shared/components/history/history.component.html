@@ -1,0 +1,138 @@
+<div class="boxpanel no-margin">
+    <div class="boxpanel__header">
+        <div class="box-tools">
+            <ul class="toolbars toolbars__black toolbars__uitab toolbars__uitab__md">
+                <li class="tab">
+                    <a href="javascript:void(0);" [ngClass]="{active: listHistoryData.viewHistory, disabled:!listHistoryData.viewHistory}"
+                        data-toggle="dropdown">
+                        <i class="material-icons icon-30">more_horiz</i>
+                    </a>
+                    <ul class="dropdown-menu showhide-icon" role="menu" style="width:162px;">
+                        <li>
+                            <a [ngClass]="{active: listHistoryData.viewHistory}" href="javascript:void(0);">
+                                {{ 'history.show_hide' | translate }}
+                            </a>
+                        </li>
+                        <form [formGroup]="actionForm" novalidate class="dropdown-child-wrap">
+                            <li class="checkbox" *ngFor="let action of actionsId">
+                                <a [ngClass]="{active: listHistoryData.viewHistory}" href="javascript:void(0);">
+                                    <input type="checkbox" id={{action.id}} name={{action.id}} formControlName="state"
+                                        (change)="onChange(action,actionForm)" />
+                                    <label for={{action.id}} (click)="$event.stopPropagation();">{{action.actions}}</label>
+                                </a>
+                            </li>
+                        </form>
+                    </ul>
+                </li>
+                <li class="tab">
+                    <a href="javascript:void(0);" [ngClass]="{active: listHistoryData.viewHistory}" (click)="toggleTab('history')">
+                        {{ 'contact.history' | translate }}
+                    </a>
+                </li>
+                <li class="tab">
+                    <a href="javascript:void(0);" [ngClass]="{active: listHistoryData.viewHandover}" (click)="toggleTab('handover')" title="{{ 'aggrid.HandoverHistory' | translate }}">
+                        {{ 'aggrid.HandoverHistory' | translate }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="boxpanel__body no-padding overflow-x">
+        <ag-grid-angular *ngIf="listHistoryData.viewHistory" class="history-list aggrid aggrid__txtblack aggrid__striped aggrid-width-sm aggrid-width-md"
+            [gridOptions]="gridOptions" [toolPanelSuppressSideButtons]="true">
+        </ag-grid-angular>
+        <app-handover-history (handoverText)="showHandoverHistory($event)" *ngIf="listHistoryData.viewHandover"
+            [documentId]="documentId"></app-handover-history>
+    </div>
+</div>
+
+
+
+<!-- Edit beforeafter Modal-->
+<div class="modal" id="beforeafterModal" role="dialog">
+    <div class="modal-dialog modal-custom-default">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <!-- Modal Header-->
+            <div class="modal-header">
+                <ul class="unstyled-list main-tools box-tools-list">
+                    <li>
+                        <a class="closeModal" data-dismiss="modal" title="{{'tooltip.close' | translate}}" href="javascript:void(0);">
+                            <i class="material-icons icon-30">close</i>
+                        </a>
+                    </li>
+                    <li class="title">
+                        <a href="javascript:void(0);">
+                            {{ ( 'contact.history' | translate )}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Modal Body-->
+            <div class="modal-body mh-sm no-padding">
+                <div class="history-content">
+                    <div class="custom-title">
+                        <div class="title-inner">
+                            {{ ( 'aggrid.Before' | translate )}}
+                        </div>
+                        <div class="title-inner">
+                            {{ ( 'aggrid.After' | translate )}}
+                        </div>
+                    </div>
+
+
+                    <div class="history-body-content">
+                        <div class="col-xs-24">
+                            <div class="row">
+                                <div id="beforeafterTable">
+                                    <div class="modal-row">
+                                        <div class="col-left br-left">
+                                            <div [innerHTML]=beforeVal></div>
+                                        </div>
+                                        <div class="col-left">
+                                            <div [innerHTML]=afterVal></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  longText Modal-->
+<div class="modal" id="longTextModal" role="dialog">
+    <div class="modal-dialog modal-custom-default">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <!-- Modal Header-->
+            <div class="modal-header">
+                <ul class="toolbars">
+                    <li>
+                        <a class="closeModal" data-dismiss="modal" title="{{'tooltip.close' | translate}}" href="javascript:void(0);">
+                            <i class="material-icons icon-30">close</i>
+                        </a>
+                    </li>
+                    <li class="text-bold">
+                        <a class="mobile-text-trim" title="{{ ( 'aggrid.HandoverText' | translate )}}">
+                            {{ ( 'aggrid.HandoverText' | translate )}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Modal Body-->
+            <div class="modal-body modal-mx-height-md">
+                <div class="row">
+                    <div class="col xs-12">
+                        <div class="modal-row">
+                            {{handoverDescription}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

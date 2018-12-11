@@ -1,0 +1,6 @@
+<div class="dynamic-field form-input zipcode-select" [formGroup]="group">
+    <label [title]=" copy.field_title">{{ copy.field_title }}</label>
+    <app-select [items]="items" bindLabel="text" bindValue="text" (add)="onSelect($event)" (input)="onChange($event.target.value)"
+        [formControlName]="copy.field_name" [placeholder]="copy.field_placeholder" [multiple]="false" [addTag]='true' [attr.data-test-id]="getCurrentModule()+'-auto-'+ copy.field_name + '-'+ formindex">
+    </app-select>
+</div>

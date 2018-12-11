@@ -1,0 +1,8 @@
+<div class="cluster-group">
+    <label [title]="copy.field_title">{{ copy.field_title }}</label>
+    <div class="cluster-fields-group">
+        <div *ngFor="let field of group_fields">
+            <div appDynamicFields [config]="field[1]" [formindex]="formindex" [group]="group"></div>
+        </div>
+    </div>
+</div>

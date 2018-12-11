@@ -1,0 +1,12 @@
+<div [class.overlay-transparent]="!!isOverLay"></div>
+<div class="site-wrapper" id="projects" (click)="hideUserInfo($event)">
+    <div class="desktop-view">
+        <app-header></app-header>
+        <div [class.overlay]="toggleService.checkGridActive('navbaroverlay')||toggleService.checkGridActive('rightbaroverlay')"
+            [class.overlay-backdrop]="!!toggleService?.checkOverlayActive()" (click)="hideOverlay()"></div>
+        <app-subheader></app-subheader>
+        <div class="container__fluid two-column-nopadding">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+ </div>

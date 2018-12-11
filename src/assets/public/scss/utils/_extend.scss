@@ -1,0 +1,55 @@
+@import './variables';
+
+%noselect {
+    -webkit-touch-callout: none;  
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+%dhxbodyAndhead {
+    background-color: $primary-white;
+    font-weight: 400;
+}
+
+%blockelem{
+    width: 100%;
+    display: block;
+    float: left;
+}
+
+%toolbarspadding{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+%columnblock{
+    float: left;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+%unstyledlist{
+    padding-left: 0;
+    text-decoration: none;
+    list-style: none;
+    margin-bottom:0px;
+}
+%boxshadow{
+    box-shadow:1px 1px 7px  $light-sh-grey;
+    -webkit-box-shadow:1px 1px 7px $light-sh-grey;
+    -moz-box-shadow:1px 1px 7px  $light-sh-grey;
+}
+
+%form-input{
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #CACACA;
+    padding-left: 0px;
+    line-height: 12px;
+    padding: 0;
+    font-size: 18px;
+    box-shadow: none;
+}

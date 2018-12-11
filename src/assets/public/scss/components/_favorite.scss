@@ -1,0 +1,15 @@
+input[type=radio] {
+    display: none;
+} 
+
+.radio-checked {
+    display: none;
+}
+
+input[type=radio]:checked  + .radio-checked {
+    display: inline-block !important;
+}
+
+input[type=radio]:checked  ~  .radio-unchecked {
+    display: none !important;
+}

@@ -1,0 +1,90 @@
+<form (keydown.enter)="$event.preventDefault()" class="dynamic-form form-block" [formGroup]="formGroup" (submit)="handleSubmit($event)">
+
+    <div class="content edit-mail-content" *ngFor="let row of rows">
+        <ng-container *ngFor="let group of row;">
+            <div [class.field-block]="row.length>1">
+                <div class="ie-11">
+                    <ng-container *ngFor="let field of group,let x=index">
+
+                        <!-- session -->
+                        <div *ngIf='field?.field_type' appDynamicFields [formindex]="0" [config]="field" [group]="formGroup"></div>
+                        <!--/ session -->
+                        <!-- session -->
+                        <ng-container *ngIf="field && !field.field_type">
+
+                            <div appShowHideElement formArrayName="{{groupfield.formArray.name}}" class="form-group-row" *ngFor="let groupfield of field; let i = index;">
+
+                                <span class="btn-options btn-clone" *ngIf="groupfield.formArray.isClone">
+                                    <i class="material-icons icon-green" data-toggle="dropdown" aria-expanded="false" [attr.data-test-id]="getCurrentModule()+'-clone-add-'+ i">add_circle</i>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li *ngFor="let option of groupfield.formArray.cloneOptions">
+                                            <a href="javascript:void(0)" (click)="addItem(formGroup,returnFormArrayGroups(formGroup,groupfield.formArray.name)[i],groupfield.formArray.name,groupfield,option.field_title,option.field_value,field,groupfield,i)">{{option.field_title}}</a>
+                                        </li>
+                                    </ul>
+
+                                    <i *ngIf="i>0" (click)="removeItem(formGroup,groupfield.formArray.name,i,field)" class="material-icons icon-red icon-remove" [attr.data-test-id]="getCurrentModule()+'-clone-remove-'+ i">remove_circle </i>
+
+                                </span>
+
+                                <div [formGroupName]="i">
+                                    <div class="flag-bl">
+                                        <div class="flag-options">
+                                            <span class='relative' *ngIf="groupfield.formArray.has_flags">
+                                                <ul class="unstyled-list" role="menu">
+                                                    <li *ngFor="let option of groupfield.formArray.field_flags">
+                                                        <label>
+                                                            <input (click)="selectOne($event,groupfield.formArray.name,option.field_name,i)" formControlName="{{option.field_name}}"
+                                                                type="checkbox" [title]="option.field_title" class="material-icons icon-flag icon-blue {{groupfield.formArray.name+'_'+option.field_name}}"
+                                                                aria-expanded="false">
+                                                            <i [title]="option.field_title" class="material-icons icon-flag" aria-expanded="false" [attr.data-test-id]="getCurrentModule()+'-flag-'+ option.field_name + '-'+ i">{{option.field_icon}}</i>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </span>
+                                            <span class='relative'>
+                                                <ul class="unstyled-list" role="menu">
+                                                    <li *ngFor="let option of groupfield.formArray.data">
+                                                        <i *ngIf="option.is_location && formGroup.controls[groupfield.formArray.name]['controls'][i].controls.company_zipcode.value && formGroup.controls[groupfield.formArray.name]['controls'][i].controls.company_zipcode.valid"
+                                                            class="material-icons icon-blue" aria-expanded="false" (click)="mapTrigger(formGroup,groupfield.formArray.name,i)" [attr.data-test-id]="getCurrentModule()+'-location-'+ i">location_on</i>
+                                                    </li>
+                                                </ul>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div [class.formclone]="groupfield.formArray.isClone" class="form-group-section">
+
+                                        <ng-container *ngFor="let formfield of groupfield.formArray.data;let u=index">
+                                            <ng-container *ngIf='formfield?.field_type' appDynamicFields [config]="formfield" [formindex]="i" [group]="returnFormArrayCurrentGroup(formGroup,groupfield.formArray.name,i,formfield)">
+
+                                            </ng-container>
+
+                                            <ng-container *ngIf="formfield && !formfield.field_type">
+                                                <div formArrayName="{{formfield.formArray.name}}" *ngFor="let group of returnFormArrayGroups(returnFormArrayGroups(formGroup,groupfield.formArray.name)[i],formfield.formArray.name); let k = index;">
+
+                                                    <div [formGroupName]="k">
+
+                                                        <ng-container *ngFor="let innerformfield of formfield.formArray.data;let y=index">
+
+                                                            <ng-container *ngIf='innerformfield?.field_type' appDynamicFields [formindex]="i" [config]="innerformfield" [group]="group">
+
+                                                            </ng-container>
+
+                                                        </ng-container>
+                                                    </div>
+                                                </div>
+                                            </ng-container>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <!-- /session -->
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
+        <input type="submit" [hidden]='true' style='opacity:0;' id="submit" value="submit" />
+    </div>
+
+</form>
+<app-map-renderer></app-map-renderer>
